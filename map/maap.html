@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
 <style>ul{list-style-type: none;}.box{text-align: center;padding: 2em;color: #282B36;width: 100%;}.grey{background: #eee;}.bx{text-align: center; text-decoration: none; padding: 2em;color: #282B36;}.grn {color: #7fcba4;}.org{color: #fac090;}.red{color: #C99391;} </style>
-<style> #map { position:absolute; top:128px; bottom:0; left:0; width:100%; }</style>
+<style> #map { position:absolute; top:128px; bottom:0; left:0; width:100%; } #search { position:absolute;  top:148px;   right:10px;  font-size:150%;}</style>
   <link href='http://api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css' rel='stylesheet' />
   <!--[if lte IE 8]>
     <link href='http://api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.ie.css' rel='stylesheet'>
@@ -22,6 +22,7 @@
 </div>
 <div class="box">
 <div id='map'></div>
+<input placeholder='search...' id='search' />
 </div>
 
 <script type='text/javascript'>
@@ -32,11 +33,26 @@ var map = L.mapbox.map('map', 'examples.map-vyofok3q')
 
 markerLayer.eachLayer(function(layer) {
 
-    var content = '<h1>size: ' + layer.title + '<\/h1>' +
-        '<h2>population: ' + layer.town + '<\/h2>';
+    var content = '<h1>Name: ' + feature.properties.title + '<\/h1>' +
+        '<p>details: ' + feature.properties.description + '<\/p>';
     layer.bindPopup(content);
 });
 
+$('#search').keyup(search);
+
+function search() {
+  
+    var searchString = $('#search').val().toLowerCase();
+
+    markerLayer.setFilter(showPark;
+
+
+    function showPark(feature) {
+        return feature.properties.title
+            .toLowerCase()
+            .indexOf(searchString) !== -1;
+    }
+}
 
 $.ajax({
 
