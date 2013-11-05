@@ -28,6 +28,7 @@
 <script type='text/javascript'>
 var map = L.mapbox.map('map', 'examples.map-vyofok3q')
     .setView([51.280206, -0.844687], 11),
+    .addControl(L.mapbox.shareControl()),
     markerLayer = L.mapbox.markerLayer().addTo(map);
 
 
