@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+    
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="robots" value="none">
+        <link rel="stylesheet" href="css/a.css">
+        <script src="js/bundle.js"></script>
+    </head>
+    
+    <body ng-cloak>
+        <div id="layout" ng-controller="AppCtrl">
+            <a href="#menu" id="menuLink" class="pure-menu-link"><span></span></a>
+            <div id="menu">
+                <div class="pure-menu pure-menu-open">
+                    <a class="pure-menu-heading" href="">Parish list</a>
+                    <ul>
+                        <li ng-repeat="d in data">
+                            <a ng-click="autoselect(d.n, $index);" href="">{{d.c}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="main" ng-repeat="d in data | filter:{n:selected}:true | limitTo:1">
+                <div class="header">
+                    <h1>{{d.c}}</h1>
+                </div>
+                <div class="content">
+                    <div class="pure-g-r">
+                        <div class="pure-u-1-3 ctr">
+                            <h2>Summary info</h2>
+                            <p>Total number of residents:
+                                <strong>{{d.pop}}</strong>
+                                <br />Total number of households:
+                                <strong>{{d.hholds}}</strong>
+                                <br />Area in Hectares
+                                <strong>{{d.area}}</strong>
+                                <br />Density (number of persons per hectare)
+                                <strong>{{d.density}}</strong>
+                            </p>
+                            <div class="pure-g-r">
+                                <div class="pure-u-1-2 ctr">
+                                    <p>Males:
+                                        <strong>{{d.males}}</strong>
+                                        <br />Females:
+                                        <strong>{{d.females}}</strong>
+                                    </p>
+                                </div>
+                                <div class="pure-u-1-2 ctr">
+                                    <canvas piechart data="chart[indexer]" options="options" width="100" height="100"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pure-u-2-3 ctr">
+                            <div class="bx">
+                                <leaflet defaults="defaults" center="locator[indexer]" geojson="geojson[indexer]"
+                                height="250px"></leaflet>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pure-g-r">
+                        <div class="pure-u-1-3 ctr">
+                            <h2>Age profile</h2>
+                            <p>
+                                <canvas barchart data="bchart[indexer]" options="befaults" width="300"
+                                height="200"></canvas>
+                            </p>
+                        </div>
+                        <div class="pure-u-1-3 ctr">
+                            <h2>Household Tenure</h2>Owned: Total:
+                            <strong>{{d.ownO+d.ownM}}</strong>&nbsp;
+                            <em>{{((d.ownO+d.ownM)/d.hholds)*100 | number:0}}%</em>
+                            <br />Owned outright:
+                            <strong>{{d.ownO}}</strong>
+                            <br />Owned with a mortgage or loan:
+                            <strong>{{d.ownM}}</strong>
+                            <br />Shared ownership:
+                            <strong>{{d.share}}</strong>
+                            <br />Social rented:
+                            <strong>{{d.rentS}}</strong>
+                            <br />Private rented:
+                            <strong>{{d.rentP}}</strong>
+                            <br />Living rent free:
+                            <strong>{{d.rentF}}</strong>
+                        </div>
+                        <div class="pure-u-1-3 ctr">
+                            <h2>Household composition</h2>
+                            <p>1 person in household:
+                                <strong>{{((d.ph1)/d.hholds)*100 | number:0}}%</strong>&nbsp;({{d.ph1}})
+                                <br />(of which, over 65):
+                                <strong>{{((d.ph1o65)/d.ph1)*100 | number:0}}%</strong>&nbsp;({{d.ph1o65}})
+                                <br
+                                />2 people in household:
+                                <strong>{{((d.ph2)/d.hholds)*100 | number:0}}%</strong>&nbsp;({{d.ph2}})
+                                <br />3 people in household:
+                                <strong>{{((d.ph3)/d.hholds)*100 | number:0}}%</strong>&nbsp;({{d.ph3}})
+                                <br />4 people in household:
+                                <strong>{{((d.ph4)/d.hholds)*100 | number:0}}%</strong>&nbsp;({{d.ph4}})
+                                <br />5 people in household:
+                                <strong>{{((d.ph5)/d.hholds)*100 | number:0}}%</strong>&nbsp;({{d.ph5}})
+                                <br />6 people in household:
+                                <strong>{{((d.ph6)/d.hholds)*100 | number:0}}%</strong>&nbsp;({{d.ph6}})
+                                <br />7 people in household:
+                                <strong>{{((d.ph7)/d.hholds)*100 | number:0}}%</strong>&nbsp;({{d.ph7}})
+                                <br />8 or more people in household:
+                                <strong>{{((d.ph8)/d.hholds)*100 | number:0}}%</strong>&nbsp;({{d.ph8}})
+                                <br />
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pure-g-r">
+                        <div class="pure-u-1-3 ctr">
+                            <h2>Method of travel to work</h2>
+                            <p>Work mainly at or from home:
+                                <strong>{{(d.ttwWfh/d.ttw)*100 | number:0}}%</strong>
+                                <br />Train:
+                                <strong>{{(d.ttwT/d.ttw)*100 | number:0}}%</strong>
+                                <br />Bus, minibus or coach:
+                                <strong>{{(d.ttwB/d.ttw)*100 | number:0}}%</strong>
+                                <br />Driving a car or van:
+                                <strong>{{(d.ttwC/d.ttw)*100 | number:0}}%</strong>
+                                <br />Passenger in a car or van:
+                                <strong>{{(d.ttwP/d.ttw)*100 | number:0}}%</strong>
+                                <br />On foot:
+                                <strong>{{(d.ttwF/d.ttw)*100 | number:0}}%</strong>
+                            </p>
+                        </div>
+                        <div class="pure-u-1-3 ctr">
+                            <h2>Car or van availability</h2>
+                            <p>No cars or vans in household:
+                                <strong>{{d.car0}}</strong>
+                                <br />1 car/van in household:
+                                <strong>{{d.car1}}</strong>
+                                <br />2 cars/vans in household:
+                                <strong>{{d.car2}}</strong>
+                                <br />3 or more cars/vans in household:
+                                <strong>{{d.car3}}</strong>
+                                <br />All cars or vans in the area:
+                                <strong>{{d.carT}}</strong>
+                            </p>
+                        </div>
+                        <div class="pure-u-1-3 ctr">
+                            <h2>Test images:</h2>
+                            <p>
+                                <img ng-src="img/{{indexer}}.png" />
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pure-g-r">
+                        <div class="pure-u-1 grey bx">
+                            <h2>Population health</h2>
+                        </div>
+                    </div>
+                    <div class="pure-g-r">
+                        <div class="pure-u-1-3 ctr">
+                            <h2>General health</h2>
+                            <p>Very good health:
+                                <strong>{{(d.health4/d.pop)*100 | number:0}}%</strong>
+                                <br />Good health:
+                                <strong>{{(d.health3/d.pop)*100 | number:0}}%</strong>
+                                <br />Fair health:
+                                <strong>{{(d.health2/d.pop)*100 | number:0}}%</strong>
+                                <br />Bad health:
+                                <strong>{{(d.health1/d.pop)*100 | number:0}}%</strong>
+                                <br />Very bad health:
+                                <strong>{{(d.health0/d.pop)*100 | number:0}}%</strong>
+                            </p>
+                        </div>
+                        <div class="pure-u-1-3 ctr">
+                            <h2>Long term health</h2>
+                            <p>Day-to-day activities limited a lot:
+                                <strong>{{(d.lth0/d.pop)*100 | number:0}}%</strong>
+                                <br />Day-to-day activities limited a little:
+                                <strong>{{(d.lth1/d.pop)*100 | number:0}}%</strong>
+                                <br />Day-to-day activities not limited:
+                                <strong>{{(d.lth2/d.pop)*100 | number:0}}%</strong>
+                            </p>
+                        </div>
+                        <div class="pure-u-1-3 ctr">
+                            <h2>Provision of unpaid care</h2>
+                            <p>Provides no unpaid care:
+                                <strong>{{(d.care0/d.pop)*100 | number:0}}%</strong>
+                                <br />Provides 1 to 19 hours a week:
+                                <strong>{{(d.care1/d.pop)*100 | number:0}}%</strong>
+                                <br />Provides 20 to 49 hours a week:
+                                <strong>{{(d.care2/d.pop)*100 | number:0}}%</strong>
+                                <br />Provides 50 or more hours a week:
+                                <strong>{{(d.care3/d.pop)*100 | number:0}}%</strong>
+                                <br />
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pure-g-r">
+                        <div class="pure-u-1 grey bx">
+                            <h2>Population aged 16 to 74 - Economic Activity
+                                <span class="mute">&nbsp;({{d.ea}} - <em>{{(d.ea/d.pop)*100 | number:0}}%</em>)</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="pure-g-r">
+                        <div class="pure-u-1-2 ctr">
+                            <h2>Economically active</h2>
+                            <p>All economically active:
+                                <strong>{{((d.eaT)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.eaT}})
+                                <br />
+                                <hr />Employee: Part-time:
+                                <strong>{{((d.eaTft)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.eaTft}})
+                                <br />Employee: Full-time:
+                                <strong>{{((d.eaTpt)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.eaTpt}})
+                                <br />Self-employed All:
+                                <strong>{{((d.eaSe)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.eaSe}})
+                                <br />Unemployed:
+                                <strong>{{((d.r1052)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.r1052}})
+                                <br />Full-time student:
+                                <strong>{{((d.r1053)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.r1053}})
+                                <br />
+                            </p>
+                        </div>
+                        <div class="pure-u-1-2 ctr">
+                            <h2>Economically inactive</h2>
+                            <p>All economically inactive:
+                                <strong>{{((d.eiT)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.eiT}})
+                                <br />
+                                <hr />Retired:
+                                <strong>{{((d.eiR)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.eiR}})
+                                <br />Student (including full-time students):
+                                <strong>{{((d.eiS)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.eiS}})
+                                <br />Looking after home or family:
+                                <strong>{{((d.eiH)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.eiH}})
+                                <br />Long-term sick or disabled:
+                                <strong>{{((d.eiD)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.eiD}})
+                                <br />Other:
+                                <strong>{{((d.eiO)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.eiO}})
+                                <br />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src='js/data.js'></script>
+    </body>
+
+</html>
