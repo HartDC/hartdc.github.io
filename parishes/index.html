@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="robots" value="none">
+        <title>HartDC - Parishes</title>
         <link rel="stylesheet" href="css/a.css">
         <script src="js/bundle.js"></script>
     </head>
@@ -23,7 +24,7 @@
                 </div>
             </div>
             <div id="main" ng-repeat="d in data | filter:{n:selected}:true | limitTo:1">
-                <div class="header">
+                <div class="header"><p class="red">In development, please don't rely on it just yet!</p>
                     <h1>{{d.c}}</h1>
                 </div>
                 <div class="content">
