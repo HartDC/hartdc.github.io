@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+<style>.table-responsive {width: 100%;margin-bottom: 15px;overflow-x: scroll;overflow-y: hidden;border: 1px solid #ddd;}</style>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.11/angular.min.js'></script>
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.min.js"></script>
+    
+</head>
+
+  <body class="ng-cloak">
+
+<div class='container' ng-controller="TypeaheadCtrl">
+
+<div class="page-header text-center">
+<h1>About Hart <small> Quickly find data about the Hart district</small></h1>
+</div>
+ 
+<form class="form-horizontal well well-sm">
+<div class="pull-right"><button type="button" class="btn text-muted" ng-model="checked" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">topic list</button></div>
+  <div class="form-group">
+    <label for="searcher" class="col-lg-2 control-label"></label>
+    <div class="col-lg-8">
+      <input type="text" autofocus="autofocus" placeholder="I'm looking for..." class="form-control input-lg"  id="searcher" ng-model="selected" typeahead="desc for desc in descs  | filter:$viewValue | limitTo:8">
+    </div>
+  </div>
+</form>
+
+
+
+<div ng-controller="TabsCtrl">
+
+
+
+
+
+<div class="col-lg-12 well well-sm" ng-show="checked">
+<h4>Hover over a topic for more info</h4>
+<ul class="list-inline">
+<li ng-repeat="ref in refs | limitTo:70 | orderBy:'t'" class="col-lg-4 list-unstyled">
+<span popover="{{ref.d}}" popover-trigger="mouseenter">
+<a ng-click="autoselect(ref.t)" ng-mouseup="hider()" class="btn-link">{{ref.t}}</a>
+</span></li>
+</ul>
+<p>&nbsp;</p>
+</div>
+
+
+<span ng-hide="selected == ''">
+<span ng-hide="selected == undefined">
+<tabset>
+        <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+<p>&nbsp;</p>
+<div ng-repeat="ref in refs | filter:{t:selected}:true | limitTo:140 ">
+<p><small>{{ref.d}}</small></p>
+</div>
+
+
+   
+<div ng-switch on="active().title" >
+
+<div ng-switch-default>
+
+<table class="table table-striped">
+      <tr class="warning"><th>Description</th><th>Value</th><th>Percent</th></tr>
+       <tr ng-repeat="datum in data | filter:{t:selected}:true | limitTo:140 ">
+        <td>{{datum.d}}</td>
+        <td>{{datum.v}}</td>
+        <td>{{datum.p}}</td>
+      </tr>
+    </table>  
+
+
+
+
+
+</div>
+<div ng-switch-when="Parish">
+
+
+<div class="table-responsive">    
+<table class="table table-striped table-condensed">
+      <tr class="warning"><th>Description</th>
+<th>Blackwater and Hawley</th><th>Bramshill</th><th>Church Crookham</th><th>Crondall</th><th>Crookham Village</th><th>Dogmersfield</th><th>Elvetham Heath</th><th>Eversley</th><th>Ewshot</th><th>Fleet</th><th>Greywell</th><th>Hartley Wintney</th><th>Heckfield</th><th>Hook</th><th>Long Sutton</th><th>Mattingley</th><th>Odiham</th><th>Rotherwick</th><th>South Warnborough</th><th>Winchfield</th><th>Yateley</th>
+</tr>
+       <tr ng-repeat="datum in data | filter:{t:selected}:true | limitTo:140 ">
+ <td>{{datum.d}}</td>
+ <td>{{datum.pBH}}</td>
+ <td>{{datum.pB}}</td>
+ <td>{{datum.pCC}}</td>
+ <td>{{datum.pC}}</td>
+ <td>{{datum.pCV}}</td>
+ <td>{{datum.pD}}</td>
+ <td>{{datum.pEH}}</td>
+ <td>{{datum.pE}}</td>
+ <td>{{datum.pEW}}</td>
+ <td>{{datum.pF}}</td>
+ <td>{{datum.pG}}</td>
+ <td>{{datum.pHW}}</td>
+ <td>{{datum.pHe}}</td>
+ <td>{{datum.pH}}</td>
+ <td>{{datum.pLS}}</td>
+ <td>{{datum.pM}}</td>
+ <td>{{datum.pO}}</td>
+ <td>{{datum.pR}}</td>
+ <td>{{datum.pSW}}</td>
+ <td>{{datum.pW}}</td>
+ <td>{{datum.pY}}</td>
+
+      </tr>
+    </table>  
+</div>
+</div>
+
+    
+    
+    
+<div ng-switch-when="Ward">
+
+<div class="table-responsive">   
+<table class="table table-striped table-condensed">
+      <tr class="warning"><th>Description</th>
+<th>Blackwater and Hawley</th><th>Church Crookham East</th><th>Church Crookham West</th><th>Crondall</th><th>Eversley</th><th>Fleet Central</th><th>Fleet Courtmoor</th><th>Fleet North</th><th>Fleet Pondtail</th><th>Fleet West</th><th>Frogmore Darby Green</th><th>Hartley Wintney</th><th>Hook</th><th>Long Sutton</th><th>Odiham</th><th>Yateley East</th><th>Yateley North</th><th>Yateley West</th>
+</tr>
+       <tr ng-repeat="datum in data | filter:{t:selected}:true | limitTo:140 ">
+        <td>{{datum.d}}</td>
+        <td>{{datum.BH}}</td>
+        <td>{{datum.CCE}}</td>
+        <td>{{datum.CCW}}</td>
+        <td>{{datum.C}}</td>
+        <td>{{datum.E}}</td>
+        <td>{{datum.FC}}</td>
+        <td>{{datum.FCT}}</td>
+        <td>{{datum.FN}}</td>
+        <td>{{datum.FP}}</td>
+        <td>{{datum.FW}}</td>
+        <td>{{datum.FDG}}</td>
+        <td>{{datum.HW}}</td>
+        <td>{{datum.H}}</td>
+        <td>{{datum.LS}}</td>
+        <td>{{datum.O}}</td>
+        <td>{{datum.YE}}</td>
+        <td>{{datum.YN}}</td>
+        <td>{{datum.YW}}</td>
+      </tr>
+    </table>  
+</div>
+</div>
+
+<div ng-switch-when="MSOA"><span class="label label-info">coming soon!</span>
+
+
+
+</div>
+
+<div ng-switch-when="LSOA"><span class="label label-info">coming soon!</span>
+
+
+
+</div>
+
+
+</div>
+</tab>
+</tabset>
+</span>
+</span>
+</div>
+
+
+<hr />
+<footer><p class="navbar-text text-muted"><small><em>Ethnic Group (Detailed) excludes 0 value rows. Filtered currently includes {{(data|filter:{t:selected}:true).length}} out of {{data.length}} datasets
+<br />Census 2011 Statistical Disclosure Control: In order to protect against disclosure of personal information from the 2011 Census, there has been swapping of records in the Census database between different geographic areas, and so some counts will be affected. In the main, the greatest effects will be at the lowest geographies, since the record swapping is targeted towards those households with unusual characteristics in small areas.</em></small></p></footer>
+</div>
+
+<script src="data.js"></script>
+</body>
+</html>
