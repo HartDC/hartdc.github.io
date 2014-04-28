@@ -8,9 +8,9 @@ function AppCtrl($scope) {
         $scope.selected = val1;
         $scope.indexer = val2;
          $scope.c1 = false;
-         $scope.c2 = true;
-         $scope.c3 = true;
-         $scope.c4 = true;
+         $scope.c2 = false;
+         $scope.c3 = false;
+         $scope.c4 = false;
         
    };   
 
