@@ -74,4 +74,3 @@ $scope.bchart = [
 ];
 $scope.befaults = {scaleOverlay : false,scaleLineColor : "rgba(0,0,0,0)",scaleLineWidth : 0,scaleShowLabels : true,scaleLabel : "<%=value%>", scaleFontFamily : "source-sans-pro", scaleFontSize : 13,scaleFontStyle : "itallic",scaleFontColor : "#666",scaleShowGridLines : false,scaleGridLineColor : "rgba(0,0,0,0)",scaleGridLineWidth : 0,barShowStroke : false,barStrokeWidth : 0,barValueSpacing : 1,barDatasetSpacing : 1,animationSteps : 50,animationEasing : "easeOutQuart"};
 };
-!function(e,t){function n(e,t){for(var n=e.className.split(/\s+/),i=n.length,l=0;i>l;l++)if(n[l]===t){n.splice(l,1);break}i===n.length&&n.push(t),e.className=n.join(" ")}var i=t.getElementById("layout"),l=t.getElementById("menu"),a=t.getElementById("menuLink");a.onclick=function(e){var t="active";e.preventDefault(),n(i,t),n(l,t),n(a,t)}}(this,this.document);            
