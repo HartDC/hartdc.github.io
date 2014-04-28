@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="css/s.css">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js"></script>
     <script src="http://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
-    <script src="http://code.angularjs.org/1.2.14/angular-touch.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.16/angular-touch.min.js"></script>
     <script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
     <script src="js/angles.js"></script>
 </head>
@@ -39,7 +39,7 @@
 
                 <div class="pure-g">
                     <div class="pure-u-1 ctr">
-
+<small>clicking on a map will let you explore a larger version</small>
                         <tabset justified="true">
                             <tab heading="Community features">
                                 <div collapse="!c1">
@@ -57,7 +57,7 @@
                                     <div class="pure-g-r" ng-hide="c1">
                                         <div class="pure-u-1 ctr">
                                             <a href="">
-                                                <img ng-src="img/{{indexer}}s1.png" ng-click="c1 = !c1" />
+                                                <img ng-src="img/{{indexer}}s1.png" ng-click="c1! = c1" />
                                             </a>
                                         </div>
                                     </div>
@@ -79,7 +79,7 @@
                                     <div class="pure-g-r" ng-hide="c2">
                                         <div class="pure-u-1 ctr">
                                             <a href="">
-                                                <img ng-src="img/{{indexer}}c1.png" ng-click="c2 = !c2" />
+                                                <img ng-src="img/{{indexer}}c1.png" ng-click="!c2 = c2" />
                                             </a>
                                         </div>
                                     </div>
@@ -101,7 +101,7 @@
                                     <div class="pure-g-r" ng-hide="c3">
                                         <div class="pure-u-1 ctr">
                                             <a href="">
-                                                <img ng-src="img/{{indexer}}f1.png" ng-click="c3 = !c3" />
+                                                <img ng-src="img/{{indexer}}f1.png" ng-click="!c3 = c3" />
                                             </a>
                                         </div>
                                     </div>
@@ -123,7 +123,7 @@
                                     <div class="pure-g-r" ng-hide="c4">
                                         <div class="pure-u-1 ctr">
                                             <a href="">
-                                                <img ng-src="img/{{indexer}}h1.png" ng-click="c4 = !c4" />
+                                                <img ng-src="img/{{indexer}}h1.png" ng-click="!c4 = c4" />
                                             </a>
                                         </div>
                                     </div>
@@ -191,7 +191,7 @@
                     <div class="pure-u-1-3 ctr">
                         <h2 class="mute">Age profile</h2>
                         <p>
-                            <canvas barchart data="bchart[indexer]" options="befaults" width="250" height="250"></canvas>
+                            <canvas barchart data="bchart[indexer]" options="befaults" width="200" height="250"></canvas>
                         </p>
                     </div>
                     <div class="pure-u-1-3">
