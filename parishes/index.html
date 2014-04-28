@@ -26,7 +26,7 @@
                 <a class="pure-menu-heading" href="">Parishes</a>
                 <ul ng-model="indexer">
                     <li ng-repeat="d in data">
-                        <a ng-click="[autoselect(d.n, $index), c4 = !c4, c3 = !c3, c2 = !c2, c1 = true]" href="">{{d.c}}</a>
+                        <a ng-click="[autoselect(d.n, $index)]" href="">{{d.c}}</a>
                     </li>
                 </ul>
             </div>
