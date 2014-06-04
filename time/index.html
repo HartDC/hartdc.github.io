@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="robots" content="noindex, nofollow">
+		<title>Timeline</title>
+        <!--[if lt IE 9]><script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script><![endif]-->
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="style.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	</head>
+	<body ng-controller="AppCtrl" class="ng-cloak">
+		<div class="container">
+			<header class="clearfix">
+				<h1>What's next</h1>
+				<nav>
+                    <a href="" ng-click="[ch.t = clear,ch.n = 'All Services']">all</a>
+                    <span ng-repeat="t in teams"><a href="" ng-click="[ch.t = t.t,ch.n = t.n]">{{t.t}}</a></span>
+				</nav>
+			</header>	
+			<div class="main">
+<span class="righty"><b>{{ch.n}}</b></span>
+<a href="" ng-show="ch.p == '-date'" ng-click="ch.p = 'date'"><i class="fa fa-angle-double-down fa-lg"></i></a>
+<a href="" ng-hide="ch.p == '-date'" ng-click="ch.p = '-date'"><i class="fa fa-angle-double-up fa-lg"></i></a>
+                <span ng-hide="lng >= (times | filter:{team:ch.t}).length">showing {{lng}} of {{(times | filter:{team:ch.t}).length }} <a href="" class="blu" ng-click="lng = lng + 10">show more</a> </span>
+		    <span ng-show="lng >= (times | filter:{team:ch.t}).length">showing all {{(times | filter:{team:ch.t}).length }} items</span>
+
+				<ul class="timeline">       
+					<li ng-repeat="t in times | filter:{team:ch.t} | orderBy:[ch.p] | limitTo:lng" >
+						<time class="time" datetime="{{t.date}}"><span>{{t.yr}}</span><span>{{t.day}}</span></time>
+						<div class="icon {{t.s}}"><i ng-show=t.done class="fa fa-check fa-lg"></i></div>
+						<div class="label {{t.s}}-line">
+							<h2>{{t.text}}</h2><h4>{{t.note}}</h4>
+							<p><small>Part of: </small> {{t.act}} <small> ({{t.pc}}% complete)</small></p>
+                            <div class="progress" style="width:{{t.pc}}%;"></div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+   <script src="app.js"></script>
+</html>
