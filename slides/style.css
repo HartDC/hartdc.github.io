@@ -1,0 +1,101 @@
+html {overflow-y: scroll; overflow: -moz-scrollbars-vertical;}
+body, html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+font-family: 'Source Sans Pro', sans-serif; font-size:1.1em;
+}
+p {font-size:1.3em;}
+a{color:#1f8dd6;text-decoration:none;}
+.pad1{padding:1em;}
+.pad2{padding:2em;}
+.rt{float:right; position:fixed;right:2em; z-index: 1000;}
+.lt{float:left;}
+.ftl{position:fixed;top:2em;left:2em;}
+.ftr{position:fixed;top:2em;right:2em;}
+.ctr{text-align:center;}
+.ctri{ margin-left: auto; margin-right: auto;}
+.gry{background-color: #DDD !important;}
+.gry-line{border-left-color: #DDD;
+    border-left-width: 20px;
+    border-left-style:solid;}
+.grn{background-color: #7fcba4 !important;}
+.grn-line{border-left-color: #7fcba4;
+    border-left-width: 20px;
+    border-left-style:solid;}
+.amb{background-color: #fac090 !important;}
+.amb-line{border-left-color: #fac090;
+    border-left-width: 20px;
+    border-left-style:solid;}
+.red{background-color: #c99391 !important;}
+.red-line{border-left-color: #c99391;
+    border-left-width: 20px;
+    border-left-style:solid;}
+.blu{color: #1f8dd6 !important;}
+.pure-button-primary{background-color:#1f8dd6;}
+.abs{position:absolute; margin:auto 0; width:100%;}
+
+.slide.ng-enter{
+	animation-name: InU;
+	-webkit-animation-name: InU;	
+
+	animation-duration:0.9s;	
+	-webkit-animation-duration: 0.9s;
+
+	animation-timing-function: ease-in-out;	
+	-webkit-animation-timing-function: ease-in-out;		
+}
+
+.slide.ng-leave {
+animation-name: OutD;
+	-webkit-animation-name: OutD;	
+
+	animation-duration: 0.9s;
+	-webkit-animation-duration: 0.9s;
+
+	animation-timing-function: ease-in-out;	
+	-webkit-animation-timing-function: ease-in-out;		
+}
+
+
+@keyframes InU {
+	0% {transform: translateY(-150%); opacity:0;}
+	100% {transform: translateY(0%); opacity:1;}
+}
+
+@-webkit-keyframes InU {
+	0% {-webkit-transform: translateY(-150%); opacity:0;}	
+	100% {-webkit-transform: translateY(0%); opacity:1;}
+}
+
+@keyframes OutD {
+	0% {transform: translateY(-50%);opacity:1;}
+	100% {transform: translateY(150%);opacity:0;}
+}
+
+@-webkit-keyframes OutD {
+	0% {-webkit-transform: translateY(-50%);opacity:1;}	
+	100% {-webkit-transform: translateY(150%);opacity:0;}
+}
+
+
+
+
+/* otherway */
+@keyframes InD {
+	0% {transform: translateY(150%);}
+	100% {transform: translateY(0%);}
+}
+
+@-webkit-keyframes InD {
+	0% {-webkit-transform: translateY(150%);}	
+	100% {-webkit-transform: translateY(0%);}
+}
+
+@keyframes OutU {
+	0% {transform: translateY(0%);}
+	100% {transform: translateY(-300%);}
+}
+
+@-webkit-keyframes OutU {
+	0% {-webkit-transform: translateY(0%);}	
+	100% {-webkit-transform: translateY(-300%);}
+}
