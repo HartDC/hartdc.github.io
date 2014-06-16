@@ -79,7 +79,7 @@ a:hover {
 	text-align: center;
 }
 
-.container > header nav a {
+.container > header nav a, .ico {
 	display: inline-block;
 	position: relative;
 	text-align: center;
@@ -345,4 +345,5 @@ a:hover {
     border-right-width: 20px;
     border-right-style:solid;}
 .blu{color: #81b9da !important;}
+.blub{background-color:#81b9da;color:#fff;padding: 0.4em;}
 .righty{float:right;}

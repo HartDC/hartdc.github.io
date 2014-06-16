@@ -6,14 +6,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta name="robots" content="noindex, nofollow">
 		<title>Timeline</title>
-		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
         	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <!--[if lt IE 9]>
         <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome-ie7.min.css" rel="stylesheet">
         <![endif]-->
 		<link rel="stylesheet" type="text/css" href="style.min.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
 	</head>
 	<body ng-controller="AppCtrl" class="ng-cloak">
 		<div class="container">
@@ -26,13 +26,18 @@
 			</header>	
 			<div class="main">
 <span class="righty"><b>{{ch.n}}</b></span>
-<a href="" ng-show="ch.p == '-date'" ng-click="ch.p = 'date'"><i class="fa fa-angle-double-down fa-lg"></i></a>
-<a href="" ng-hide="ch.p == '-date'" ng-click="ch.p = '-date'"><i class="fa fa-angle-double-up fa-lg"></i></a>
-                <span ng-hide="lng >= (times | filter:{team:ch.t}).length">showing {{lng}} of {{(times | filter:{team:ch.t}).length }} <a href="" class="blu" ng-click="lng = lng + 10">show more</a> </span>
-		    <span ng-show="lng >= (times | filter:{team:ch.t}).length">showing all {{(times | filter:{team:ch.t}).length }} items</span>
-
-				<ul class="timeline">       
-					<li ng-repeat="t in times | filter:{team:ch.t} | orderBy:[ch.p] | limitTo:lng" >
+<p>&nbsp;</p>
+                
+<!--
+  <a href="" ng-show="ch.p == '-date'" ng-click="ch.p = 'date'"><i class="fa fa-angle-double-down fa-lg"></i></a>
+<a href="" ng-hide="ch.p == '-date'" ng-click="ch.p = '-date'"><i class="fa fa-angle-double-up fa-lg"></i></a>                
+-->
+                 <div ng-show="past">
+          <span><a href="" ng-click="past='false'"  class="blu">hide past items</a></span>           
+           
+                     
+  				<ul class="timeline">
+					<li ng-repeat="t in times | filter:timesNull | filter:{team:ch.t}  | filter:timesPast | orderBy:'date' | limitTo:lng" >
 						<time class="time" datetime="{{t.date}}"><span>{{t.yr}}</span><span>{{t.day}}</span></time>
 						<div class="icon {{t.s}}"><i ng-show=t.done class="fa fa-check fa-lg"></i></div>
 						<div class="label {{t.s}}-line">
@@ -42,6 +47,34 @@
 						</div>
 					</li>
 				</ul>
+                 <a href="" class="blu" ng-click="lng = lng + 10">show more</a><br />
+                          <span><a href="" ng-click="past='false'"  class="blu">hide past items</a></span> 
+                         <span ng-hide="lng >= (times | filter:timesNull | filter:timesPast | filter:{team:ch.t}).length">showing {{lng}} of {{(times | filter:timesNull | filter:timesPast | filter:{team:ch.t}).length }} </span>
+		    <span ng-show="lng >= (times | filter:timesNull | filter:timesPast | filter:{team:ch.t}).length">showing all {{(times | filter:timesNull | filter:timesPast | filter:{team:ch.t}).length }} previous items</span><br /><br />
+                </div>
+<div><span>previous items:</span>
+    <span class="ico grn">{{(times | filter:timesNull | filter:timesPast | filter:{team:ch.t} | filter:{s:'grn'}).length }}</span>
+    <span class="ico amb">{{(times | filter:timesNull | filter:timesPast | filter:{team:ch.t}| filter:{s:'amb'}).length }}</span>
+    <span class="ico red">{{(times | filter:timesNull | filter:timesPast | filter:{team:ch.t}| filter:{s:'red'}).length }}</span>
+<span><a href="" ng-click="past='true'"  class="blu">show past items</a></span></div>
+              
+                
+<h1 class="blub" id="center">Today: {{tn *1000 | date : 'dd MMM yyyy'}}</h1>
+                
+                                <span ng-hide="lng >= (times | filter:timesNull | filter:timesFuture | filter:{team:ch.t}).length">showing {{lng}} of {{(times | filter:timesNull | filter:timesFuture | filter:{team:ch.t}).length }} </span>
+		    <span ng-show="lng >= (times | filter:timesNull | filter:timesFuture | filter:{team:ch.t}).length">showing all {{(times | filter:timesNull | filter:timesFuture | filter:{team:ch.t}).length }} future items</span>
+				<ul class="timeline">
+					<li ng-repeat="t in times | filter:timesNull | filter:{team:ch.t}  | filter:timesFuture | orderBy:'date' | limitTo:lng" >
+						<time class="time" datetime="{{t.date}}"><span>{{t.yr}}</span><span>{{t.day}}</span></time>
+						<div class="icon {{t.s}}"><i ng-show=t.done class="fa fa-check fa-lg"></i></div>
+						<div class="label {{t.s}}-line">
+							<h2>{{t.text}}</h2><h4>{{t.note}}</h4>
+							<p><small>Part of: </small> {{t.act}} <small> ({{t.pc}}% complete)</small></p>
+                            <div class="progress" style="width:{{t.pc}}%;"></div>
+						</div>
+					</li>
+				</ul>
+                 <a href="" class="blu" ng-click="lng = lng + 10">show more</a>
 			</div>
 		</div>
 	</body>
