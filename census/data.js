@@ -2,9 +2,10 @@ var TabsCtrl = function ($scope) {
   $scope.tabs = [
     { title:"District"},
     { title:"Ward"},
-    { title:"Parish"},
-    { title:"MSOA"},
-    { title:"LSOA"}
+    { title:"Parish"}
+//    ,
+//    { title:"MSOA"},
+//    { title:"LSOA"}
   ];
 
 
