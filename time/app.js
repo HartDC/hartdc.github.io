@@ -11,7 +11,6 @@ $scope.tn = Date.parse(Date())/1000;
 $scope.tt = 1364688000;
 
 $scope.times = [
-{"id":1,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"BS","s":"grn","pc":0,"text":"Increase the number of services with online payment facilities","note":" ","act":"Increase efficiency of the Business Support Service"},
 {"id":2,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"BS","s":"grn","pc":0,"text":"Reduce paper usage and support other services to do the same","note":"0","act":" "},
 {"id":3,"date":"2014-07-30","day":"30 Jul","yr":2014,"done":"FALSE","team":"BS","s":"grn","pc":0,"text":"Review EH scanning procedures","note":"0","act":" "},
 {"id":4,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"BS","s":"grn","pc":0,"text":"Cross skill team to ensure service availability in all areas","note":" ","act":"Strengthen business continuity"},
@@ -32,11 +31,11 @@ $scope.times = [
 {"id":19,"date":"2014-09-30","day":"30 Sep","yr":2014,"done":"FALSE","team":"CS","s":"amb","pc":0,"text":"Zero base budgeting paper","note":"0","act":" "},
 {"id":20,"date":"2014-06-30","day":"30 Jun","yr":2014,"done":"FALSE","team":"CS","s":"amb","pc":0,"text":"Analyse existing SLAs used by HCC for basis of review","note":" ","act":"Maintain current levels of funding to voluntary sector"},
 {"id":21,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"CS","s":"amb","pc":0,"text":"Create SLAs between HDC and other organisations","note":"0","act":" "},
-{"id":22,"date":"","day":" ","yr": ,"done":"FALSE","team":"CS","s":"gry","pc":0,"text":"Hold first event","note":" ","act":"Run 2 'Hart for Business' events a year"},
-{"id":23,"date":"","day":" ","yr": ,"done":"FALSE","team":"CS","s":"gry","pc":0,"text":"Hold second event","note":"0","act":" "},
-{"id":24,"date":"","day":" ","yr": ,"done":"FALSE","team":"CS","s":"gry","pc":0,"text":"Prepare for first event","note":"0","act":" "},
-{"id":25,"date":"","day":" ","yr": ,"done":"FALSE","team":"CS","s":"gry","pc":0,"text":"Prepare for second event","note":"0","act":" "},
-{"id":26,"date":"","day":" ","yr": ,"done":"FALSE","team":"CS","s":"gry","pc":0,"text":" ","note":" ","act":"Engage fully with Enterprise M3 Local Enterprise Partnership (LEP)"},
+
+
+
+
+
 {"id":27,"date":"2014-05-31","day":"31 May","yr":2014,"done":"FALSE","team":"CS","s":"amb","pc":0,"text":"Agree final action plan","note":" ","act":"Deliver Health and Wellbeing action plan targets within agreed timescales"},
 {"id":28,"date":"2014-09-30","day":"30 Sep","yr":2014,"done":"FALSE","team":"CS","s":"amb","pc":0,"text":"Implement plan","note":"0","act":" "},
 {"id":29,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"CS","s":"amb","pc":0,"text":"Monitor and Evaluate","note":"0","act":" "},
@@ -53,20 +52,20 @@ $scope.times = [
 {"id":40,"date":"2014-09-30","day":"30 Sep","yr":2014,"done":"FALSE","team":"CS","s":"grn","pc":25,"text":"Build Environment","note":"0","act":" "},
 {"id":41,"date":"2014-10-31","day":"31 Oct","yr":2014,"done":"FALSE","team":"CS","s":"grn","pc":25,"text":"Roll out to staff","note":"0","act":" "},
 {"id":42,"date":"2014-07-09","day":"09 Jul","yr":2014,"done":"TRUE","team":"CS","s":"grn","pc":25,"text":"Sharepoint Workshops","note":"0","act":" "},
-{"id":43,"date":"","day":" ","yr": ,"done":"FALSE","team":"CS","s":"grn","pc":0,"text":" ","note":" ","act":"Enable 100% of services to be accessed through the website"},
+
 {"id":44,"date":"2014-04-30","day":"30 Apr","yr":2014,"done":"TRUE","team":"CS","s":"grn","pc":33,"text":"Review of current CRM provision","note":" ","act":"Review of CRM"},
 {"id":45,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"CS","s":"grn","pc":33,"text":"Revise current system or source alternative solution","note":"0","act":" "},
 {"id":46,"date":"2014-10-31","day":"31 Oct","yr":2014,"done":"FALSE","team":"CS","s":"grn","pc":33,"text":"Scope a fit for purpose solution","note":"0","act":" "},
-{"id":47,"date":"","day":" ","yr": ,"done":"FALSE","team":"CS","s":"grn","pc":0,"text":"Provide staff training on web-based version of Covalent","note":" ","act":"Roll out of web-based performance management software"},
-{"id":48,"date":"","day":" ","yr": ,"done":"FALSE","team":"CS","s":"grn","pc":0,"text":"Support roll out of web-based roll out of Covalent","note":"0","act":" "},
+
+
 {"id":49,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"CS","s":"amb","pc":33,"text":"Bring on further contracts as they are created","note":" ","act":"Develop contract register"},
 {"id":50,"date":"2014-06-30","day":"30 Jun","yr":2014,"done":"FALSE","team":"CS","s":"amb","pc":33,"text":"Publish updated register online","note":"0","act":" "},
 {"id":51,"date":"2014-04-30","day":"30 Apr","yr":2014,"done":"TRUE","team":"CS","s":"amb","pc":33,"text":"Review current contract register","note":"0","act":" "},
 {"id":52,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"CS","s":"grn","pc":0,"text":"Establish if it is in the Council's best interest to continue with the current provider","note":" ","act":"Review of Capita contracts"},
 {"id":53,"date":"2014-10-31","day":"31 Oct","yr":2014,"done":"FALSE","team":"CS","s":"grn","pc":0,"text":"Establish legal position on extending contracts","note":"0","act":" "},
-{"id":54,"date":"","day":" ","yr": ,"done":"FALSE","team":"CS","s":"grn","pc":0,"text":"Agree SLA with provider","note":" ","act":"Roll out of HDC Apprenticeship scheme"},
-{"id":55,"date":"","day":" ","yr": ,"done":"FALSE","team":"CS","s":"grn","pc":0,"text":"Agree training programme","note":"0","act":" "},
-{"id":56,"date":"","day":" ","yr": ,"done":"FALSE","team":"CS","s":"grn","pc":0,"text":"Host one corporate internship over the summer","note":"0","act":" "},
+
+
+
 {"id":57,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"CS","s":"grn","pc":0,"text":"Publicise Stoptober and national no smoking day?","note":" ","act":"Undertake smoking cessation programmes"},
 {"id":58,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"CS","s":"grn","pc":0,"text":"Smoking in pregnancy?","note":"0","act":" "},
 {"id":59,"date":"2014-11-01","day":"01 Nov","yr":2014,"done":"FALSE","team":"ES","s":"amb","pc":12,"text":"Door to Door Canvassing","note":" ","act":"Implement Individual Elector Registration"},
@@ -105,13 +104,13 @@ $scope.times = [
 {"id":92,"date":"2014-04-30","day":"30 Apr","yr":2014,"done":"FALSE","team":"ETS","s":"amb","pc":0,"text":"Increase number of grass cuts during peak growing season May/June","note":"0","act":" "},
 {"id":93,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"ETS","s":"amb","pc":0,"text":"Install on street recycling bins in 12 locations","note":"0","act":" "},
 {"id":94,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"ETS","s":"amb","pc":0,"text":"Work with parish councils to identify joint working opportunities for streets and grounds maintenance","note":"0","act":" "},
-{"id":95,"date":"","day":" ","yr": ,"done":"FALSE","team":"ETS","s":"gry","pc":0,"text":" ","note":" ","act":"Improve weed control on the highway"},
-{"id":96,"date":"","day":" ","yr": ,"done":"FALSE","team":"ETS","s":"gry","pc":0,"text":" ","note":" ","act":"Review Hart-owned street signs and undertake cleaning programme"},
-{"id":97,"date":"","day":" ","yr": ,"done":"FALSE","team":"ETS","s":"gry","pc":0,"text":" ","note":" ","act":"Introduce a service by April 2014 to clear fly tipping from private land"},
+
+
+
 {"id":98,"date":"2014-07-31","day":"31 Jul","yr":2014,"done":"FALSE","team":"ETS","s":"grn","pc":50,"text":"Contract variation agreed","note":" ","act":"In partnership with parish councils, review provision of bus shelters by July 2014"},
 {"id":99,"date":"2014-04-30","day":"30 Apr","yr":2014,"done":"TRUE","team":"ETS","s":"grn","pc":50,"text":"Review options and agree way forward","note":"0","act":"JE090714 - It has been agreed that the existing contract will be renewed on an annual basis until 2016 when it is hoped that there will be an opportunity to tender a joint contract with neighbouring authorities, including Rushmoor and Basingstoke."},
 {"id":100,"date":"2014-07-31","day":"31 Jul","yr":2014,"done":"FALSE","team":"ETS","s":"grn","pc":0,"text":"Agree priorities for Fleet","note":"JE090714 - Parish Council have confirmed support for Knoll Road scheme which will be delivered in next 12 months. Schemes to be delivered in Fleet by April 2015 include: 1.Review success of experimental order on Fleet Road 2. Old Cove Road 3. Brick Lane 4. Leawood Road 5. Rochester Grove 6. Velmead School.","act":"Implement within 12 months any traffic management and / or parking schemes agreed with parish councils"},
-{"id":101,"date":"","day":" ","yr": ,"done":"FALSE","team":"ETS","s":"grn","pc":0,"text":"Experimental Traffic Order advert in place. First review of the consultation feedback and operation of that scheme will be in October","note":"0","act":"Implement within 12 months any traffic management and / or parking schemes agreed with parish councils"},
+
 {"id":102,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"ETS","s":"grn","pc":0,"text":"Deliver agreed scheme for Hook","note":"0","act":"JE090714 - Meeting with Hook Parish Council on 100714, to consider options."},
 {"id":103,"date":"2014-10-31","day":"31 Oct","yr":2014,"done":"FALSE","team":"ETS","s":"grn","pc":0,"text":"Deliver agreed scheme for Odiham","note":"0","act":"JE090714 - experimental order, surface markings and signs are in place. Enforcement of new restrictions to commence at the end of July."},
 {"id":104,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"ETS","s":"grn","pc":0,"text":"Work with other Parish Council’s to identify and deliver initiatives","note":"0","act":"JE090714 - Meetings are scheduled with Hartley Wintney, Hook and Odiham Parish Council."},
@@ -157,7 +156,7 @@ $scope.times = [
 {"id":144,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"HS","s":"grn","pc":6,"text":"Sandhurst Rd, Yateley - 5% - 8 units delivering jan 2015 onwards","note":"0","act":" "},
 {"id":145,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"HS","s":"grn","pc":6,"text":"The Lea – 100% AH - 2 units in 2014/15","note":"0","act":" "},
 {"id":146,"date":"2014-12-31","day":"31 Dec","yr":2014,"done":"FALSE","team":"HS","s":"grn","pc":6,"text":"Wickham Ct – 100% AH - 41 units","note":"0","act":" "},
-{"id":147,"date":"","day":" ","yr": ,"done":"FALSE","team":"HS","s":"grn","pc":25,"text":" ","note":" ","act":"Contribute to the LDF process"},
+
 {"id":148,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"HS","s":"grn","pc":16,"text":"56 High Street, Odiham – 25% - 5 units - 2015/16","note":"140702 - reduced level of AH resulted from viability assessment.","act":"Ensure affordable housing on development sites is maximised"},
 {"id":149,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"HS","s":"grn","pc":16,"text":"Dilly Lane – Phase 2 – 40% AH 30 units in 2014/15","note":"0","act":" "},
 {"id":150,"date":"2014-10-31","day":"31 Oct","yr":2014,"done":"FALSE","team":"HS","s":"grn","pc":16,"text":"Eversley – 100% 31 October 2014","note":"0","act":"Rural Exception Site - 100% AH achieved - site underway"},
@@ -173,7 +172,7 @@ $scope.times = [
 {"id":160,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"HS","s":"gry","pc":0,"text":"Review viability factors associated with proposed CIL in the context of affordable housing delivery.","note":"140702 - CIL being introduced in March 2015. Action has been amended from "Review affordable housing achieved on sites 6 months following introduction of CIL" to the current wording to reflect where we are.","act":"Monitor the impact of the introduction of CIL on affordable housing delivery"},
 {"id":161,"date":"2014-08-31","day":"31 Aug","yr":2014,"done":"FALSE","team":"HS","s":"gry","pc":0,"text":"Agree details of approach with Sentinel and commence project","note":"140702 - approach has been agreed, legal and nominations agreement is with Legal. Issues are arising with availability of properties within the association's budget ceiling (£200k) and meeting the other parameters of the scheme and the association's policies. PT requested further advice and information from the association.","act":"Work with Sentinel to purchase homes on the open market to be used as affordable housing"},
 {"id":162,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"HS","s":"gry","pc":0,"text":"Bring 5 2-bed ESP properties into use as affordable housing","note":"0","act":" "},
-{"id":163,"date":"","day":" ","yr": ,"done":"FALSE","team":"HS","s":"gry","pc":0,"text":" ","note":" ","act":"Review Hart owned land and provide recommendations on potential development sites"},
+
 {"id":164,"date":"2014-10-31","day":"31 Oct","yr":2014,"done":"FALSE","team":"HS","s":"grn","pc":0,"text":"HS1403a Eversley site completion","note":" ","act":"Deliver 2 housing rural exception sites"},
 {"id":165,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"HS","s":"grn","pc":0,"text":"HS1403b Rotherwick site completion","note":"0","act":"140702 - slow start due to drainage problems. These are now being resolved but may affect timescales for delivery."},
 {"id":166,"date":"2014-07-31","day":"31 Jul","yr":2014,"done":"FALSE","team":"HS","s":"grn","pc":16,"text":"HS1404a Publish new Preventing Homelessness Strategy","note":" ","act":"Prevent potentially homeless families actually becoming homeless"},
@@ -185,7 +184,7 @@ $scope.times = [
 {"id":172,"date":"2014-06-30","day":"30 Jun","yr":2014,"done":"TRUE","team":"HS","s":"grn","pc":40,"text":"Complete review of homelessness","note":"0","act":"140702 -review published on 10th June."},
 {"id":173,"date":"2014-08-31","day":"31 Aug","yr":2014,"done":"FALSE","team":"HS","s":"grn","pc":40,"text":"Draft Homelessness Strategy completed","note":"0","act":"140702 - working to an interim Homelessness Strategy position using the Housing Service Plan. New Strategy will be published in October. "},
 {"id":174,"date":"2014-08-31","day":"31 Aug","yr":2014,"done":"FALSE","team":"HS","s":"grn","pc":40,"text":"Publish new Preventing Homelessness Strategy","note":"0","act":"140702 - unable to amend date in Covalent - new timescale for strategy to be published in October."},
-{"id":175,"date":"","day":" ","yr": ,"done":"FALSE","team":"HS","s":"grn","pc":25,"text":" ","note":" ","act":"Implement new Allocations Policy for Hart"},
+
 {"id":176,"date":"2014-09-30","day":"30 Sep","yr":2014,"done":"FALSE","team":"HS","s":"grn","pc":20,"text":"Develop joint working across the service to ensure a joined up approach to Private Sector Access and to support a comprehensive coherent ‘landlord and tenant' offer","note":" ","act":"Develop and implement a new Landlord Offer for PRS landlords"},
 {"id":177,"date":"2014-09-30","day":"30 Sep","yr":2014,"done":"FALSE","team":"HS","s":"grn","pc":20,"text":"Hold a Private Landlords Steering group","note":"0","act":"140702 - Planned PRS landlord steering group in September."},
 {"id":178,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"HS","s":"grn","pc":20,"text":"Investigate the long term viability of a Local Lettings Agency approach for Hart","note":"0","act":"140702 - initial landlord feedback has provided views regarding what options might be worth considering in a future landlord offer, however, moving to an income generating service will not be appropriate within the life of this Service Plan."},
@@ -199,8 +198,8 @@ $scope.times = [
 {"id":186,"date":"2014-09-30","day":"30 Sep","yr":2014,"done":"FALSE","team":"HS","s":"grn","pc":33,"text":"Hold quarterly partnership liaison meetings between HB, CAB and Housing","note":" ","act":"Work in partnership to raise awareness of impacts of welfare reforms"},
 {"id":187,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"HS","s":"grn","pc":33,"text":"Progress the housing aims of the Hart Local Support Services Framework action plan","note":"0","act":"140702 - Housing Services developing a preventing homelessness strategy and associated action plan that will include how we will contribute to a successful welfare reform transition in Hart. Housing Needs to meet with Revs and Bens to understand how HB has been developing a local planned response and understand where there are links."},
 {"id":188,"date":"2014-08-31","day":"31 Aug","yr":2014,"done":"TRUE","team":"HS","s":"grn","pc":33,"text":"Survey Registered Providers on impacts and responses","note":"0","act":"140702 - RPs provided some feedback as part of the homelessness review, however, information was patchy. Intelligence from Sentinel has improved. "},
-{"id":189,"date":"","day":" ","yr": ,"done":"FALSE","team":"HS","s":"grn","pc":20,"text":" ","note":" ","act":"Review Empty Homes work"},
-{"id":190,"date":"","day":" ","yr": ,"done":"FALSE","team":"HS","s":"grn","pc":25,"text":" ","note":" ","act":"Continue to work with housing associations to reduce under-occupation"},
+
+
 {"id":191,"date":"2014-06-30","day":"30 Jun","yr":2014,"done":"TRUE","team":"HS","s":"grn","pc":100,"text":"Review progress","note":"140702 - PT has been working closely with HCC to influence equalities impact assessment and highlight concerns. More recently, PT now undertaking a secondment with Adult Services for 2 days per week as Housing & Support Transformation Lead with a remit to remodel socially excluded cluster services across the 11 districts.","act":"Work with Prevention and Intervention team at County to review a section of support services (Supporting People)"},
 {"id":192,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"HS","s":"grn","pc":1,"text":"HS1406a Implement HECA Plan","note":"140702 - HECA plan will need to be reviewed in light of changes (ongoing) to the government Green Deal and ECO funding programme.","act":"Reduce fuel poverty by assisting at least 750 homes to secure grant funding for improved insulation"},
 {"id":193,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"HS","s":"grn","pc":1,"text":"HS1406b Continue to promote the handy person service","note":"0","act":" "},
@@ -211,50 +210,50 @@ $scope.times = [
 {"id":198,"date":"2014-08-31","day":"31 Aug","yr":2014,"done":"FALSE","team":"HS","s":"grn","pc":16,"text":"Commence area based work on poorly insulated homes","note":"0","act":"June 2014 - Under the Energy Action North Hampshire scheme, Climate Energy are identifying areas to target with the new Green Deal Home Improvement Fund (GDHIF). However as residents will have to fund 25% of the works, the uptake will be lower than we first anticipated. Targeted trial anticipated by end of August."},
 {"id":199,"date":"2014-07-31","day":"31 Jul","yr":2014,"done":"TRUE","team":"HS","s":"grn","pc":16,"text":"Identify areas for area based programmes in line with the HECA Action Plan","note":"0","act":"June 2014 - There has been a change in funding available for energy efficiency measures. ECO funding which would have provided free measures is no longer available. As part of Energy Action North Hampshire scheme areas are being identified to target with Green Deal Home Improvement Fund (GDHIF) funding. However residents will have to find 25% of cost of works so may not have uptake we had anticipated for lower income households. Trial target areas have been identified."},
 {"id":200,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"HS","s":"grn","pc":16,"text":"Improve insulation in 250 properties in Hart","note":"0","act":"June 2014 - Due to ECO funding not being available currently, there are no free measures available. Under Green Deal Home Improvement Fund residents can receive 75% of funding towards energy efficiency measures. Work is happening to undertake improvements to mobile homes, however, without a free product to target inefficient homes, this target may prove unrealistic."},
-{"id":201,"date":"","day":" ","yr": ,"done":"FALSE","team":"HS","s":"grn","pc":16,"text":"--New Milestone--","note":"0","act":" "},
+
 {"id":202,"date":"2014-08-31","day":"31 Aug","yr":2014,"done":"FALSE","team":"HS","s":"grn","pc":16,"text":"Review the current HECA action plan in light of changes to govt funding eligibility","note":"0","act":"June 2014 - The targets set in the HECA action plan are now unrealistic due to changes in government funding. ECO funding, which would have provided free measures is not currently available.  A new stream of funding, Green Deal Home Improvement Fund (GDHIF) is reliant on residents funding 25% of the works so the uptake will be lower than anticipated. "},
-{"id":203,"date":"","day":" ","yr": ,"done":"FALSE","team":"HS","s":"grn","pc":0,"text":" ","note":" ","act":"Investigate options for the continuation of a handypersons service for Hart"},
+
 {"id":204,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"HS","s":"gry","pc":0,"text":"Distribute 150 prevention leaflets","note":"Leaflets are being distributed by the HIA to all clients they visit and are available in reception and will be distrubuted at the Falls Awreness event.","act":"Continue to assist in the local HCC/NHS falls prevention initiative"},
 {"id":205,"date":"2014-12-31","day":"31 Dec","yr":2014,"done":"FALSE","team":"HS","s":"gry","pc":0,"text":"Facilitate an event to raise awareness of Falls Prevention","note":"0","act":"A Falls Awareness event will be run in Autumn/Winter."},
-{"id":206,"date":"","day":" ","yr": ,"done":"FALSE","team":"HS","s":"gry","pc":0,"text":" ","note":" ","act":"Take part in the HCC Collective Switching initiative"},
-{"id":207,"date":"","day":" ","yr": ,"done":"FALSE","team":"HS","s":"grn","pc":0,"text":" ","note":" ","act":"Work with ECO partner to improve energy efficiency"},
+
+
 {"id":208,"date":"2014-07-31","day":"31 Jul","yr":2014,"done":"TRUE","team":"IA","s":"grn","pc":100,"text":"Review Complete","note":" ","act":"Fraud Risk Assessment"},
-{"id":209,"date":"","day":" ","yr": ,"done":"TRUE","team":"IA","s":"grn","pc":100,"text":"Review in progress","note":"0","act":" "},
+
 {"id":210,"date":"2014-07-31","day":"31 Jul","yr":2014,"done":"TRUE","team":"IA","s":"grn","pc":100,"text":"Review Started","note":"0","act":" "},
-{"id":211,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"grn","pc":66,"text":"Review Complete","note":" ","act":"Building Control"},
-{"id":212,"date":"","day":" ","yr": ,"done":"TRUE","team":"IA","s":"grn","pc":66,"text":"Review in Progress","note":"0","act":" "},
+
+
 {"id":213,"date":"2014-06-23","day":"23 Jun","yr":2014,"done":"TRUE","team":"IA","s":"grn","pc":66,"text":"Review Started","note":"0","act":" "},
-{"id":214,"date":"","day":" ","yr": ,"done":"TRUE","team":"IA","s":"grn","pc":100,"text":"Review Complete","note":" ","act":"Payments System"},
+
 {"id":215,"date":"2014-09-30","day":"30 Sep","yr":2014,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Complete","note":" ","act":"Payroll"},
 {"id":216,"date":"2014-09-08","day":"08 Sep","yr":2014,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review in Progress","note":"0","act":" "},
 {"id":217,"date":"2014-09-01","day":"01 Sep","yr":2014,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Started","note":"0","act":" "},
-{"id":218,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Complete","note":" ","act":"Treasury Management"},
-{"id":219,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review in Progress","note":"0","act":" "},
-{"id":220,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Started","note":"0","act":" "},
-{"id":221,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Complete","note":" ","act":"Waste"},
-{"id":222,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review in Progress","note":"0","act":" "},
-{"id":223,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Started","note":"0","act":" "},
-{"id":224,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Complete","note":" ","act":"Cash and Banking"},
-{"id":225,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review in Progress","note":"0","act":" "},
-{"id":226,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Started-","note":"0","act":" "},
-{"id":227,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Complete","note":" ","act":"Rent Deposits"},
-{"id":228,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review in Progress","note":"0","act":" "},
-{"id":229,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Started","note":"0","act":" "},
-{"id":230,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Complete","note":" ","act":"Main Accounting"},
-{"id":231,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review in Progress","note":"0","act":" "},
-{"id":232,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Started","note":"0","act":" "},
-{"id":233,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Complete","note":" ","act":"Creditors"},
-{"id":234,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review in Progress","note":"0","act":" "},
-{"id":235,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Started","note":"0","act":" "},
-{"id":236,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Complete","note":" ","act":"IT"},
-{"id":237,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review in Progress","note":"0","act":" "},
-{"id":238,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Started","note":"0","act":" "},
-{"id":239,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Complete","note":" ","act":"Housing Benefits"},
-{"id":240,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review in Progress","note":"0","act":" "},
-{"id":241,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Started","note":"0","act":" "},
-{"id":242,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Complete","note":" ","act":"Sundry Debtors"},
-{"id":243,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review in Progress-","note":"0","act":" "},
-{"id":244,"date":"","day":" ","yr": ,"done":"FALSE","team":"IA","s":"gry","pc":0,"text":"Review Started","note":"0","act":" "},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {"id":245,"date":"2014-04-01","day":"01 Apr","yr":2014,"done":"TRUE","team":"LS","s":"grn","pc":50,"text":"Adoption of project plan and philosophy of use","note":" ","act":"Build a replacement for the Hart Leisure Centre"},
 {"id":246,"date":"2014-10-01","day":"01 Oct","yr":2014,"done":"FALSE","team":"LS","s":"grn","pc":50,"text":"Agree core facility mix","note":"0","act":" "},
 {"id":247,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"LS","s":"grn","pc":50,"text":"Agree delivery agreement with preferred operator","note":"0","act":" "},
@@ -299,8 +298,8 @@ $scope.times = [
 {"id":286,"date":"2014-08-01","day":"01 Aug","yr":2014,"done":"FALSE","team":"LS","s":"grn","pc":0,"text":"Complete yr2 report","note":" ","act":"Biodiversity Action Plan"},
 {"id":287,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"LS","s":"grn","pc":0,"text":"Analysis of trial","note":" ","act":"Hazeley Heath Grazing"},
 {"id":288,"date":"2014-10-31","day":"31 Oct","yr":2014,"done":"FALSE","team":"LS","s":"grn","pc":0,"text":"Complete year 5","note":"0","act":" "},
-{"id":289,"date":"","day":" ","yr": ,"done":"FALSE","team":"CS","s":"grn","pc":0,"text":" ","note":" ","act":"Health and Wellbeing Action Plan"},
-{"id":290,"date":"","day":" ","yr": ,"done":"FALSE","team":"CS","s":"gry","pc":0,"text":" ","note":" ","act":"Older Persons Action Plan"},
+
+
 {"id":291,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"PP","s":"amb","pc":0,"text":"Completion of consultation on draft plan","note":" ","act":"Complete and adopt the Local Plan in 2015 and use it to steer development to the right places"},
 {"id":292,"date":"2014-05-31","day":"31 May","yr":2014,"done":"FALSE","team":"PP","s":"amb","pc":0,"text":"Prepare options for consultation","note":"0","act":" "},
 {"id":293,"date":"2014-12-31","day":"31 Dec","yr":2014,"done":"FALSE","team":"PP","s":"amb","pc":0,"text":"Publish draft plan","note":"0","act":" "},
@@ -340,12 +339,12 @@ $scope.times = [
 {"id":327,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"RS","s":"grn","pc":0,"text":"To work with the BSU to deliver ERDMS.","note":"0","act":" "},
 {"id":328,"date":"2014-07-31","day":"31 Jul","yr":2014,"done":"FALSE","team":"RS","s":"gry","pc":0,"text":"Draft system for Design Awards","note":" ","act":"Institute a system of design awards for all new development"},
 {"id":329,"date":"2014-09-30","day":"30 Sep","yr":2014,"done":"FALSE","team":"RS","s":"gry","pc":0,"text":"Planning Commitee Agreement on Design Awards terms","note":"0","act":" "},
-{"id":330,"date":"","day":" ","yr": ,"done":"FALSE","team":"SNH","s":"grn","pc":0,"text":" ","note":" ","act":"Reduce anti-social behaviour by 10%, and violence associated with the night-time economy by 8%"},
-{"id":331,"date":"","day":" ","yr": ,"done":"FALSE","team":"BS","s":"grn","pc":0,"text":" ","note":" ","act":"Business Support"},
-{"id":332,"date":"","day":" ","yr": ,"done":"FALSE","team":"CS","s":"grn","pc":12,"text":" ","note":" ","act":"Corporate Services"},
-{"id":333,"date":"","day":" ","yr": ,"done":"FALSE","team":"ES","s":"grn","pc":33,"text":" ","note":" ","act":"Electoral Services"},
-{"id":334,"date":"","day":" ","yr": ,"done":"FALSE","team":"ETS","s":"grn","pc":7,"text":" ","note":" ","act":"Env & Technical Services"},
-{"id":335,"date":"","day":" ","yr": ,"done":"FALSE","team":"HS","s":"grn","pc":21,"text":" ","note":" ","act":"Housing Services"},
+
+
+
+
+
+
 {"id":336,"date":"2014-07-31","day":"31 Jul","yr":2014,"done":"FALSE","team":"IA","s":"grn","pc":9,"text":"Building Control","note":" ","act":"Internal Audit"},
 {"id":337,"date":"2014-10-31","day":"31 Oct","yr":2014,"done":"FALSE","team":"IA","s":"grn","pc":9,"text":"Cash & Banking","note":"0","act":" "},
 {"id":338,"date":"2014-10-31","day":"31 Oct","yr":2014,"done":"FALSE","team":"IA","s":"grn","pc":9,"text":"Council Tax/NNDR","note":"0","act":" "},
@@ -359,11 +358,8 @@ $scope.times = [
 {"id":346,"date":"2014-09-30","day":"30 Sep","yr":2014,"done":"FALSE","team":"IA","s":"grn","pc":9,"text":"Payroll","note":"0","act":" "},
 {"id":347,"date":"2015-01-31","day":"31 Jan","yr":2015,"done":"FALSE","team":"IA","s":"grn","pc":9,"text":"Sundry Debtors","note":"0","act":" "},
 {"id":348,"date":"2014-09-30","day":"30 Sep","yr":2014,"done":"FALSE","team":"IA","s":"grn","pc":9,"text":"Treasury Management","note":"0","act":" "},
-{"id":349,"date":"2014-09-30","day":"30 Sep","yr":2014,"done":"FALSE","team":"IA","s":"grn","pc":9,"text":"Waste","note":"0","act":" "},
-{"id":350,"date":"","day":" ","yr": ,"done":"FALSE","team":"LS","s":"grn","pc":32,"text":" ","note":" ","act":"Leisure Services"},
-{"id":351,"date":"","day":" ","yr": ,"done":"FALSE","team":"PP","s":"grn","pc":0,"text":" ","note":" ","act":"Planning Policy"},
-{"id":352,"date":"","day":" ","yr": ,"done":"FALSE","team":"RS","s":"grn","pc":0,"text":" ","note":" ","act":"Regulatory Services"},
-{"id":353,"date":"","day":" ","yr": ,"done":"FALSE","team":"SNH","s":"grn","pc":0,"text":" ","note":" ","act":"Safer North Hants"}
+{"id":349,"date":"2014-09-30","day":"30 Sep","yr":2014,"done":"FALSE","team":"IA","s":"grn","pc":9,"text":"Waste","note":"0","act":" "}
+
 ];
 
  $scope.timesPast = function (time) {
