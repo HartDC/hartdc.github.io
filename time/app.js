@@ -11,6 +11,7 @@ $scope.tn = Date.parse(Date())/1000;
 $scope.tt = 1364688000;
 
 $scope.times = [
+{"id":1,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"BS","s":"grn","pc":0,"text":"Increase the number of services with online payment facilities","note":" ","act":"Increase efficiency of the Business Support Service"},
 {"id":2,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"BS","s":"grn","pc":0,"text":"Reduce paper usage and support other services to do the same","note":"0","act":" "},
 {"id":3,"date":"2014-07-30","day":"30 Jul","yr":2014,"done":"FALSE","team":"BS","s":"grn","pc":0,"text":"Review EH scanning procedures","note":"0","act":" "},
 {"id":4,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"BS","s":"grn","pc":0,"text":"Cross skill team to ensure service availability in all areas","note":" ","act":"Strengthen business continuity"},
@@ -169,7 +170,7 @@ $scope.times = [
 {"id":157,"date":"2014-04-30","day":"30 Apr","yr":2014,"done":"TRUE","team":"HS","s":"grn","pc":16,"text":"Swan Lake View – 30% - 5 units April 2014","note":"0","act":"140702 - 30% AH achieved representing 31 units."},
 {"id":158,"date":"2014-12-31","day":"31 Dec","yr":2014,"done":"FALSE","team":"HS","s":"grn","pc":16,"text":"The Lea – 100% AH - 2 units in 2014/15","note":"0","act":" "},
 {"id":159,"date":"2015-02-28","day":"28 Feb","yr":2015,"done":"FALSE","team":"HS","s":"grn","pc":16,"text":"Wickham Ct – 100% AH - 41 units Sept-Dec 2014","note":"0","act":" "},
-{"id":160,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"HS","s":"gry","pc":0,"text":"Review viability factors associated with proposed CIL in the context of affordable housing delivery.","note":"140702 - CIL being introduced in March 2015. Action has been amended from "Review affordable housing achieved on sites 6 months following introduction of CIL" to the current wording to reflect where we are.","act":"Monitor the impact of the introduction of CIL on affordable housing delivery"},
+{"id":160,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"HS","s":"gry","pc":0,"text":"Review viability factors associated with proposed CIL in the context of affordable housing delivery.","note":"140702 - CIL being introduced in March 2015. Action has been amended from 'Review affordable housing achieved on sites 6 months following introduction of CIL' to the current wording to reflect where we are.","act":"Monitor the impact of the introduction of CIL on affordable housing delivery"},
 {"id":161,"date":"2014-08-31","day":"31 Aug","yr":2014,"done":"FALSE","team":"HS","s":"gry","pc":0,"text":"Agree details of approach with Sentinel and commence project","note":"140702 - approach has been agreed, legal and nominations agreement is with Legal. Issues are arising with availability of properties within the association's budget ceiling (£200k) and meeting the other parameters of the scheme and the association's policies. PT requested further advice and information from the association.","act":"Work with Sentinel to purchase homes on the open market to be used as affordable housing"},
 {"id":162,"date":"2015-03-31","day":"31 Mar","yr":2015,"done":"FALSE","team":"HS","s":"gry","pc":0,"text":"Bring 5 2-bed ESP properties into use as affordable housing","note":"0","act":" "},
 
@@ -359,6 +360,10 @@ $scope.times = [
 {"id":347,"date":"2015-01-31","day":"31 Jan","yr":2015,"done":"FALSE","team":"IA","s":"grn","pc":9,"text":"Sundry Debtors","note":"0","act":" "},
 {"id":348,"date":"2014-09-30","day":"30 Sep","yr":2014,"done":"FALSE","team":"IA","s":"grn","pc":9,"text":"Treasury Management","note":"0","act":" "},
 {"id":349,"date":"2014-09-30","day":"30 Sep","yr":2014,"done":"FALSE","team":"IA","s":"grn","pc":9,"text":"Waste","note":"0","act":" "}
+
+
+
+
 
 ];
 
