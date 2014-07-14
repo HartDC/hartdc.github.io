@@ -383,5 +383,5 @@ $scope.times = [
     };
     
 $scope.teams = [
-{"t":"BS","n":"Business Support"},{"t":"CS","n":"Corporate Services"},{"t":"ES","n":"Electoral Services"},{"t":"ETS","n":"Environmental & Technical Services"},{"t":"HS","n":"Housing Services"},{"t":"LS","n":"Leisure Services"},{"t":"PP","n":"Planning Policy"},{"t":"RS","n":"Regulatory Services"},{"t":"SNH","n":"Safer North Hants"}];
+{"t":"BS","n":"Business Support"},{"t":"CS","n":"Corporate Services"},{"t":"ES","n":"Electoral Services"},{"t":"ETS","n":"Environmental & Technical Services"},{"t":"HS","n":"Housing Services"},{"t":"IA","n":"Internal Audit"},{"t":"LS","n":"Leisure Services"},{"t":"PP","n":"Planning Policy"},{"t":"RS","n":"Regulatory Services"},{"t":"SNH","n":"Safer North Hants"}];
 });
