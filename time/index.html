@@ -13,7 +13,7 @@
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome-ie7.min.css" rel="stylesheet">
         <![endif]-->
 		<link rel="stylesheet" type="text/css" href="style.min.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
 	</head>
 	<body ng-controller="AppCtrl" class="ng-cloak">
 		<div class="container">
@@ -27,12 +27,7 @@
 			<div class="main">
 <span class="righty"><b>{{ch.n}}</b></span>
 <p>&nbsp;</p>
-                
-<!--
-  <a href="" ng-show="ch.p == '-date'" ng-click="ch.p = 'date'"><i class="fa fa-angle-double-down fa-lg"></i></a>
-<a href="" ng-hide="ch.p == '-date'" ng-click="ch.p = '-date'"><i class="fa fa-angle-double-up fa-lg"></i></a>                
--->
-                 <div ng-show="past">
+         <div ng-show="past">
           <span><a href="" ng-click="past='false'"  class="blu">hide past items</a></span>           
            
                      
