@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" value="none">
+<title>Spend Analysis</title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="date.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+    <!--<![endif]-->
+    <link rel="stylesheet" href="http://hartdc.github.io/css/m.css">
+   
+<style>
+html {overflow-y: scroll; overflow: -moz-scrollbars-vertical;}
+.table-responsive {width: 100%;margin-bottom: 15px;overflow-x: scroll;overflow-y: hidden;border: 1px solid #ddd;}
+.gray {background: rgba(79, 87, 87, 0.1);}
+.chart { width: auto; height: 400px; position:relative;}
+.axis path,	.axis line { fill: none; stroke: #fff;}
+.ac-line {fill:none;stroke-width:2px;}
+</style>
+<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+
+</head>
+<body ng-controller="AppCtrl" class=""><!-- add ng-cloak when ready-->
+        <div class="fullscreen">
+            <header>
+<div class="pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+    <a href="" class="pure-menu-heading">HDC Spend Analysis</a>
+    <ul>
+        <li class="pure-menu-selected"><a href="" >one</a></li>
+        <li><a href="">two</a></li>
+	  <li><a href="">three</a></li>
+<quick-datepicker ng-model='Sdate' disable-timepicker="True" date-format='dd MMMM yyyy' placeholder="from" disable-clear-button="True"></quick-datepicker>
+ - 
+<quick-datepicker ng-model='Edate' disable-timepicker="True" date-format='dd MMMM yyyy' placeholder="to"  disable-clear-button="True"></quick-datepicker>  
+
+  </ul>
+
+</div>
+            </header>
+            <article class="mw plus1">
+ 			<div class="pure-g">
+                		<div class="pure-u-1 plus1">
+                    		<h4>Projects</h4>
+
+				</div>
+			
+		<div class="pure-u-1 plus1">
+
+
+{{Edate}}
+			<div><table class="pure-table pure-table-striped table-responsive">
+                 <thead>
+                <tr>
+                <th>ID</th> <th>Date</th> <th>Expense type</th> <th>Expense Area</th> <th>Supplier</th><th>Value</th>
+                </tr>
+                 </thead>
+ <tbody>
+                <tr ng-repeat="d in data | limitTo: 10 "> <td>{{d.ID}}</td> <td>{{d.JD}}</td> <td>{{d.EA}}</td> <td>{{d.ET}}</td> <td>{{d.S}}</td><td>{{d.V | currency:"£"}}</td></tr>
+  </tbody>               
+                </table></div>
+
+   
+
+
+		</div>
+                 	</div>
+        	</article>
+        <div class="floor"></div>
+        </div>
+        <footer>
+          <div class="footer center">
+            <a href="https://github.com/HartDC">HDC spend analysis</a>
+          </div>
+        </footer>
+</body>
+
+
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="ac.js"></script>
+<script src="data.js"></script>
+
+<script>
+var App = angular.module('App', ['angularCharts','ngQuickDate']);
+
+App.controller('AppCtrl', ['$scope', '$filter', function(scope) {
+              
+scope.Sdate = "2010-04-01";
+scope.Edate = "2014-03-31";
+scope.Fy = null;
+scope.data = dataset;              
+              
+}]);
+
+
+
+
+
+App.config(function(ngQuickDateDefaultsProvider) {
+  // Configure with icons from font-awesome
+  return ngQuickDateDefaultsProvider.set({
+    closeButtonHtml: "<i class='fa fa-times'></i>",
+    buttonIconHtml: "<i class='fa fa-calendar'></i>",
+    nextLinkHtml: "<i class='fa fa-chevron-right'></i>",
+    prevLinkHtml: "<i class='fa fa-chevron-left'></i>"
+  });
+
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>
