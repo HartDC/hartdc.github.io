@@ -10,12 +10,6 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="date.css">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-    <!--[if lte IE 8]>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
-    <!--<![endif]-->
     <link rel="stylesheet" href="http://hartdc.github.io/css/m.css">
    
 <style>
@@ -30,7 +24,7 @@ html {overflow-y: scroll; overflow: -moz-scrollbars-vertical;}
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
 
 </head>
-<body ng-controller="AppCtrl" class=""><!-- add ng-cloak when ready-->
+<body ng-controller="AppCtrl" class="ng-cloak"><!-- add ng-cloak when ready-->
         <div class="fullscreen">
             <header>
 <div class="pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
@@ -39,98 +33,162 @@ html {overflow-y: scroll; overflow: -moz-scrollbars-vertical;}
         <li class="pure-menu-selected"><a href="" >one</a></li>
         <li><a href="">two</a></li>
 	  <li><a href="">three</a></li>
-<quick-datepicker ng-model='Sdate' disable-timepicker="True" date-format='dd MMMM yyyy' placeholder="from" disable-clear-button="True"></quick-datepicker>
- - 
-<quick-datepicker ng-model='Edate' disable-timepicker="True" date-format='dd MMMM yyyy' placeholder="to"  disable-clear-button="True"></quick-datepicker>  
-
   </ul>
 
 </div>
             </header>
             <article class="mw plus1">
  			<div class="pure-g">
-                		<div class="pure-u-1 plus1">
-                    		<h4>Projects</h4>
-
-				</div>
+                		<div class="pure-u-1 plus1">{{lbls | json}}</div>
 			
-		<div class="pure-u-1 plus1">
+<div class="pure-u-1 plus1">
+<p class="pull-right">
+<span>
+{{(data | filter:{FY:Fy} | filter: Srchr ).length}} records
+</span>
+<span>
+{{(data | filter:{FY:Fy} | filter: Srchr ).length}} of {{data.length}} records
+</span>
+<a href="" ng-click="[od='ID',od1='',od2='']" ng-hide="od1==''">reset sort</a>
+</p>
 
 
-{{Edate}}
-			<div><table class="pure-table pure-table-striped table-responsive">
+
+
+
+<form class="pure-form">
+    <fieldset ng-show="Opt==''">
+         <input ng-model="Srchr" ng-show="Opt==''" placeholder="search" ng-focus="Sopt='on'">
+       
+<span ng-hide="Srchr==''"> <!-- broken -->
+ <!--  <select ng-model="myColor" ng-options="color.name for color in colors"></select> -->
+<select id="srch" ng-show="Sopt=='on'">
+            <option>All fields</option>
+            <option>Expense Area only</option>
+            <option>Expense Type only</option>
+            <option>Supplier only</option>
+        </select></span>
+<label>and/or filter by</label>
+        <button ng-click="Opt='x'" class="pure-button"><i class="fa fa-calendar"></i></button>
+    </fieldset>
+
+
+
+<fieldset ng-show="Opt=='x'">
+<label>Select a financial year:</label>
+<a href="" ng-click="Fy='10/11'" class="pure-button">2010/11</a>
+<a href="" ng-click="Fy='11/12'" class="pure-button">2011/12</a>
+<a href="" ng-click="Fy='12/13'" class="pure-button">2012/13</a>
+<a href="" ng-click="Fy='13/14'" class="pure-button">2013/14</a>
+<a href="" ng-click="Opt='y'" class="pure-button" hidden>More</a><!-- unhide when you're done here-->
+<a href="" ng-click="Opt=''" ng-show="Fy==''" class="pure-button"><i class="fa fa-times"></i></a>
+<a href="" ng-click="[Fy='',Opt='']" ng-hide="Fy==''" class="pure-button"><i class="fa fa-times"></i></a>
+</fieldset>
+
+<fieldset ng-show="Opt=='y'">
+<label>Create a custom date range:</label>
+<quick-datepicker ng-model='Sdate' placeholder="from"></quick-datepicker>
+ - 
+<quick-datepicker ng-model='Edate' placeholder="to"></quick-datepicker> 
+<a href="" ng-click="Opt='x'"><i class="fa fa-reply"></i></a> {{Sdate}} | {{Edate}}
+</fieldset>
+</form>
+
+
+<span ng-hide="od1==''" class="pull-right mute">
+Sorting by {{od}} 
+then by {{od1}} 
+<span ng-hide="od2==''">
+then by {{od2}} |
+</span>
+</span>
+
+
+
+			<table class="pure-table pure-table-striped table-responsive">
                  <thead>
                 <tr>
-                <th>ID</th> <th>Date</th> <th>Expense type</th> <th>Expense Area</th> <th>Supplier</th><th>Value</th>
+<th>ID 
+<a href="" ng-click="[od2=od1, od1=od, od='ID']"><i class="fa fa-sort-numeric-asc mute"></i></a>
+<a href="" ng-click="[od2=od1, od1=od, od='-ID']"><i class="fa fa-sort-numeric-desc mute"></i></a>
+</th>
+<th>Date 
+<a href="" ng-click="[od2=od1, od1=od, od='UD']"><i class="fa fa-sort-amount-asc mute"></i></a>
+<a href="" ng-click="[od2=od1, od1=od, od='-UD']"><i class="fa fa-sort-amount-desc mute"></i></a>
+</th>
+<th>Expense type 
+<a href="" ng-click="[od2=od1, od1=od, od='EA']"><i class="fa fa-sort-alpha-asc mute"></i></a>
+<a href="" ng-click="[od2=od1, od1=od, od='-EA']"><i class="fa fa-sort-alpha-desc mute"></i></a>
+</th>
+<th>Expense Area 
+<a href="" ng-click="[od2=od1, od1=od, od='ET']"><i class="fa fa-sort-alpha-asc mute"></i></a>
+<a href="" ng-click="[od2=od1, od1=od, od='-ET']"><i class="fa fa-sort-alpha-desc mute"></i></a>
+</th>
+<th>Supplier 
+<a href="" ng-click="[od2=od1, od1=od, od='S']"><i class="fa fa-sort-alpha-asc mute"></i></a>
+<a href="" ng-click="[od2=od1, od1=od, od='-S']"><i class="fa fa-sort-alpha-desc mute"></i></a>
+</th>
+<th>Value 
+<a href="" ng-click="[od2=od1, od1=od, od='V']"><i class="fa fa-sort-amount-asc mute"></i></a>
+<a href="" ng-click="[od2=od1, od1=od, od='-V']"><i class="fa fa-sort-amount-desc mute"></i></a>
+</th>
                 </tr>
                  </thead>
  <tbody>
-                <tr ng-repeat="d in data | limitTo: 10 "> <td>{{d.ID}}</td> <td>{{d.JD}}</td> <td>{{d.EA}}</td> <td>{{d.ET}}</td> <td>{{d.S}}</td><td>{{d.V | currency:"£"}}</td></tr>
+
+
+
+<tr ng-repeat="d in data | filter:{FY:Fy} | filter: Srchr | orderBy: [od,od1,od2] | limitTo: long  "> 
+<td>{{d.ID}}</td>
+<td>{{d.UD *1000 | date:'dd MMM yyyy'}}</td> 
+<td>{{d.EA}}</td> 
+<td>{{d.ET}}</td> 
+<td>{{d.S}}</td>
+<td>{{d.V | currency:"&pound;"}}</td>
+</tr>
   </tbody>               
-                </table></div>
-
-   
-
-
-		</div>
-                 	</div>
+                 </table>
+<a href="" ng-click="long = long+10" class="pure-button" ng-hide="long>=(data | filter:{FY:Fy} | filter: Srchr ).length">show more</a>
+</div>
+            	</div>
         	</article>
         <div class="floor"></div>
         </div>
         <footer>
           <div class="footer center">
             <a href="https://github.com/HartDC">HDC spend analysis</a>
+<br />
+
           </div>
         </footer>
 </body>
-
-
-
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/sugar/1.4.1/sugar.min.js"></script>
+<script src="ng-quick-date.js"></script>
 <script src="ac.js"></script>
 <script src="data.js"></script>
 
 <script>
 var App = angular.module('App', ['angularCharts','ngQuickDate']);
-
-App.controller('AppCtrl', ['$scope', '$filter', function(scope) {
+App.controller('AppCtrl', ['$scope', '$filter', function(scope, filter) {
               
-scope.Sdate = "2010-04-01";
-scope.Edate = "2014-03-31";
-scope.Fy = null;
-scope.data = dataset;              
-              
-}]);
+scope.Sdate = "2010-04-01T00:00:00.000Z";
+scope.Edate = "2014-03-31T00:00:00.000Z";
+scope.SD = filter('limitTo')(scope.Sdate, 10);
+scope.ED = filter('limitTo')(scope.Edate, 10);
+scope.Fy = "";
+scope.data = dataset;
+scope.lbls = [{1:"ID",2:"ID"},{1:"UD",2:"Date"}]              
+scope.long = 10;
+scope.od = "ID";
+scope.od1 = "";
+scope.od2 = "";
+scope.Opt = "";
+
+} 
 
 
 
-
-
-App.config(function(ngQuickDateDefaultsProvider) {
-  // Configure with icons from font-awesome
-  return ngQuickDateDefaultsProvider.set({
-    closeButtonHtml: "<i class='fa fa-times'></i>",
-    buttonIconHtml: "<i class='fa fa-calendar'></i>",
-    nextLinkHtml: "<i class='fa fa-chevron-right'></i>",
-    prevLinkHtml: "<i class='fa fa-chevron-left'></i>"
-  });
-
-
-
-
-
-
-});
-
-
-
-
-
-
-
-
-
-
-
+]);
 </script>
 </html>
