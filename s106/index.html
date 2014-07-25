@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" value="none">
+    <title>s106</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+</head>
+
+<body ng-controller="AppCtrl" class="ng-cloak">
+
+    <div style="padding:1em;">
+        <div ng-hide="pg!==0">
+<p>The purpose of this calculator is to help provide an estimate for the contributions required under s106. The actual requirements for you particular site may vary so it is recommended you seek advice from the planning department.</p>
+            <form class="pure-form pure-form-aligned">
+                <fieldset>
+                    <legend>
+                        <h3><b>1. </b>What is on the site now?</h3>
+                    </legend>
+                    <div class="pure-control-group">
+                        <label>Total number of dwellings</label>
+                        <input type="number" value="" min="0" max="1000" ng-model="c.TD" ng-change="n.TD = p.TD - c.TD">
+                    </div>
+                </fieldset>
+                <fieldset ng-if="c.TD>0">
+                    <legend>What is the mix of these dwellings?</legend>
+                    <div class="pure-control-group">
+                        <label>No. of 1 bedroom units</label>
+                        <input type="number" value="" min="0" max="1000" ng-model="c.D1" ng-change="n.D1 = p.D1 - c.D1">
+                    </div>
+                    <div class="pure-control-group">
+                        <label>No. of 2 bedroom units</label>
+                        <input type="number" value="" min="0" max="1000" ng-model="c.D2" ng-change="n.D2 = p.D2 - c.D2">
+                    </div>
+                    <div class="pure-control-group">
+                        <label>No. of 3 bedroom units</label>
+                        <input type="number" value="" min="0" max="1000" ng-model="c.D3" ng-change="n.D3 = p.D3 - c.D3">
+                    </div>
+                    <div class="pure-control-group">
+                        <label>No. of 4 or more bedroom units</label>
+                        <input type="number" value="" min="0" max="1000" ng-model="c.D4" ng-change="n.D4 = p.D4 - c.D4">
+                        <p ng-if="(c.D1 + c.D2 + c.D3 + c.D4)>c.TD" style="color:#8c3a2b; background-color:#f5ab9e; padding:1em;">
+                            Are you sure about the mix of units? it is greater than the total number on the site you've stated.
+                            <br />Please either change the total or the mix of units.
+                        </p>
+                    </div>
+
+
+                </fieldset>
+                <fieldset>
+                    <div class="pure-control-group">
+                        <label>Tick if there is commercial use classes on the site</label>
+                        <input type="checkbox" value="false" ng-model="c.C" ng-click="[c.B1=0,c.B2=0,c.B8=0]">
+                    </div>
+                </fieldset>
+                <fieldset ng-if="c.C">
+                    <div class="pure-control-group">
+                        <label>Area of B1 development (m2)</label>
+                        <input type="number" value="" min="0" max="100000" ng-model="c.B1" ng-change="n.B1 = p.B1 - c.B1">
+                    </div>
+                    <div class="pure-control-group">
+                        <label>Area of B2 development (m2)</label>
+                        <input type="number" value="" min="0" max="100000" ng-model="c.B2" ng-change="n.B2 = p.B2 - c.B2">
+                    </div>
+                    <div class="pure-control-group">
+                        <label>Area of B8 development (m2)</label>
+                        <input type="number" value="" min="0" max="100000" ng-model="c.B8" ng-change="n.B8 = p.B8 - c.B8">
+                    </div>
+                </fieldset>
+                <button type="submit" class="pure-button pure-button-primary" ng-disabled="(c.D1 + c.D2 + c.D3 + c.D4)!=c.TD" ng-click="pg=1">Next</button>
+            </form>
+        </div>
+
+
+
+        <div ng-show="pg==1">
+            <form class="pure-form pure-form-aligned">
+                <fieldset>
+                    <legend>
+                        <h3><b>2. </b>What are you proposing on the site?</h3>
+                    </legend>
+                    <div class="pure-control-group">
+                        <label>Total number of dwellings</label>
+                        <input type="number" value="" min="0" max="1000" ng-model="p.TD" ng-change="n.TD = p.TD - c.TD">
+                    </div>
+                </fieldset>
+                <fieldset ng-if="p.TD>0">
+                    <legend>What is the mix of these dwellings?</legend>
+                    <div class="pure-control-group">
+                        <label>No. of 1 bedroom units</label>
+                        <input type="number" value="" min="0" max="1000" ng-model="p.D1" ng-change="n.D1 = p.D1 - c.D1">
+                    </div>
+                    <div class="pure-control-group">
+                        <label>No. of 2 bedroom units</label>
+                        <input type="number" value="" min="0" max="1000" ng-model="p.D2" ng-change="n.D2 = p.D2 - c.D2">
+                    </div>
+                    <div class="pure-control-group">
+                        <label>No. of 3 bedroom units</label>
+                        <input type="number" value="" min="0" max="1000" ng-model="p.D3" ng-change="n.D3 = p.D3 - c.D3">
+                    </div>
+                    <div class="pure-control-group">
+                        <label>No. of 4 or more bedroom units</label>
+                        <input type="number" value="" min="0" max="1000" ng-model="p.D4" ng-change="n.D4 = p.D4 - c.D4">
+                        <p ng-if="(p.D1 + p.D2 + p.D3 + p.D4)>p.TD" style="color:#8c3a2b; background-color:#f5ab9e; padding:1em;">
+                            Are you sure about the mix of units? it is greater than the total number on the site you've stated.
+                            <br />Please either change the total or the mix of units.
+                        </p>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="pure-control-group">
+                        <label>Tick if there is commercial use classes on the site</label>
+                        <input type="checkbox" value="false" ng-model="p.C" ng-click="[p.B1=0,p.B2=0,p.B8=0]">
+                    </div>
+                </fieldset>
+                <fieldset ng-if="p.C">
+                    <div class="pure-control-group">
+                        <label>Area of B1 development (m2)</label>
+                        <input type="number" value="" min="0" max="100000" ng-model="p.B1" ng-change="n.B1 = p.B1 - c.B1">
+                    </div>
+                    <div class="pure-control-group">
+                        <label>Area of B2 development (m2)</label>
+                        <input type="number" value="" min="0" max="100000" ng-model="p.B2" ng-change="n.B2 = p.B2 - c.B2">
+                    </div>
+                    <div class="pure-control-group">
+                        <label>Area of B8 development (m2)</label>
+                        <input type="number" value="" min="0" max="100000" ng-model="p.B8" ng-change="n.B8 = p.B8 - c.B8">
+                    </div>
+                </fieldset>
+                <button type="submit" class="pure-button" ng-click="pg=0">Back</button>
+                <button type="submit" class="pure-button pure-button-primary" ng-disabled="(p.D1 + p.D2 + p.D3 + p.D4)!=p.TD" ng-click="[pg=2,
+Amt = 
+((Math.max(0, n.D1)*v.DL1) + (Math.max(0, n.D2)*v.DL2) + (Math.max(0, n.D3)*v.DL3) + (Math.max(0, n.D4)*v.DL4))+
+((Math.max(0, n.D1)*v.PL1) + (Math.max(0, n.D2)*v.PL2) + (Math.max(0, n.D3)*v.PL3) + (Math.max(0, n.D4)*v.PL4))+
+((Math.max(0, n.D1)*v.EP1) + (Math.max(0, n.D2)*v.EP2) + (Math.max(0, n.D3)*v.EP3) + (Math.max(0, n.D4)*v.EP4))+
+((Math.max(0, n.D1)*v.ES1) + (Math.max(0, n.D2)*v.ES2) + (Math.max(0, n.D3)*v.ES3) + (Math.max(0, n.D4)*v.ES4))+
+((Math.max(0, n.D1)*v.T1) + (Math.max(0, n.D2)*v.T2) + (Math.max(0, n.D3)*v.T3) + (Math.max(0, n.D4)*v.T4))+ ((Math.max(0, n.B1/100)*v.TB1) + (Math.max(0, n.B2/100)*v.TB2) + (Math.max(0, n.B8/100)*v.TB8))+
+((Math.max(0, n.D1)*v.SHL1) + (Math.max(0, n.D2)*v.SHL2) + (Math.max(0, n.D3)*v.SHL3) + (Math.max(0, n.D4)*v.SHL4))+
+((Math.max(0, n.D1)*v.SHM1) + (Math.max(0, n.D2)*v.SHM2) + (Math.max(0, n.D3)*v.SHM3) + (Math.max(0, n.D4)*v.SHM4))+
+((Math.max(0, n.D1)*v.SA1) + (Math.max(0, n.D2)*v.SA2) + (Math.max(0, n.D3)*v.SA3) + (Math.max(0, n.D4)*v.SA4)) 
+
+
+]">View Results</button>
+
+            </form>
+        </div>
+
+        <div ng-show="pg==2">
+
+            <button type="submit" class="pure-button" ng-click="pg=0">Back to current site</button>&nbsp;
+<button type="submit" class="pure-button" ng-click="pg=1">Back to proposed site</button>
+            </p>
+            <h3><b>3. </b>Impact of Proposed Development</h3>
+            <div ng-if="Amt<=0">
+                <p>No proposal made. Please try again</p>
+            </div>
+
+            <div ng-if="Amt>0">
+                <p>The total amount of contribution required for your proposal is:</p>
+                <h4>{{Amt | currency : '&pound; '}}</h4>
+                <p>This is broken down as follows:</p>
+
+
+
+<table class="pure-table pure-table-horizontal">
+                        <thead>
+                            <tr>
+					  <th>&nbsp;</th>
+                                <th>Contribution
+                                    <br />required</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>District Leisure/Community Development</td>
+                                <td>{{(Math.max(0, n.D1)*v.DL1) + (Math.max(0, n.D2)*v.DL2) + (Math.max(0, n.D3)*v.DL3) + (Math.max(0, n.D4)*v.DL4) | currency : '&pound; '}}
+</td>                           
+                            </tr>
+
+                            <tr>
+                                <td>Parish Leisure/Community Development</td>
+                                <td>{{(Math.max(0, n.D1)*v.PL1) + (Math.max(0, n.D2)*v.PL2) + (Math.max(0, n.D3)*v.PL3) + (Math.max(0, n.D4)*v.PL4) | currency : '&pound; '}}
+</td>                                
+                            </tr>
+
+                            <tr>
+                                <td>Education Primary Schools</td>
+                                <td>{{(Math.max(0, n.D1)*v.EP1) + (Math.max(0, n.D2)*v.EP2) + (Math.max(0, n.D3)*v.EP3) + (Math.max(0, n.D4)*v.EP4) | currency : '&pound; '}}
+</td>                                
+                            </tr>
+                            <tr>
+                                <td>Education Secondary Schools</td>
+                                <td>{{(Math.max(0, n.D1)*v.ES1) + (Math.max(0, n.D2)*v.ES2) + (Math.max(0, n.D3)*v.ES3) + (Math.max(0, n.D4)*v.ES4) | currency : '&pound; '}}
+</td>                                
+                            </tr>
+				    <tr>
+                                <td>NHTS</td>
+                                <td>{{((Math.max(0, n.D1)*v.T1) + (Math.max(0, n.D2)*v.T2) + (Math.max(0, n.D3)*v.T3) + (Math.max(0, n.D4)*v.T4))
++ ((Math.max(0, n.B1/100)*v.TB1) + (Math.max(0, n.B2/100)*v.TB2) + (Math.max(0, n.B8/100)*v.TB8) )
+
+ | currency : '&pound; '}}
+</td>                                
+                            </tr>
+				    <tr>
+                                <td>SPA Mitigation - Hitches Lane</td>
+                                <td>{{(Math.max(0, n.D1)*v.SHL1) + (Math.max(0, n.D2)*v.SHL2) + (Math.max(0, n.D3)*v.SHL3) + (Math.max(0, n.D4)*v.SHL4) | currency : '&pound; '}}
+</td>                                
+                            </tr>
+				    <tr>
+                                <td>SPA Mitigation - Hawley Meadows</td>
+                                <td>{{(Math.max(0, n.D1)*v.SHM1) + (Math.max(0, n.D2)*v.SHM2) + (Math.max(0, n.D3)*v.SHM3) + (Math.max(0, n.D4)*v.SHM4) | currency : '&pound; '}}
+</td>                                
+                            </tr>
+				    <tr>
+                                <td>SAMM</td>
+                                <td>{{(Math.max(0, n.D1)*v.SA1) + (Math.max(0, n.D2)*v.SA2) + (Math.max(0, n.D3)*v.SA3) + (Math.max(0, n.D4)*v.SA4) | currency : '&pound; '}}
+</td>                                
+                            </tr>
+                            <tr class="pure-table-odd">
+                                <td>Total</td>
+                                <td>{{
+((Math.max(0, n.D1)*v.DL1) + (Math.max(0, n.D2)*v.DL2) + (Math.max(0, n.D3)*v.DL3) + (Math.max(0, n.D4)*v.DL4))+
+((Math.max(0, n.D1)*v.PL1) + (Math.max(0, n.D2)*v.PL2) + (Math.max(0, n.D3)*v.PL3) + (Math.max(0, n.D4)*v.PL4))+
+((Math.max(0, n.D1)*v.EP1) + (Math.max(0, n.D2)*v.EP2) + (Math.max(0, n.D3)*v.EP3) + (Math.max(0, n.D4)*v.EP4))+
+((Math.max(0, n.D1)*v.ES1) + (Math.max(0, n.D2)*v.ES2) + (Math.max(0, n.D3)*v.ES3) + (Math.max(0, n.D4)*v.ES4))+
+((Math.max(0, n.D1)*v.T1) + (Math.max(0, n.D2)*v.T2) + (Math.max(0, n.D3)*v.T3) + (Math.max(0, n.D4)*v.T4))+ ((Math.max(0, n.B1/100)*v.TB1) + (Math.max(0, n.B2/100)*v.TB2) + (Math.max(0, n.B8/100)*v.TB8))+
+((Math.max(0, n.D1)*v.SHL1) + (Math.max(0, n.D2)*v.SHL2) + (Math.max(0, n.D3)*v.SHL3) + (Math.max(0, n.D4)*v.SHL4))+
+((Math.max(0, n.D1)*v.SHM1) + (Math.max(0, n.D2)*v.SHM2) + (Math.max(0, n.D3)*v.SHM3) + (Math.max(0, n.D4)*v.SHM4))+
+((Math.max(0, n.D1)*v.SA1) + (Math.max(0, n.D2)*v.SA2) + (Math.max(0, n.D3)*v.SA3) + (Math.max(0, n.D4)*v.SA4)) | currency : '&pound; '}}</td>                                
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+
+<p>If affordable housing is required (depends on the size and location of the development): <b>{{(Math.max(0, n.TD))*0.4 | number:0 }}</b></p>
+		
+
+
+
+
+            </div>
+            
+
+            
+
+            
+                <div ng-if="c.TD>0">
+                    <div ng-if="!p.TD>0">
+                        <p>No residential contributions required</p>
+                    </div>
+                </div>
+                <div ng-if="p.TD>0">
+                    <h4>Residential</h4>
+                    <table class="pure-table pure-table-horizontal">
+                        <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>Current</th>
+                                <th>Proposed</th>
+                                <th>Net Increase</th>
+                                <th>Net Increase
+                                    <br />(in people)</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1 bedroom units</td>
+                                <td>{{c.D1}}</td>
+                                <td>{{p.D1}}</td>
+                                <td>{{Math.max(0, n.D1)}}</td>
+                                <td>{{Math.max(0, n.D1)*v.PP1}}</td>
+                                
+                            </tr>
+
+                            <tr>
+                                <td>2 bedroom units</td>
+                                <td>{{c.D2}}</td>
+                                <td>{{p.D2}}</td>
+                                <td>{{Math.max(0, n.D2)}}</td>
+                                <td>{{Math.max(0, n.D2)*v.PP2}}</td>
+                                
+                            </tr>
+
+                            <tr>
+                                <td>3 bedroom units</td>
+                                <td>{{c.D3}}</td>
+                                <td>{{p.D3}}</td>
+                                <td>{{Math.max(0, n.D3)}}</td>
+                                <td>{{Math.max(0, n.D3)*v.PP3}}</td>
+                                
+                            </tr>
+                            <tr>
+                                <td>4+ bedroom units</td>
+                                <td>{{c.D4}}</td>
+                                <td>{{p.D4}}</td>
+                                <td>{{Math.max(0, n.D4)}}</td>
+                                <td>{{Math.max(0, n.D4)*v.PP4}}</td>
+                               
+                            </tr>
+                            <tr class="pure-table-odd">
+                                <td>Total Dwellings</td>
+                                <td>{{c.TD}}</td>
+                                <td>{{p.TD}}</td>
+                                <td>{{Math.max(0, n.TD)}}</td>
+                                <td>{{(Math.max(0, n.D1)*v.PP1)+(Math.max(0, n.D2)*v.PP2)+(Math.max(0, n.D3)*v.PP3)+(Math.max(0, n.D4)*v.PP4)}}</td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+                <div ng-if="c.C">
+                    <div ng-if="!p.C">
+                        <p>No commercial contributions required</p>
+                    </div>
+                </div>
+                <div ng-if="p.C">
+                    <h4>Commercial</h4>
+                    <table class="pure-table pure-table-horizontal">
+                        <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>Current</th>
+                                <th>Proposed</th>
+                                <th>Net Increase</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Area of B1 development (m2)</td>
+                                <td>{{c.B1}}</td>
+                                <td>{{p.B1}}</td>
+                                <td>{{Math.max(0, n.B1)}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Area of B2 development (m2)</td>
+                                <td>{{c.B2}}</td>
+                                <td>{{p.B2}}</td>
+                                <td>{{Math.max(0, n.B2)}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Area of B8 development (m2)</td>
+                                <td>{{c.B8}}</td>
+                                <td>{{p.B8}}</td>
+                                <td>{{Math.max(0, n.B1)}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            
+        </div>
+    </div>
+
+</body>
+<script>
+    var App = angular.module('App', []);
+    App.controller('AppCtrl', ['$scope',
+        function (s) {
+            /* Setting up the App (paging math etc) */
+            s.pg = 0;
+            s.Amt = 0;
+            s.Math = window.Math;
+            
+            /* Setting up the form for inputting */
+		s.c = {}; 
+            s.c.TD = 0;  /* Current-Total dwellings */
+            s.c.D1 = 0; /* Current-No. of 1-bed units */
+            s.c.D2 = 0; /* Current-No. of 2-bed units*/
+            s.c.D3 = 0; /*Current-No. of 3-bed units*/
+            s.c.D4 = 0; /*Current-No. of 4- or more bed units*/
+            s.c.C = false; /*Current-Commercial?*/
+            s.c.B1 = 0; /*Current-Area of B1 development (m2) */
+            s.c.B2 = 0; /*Current-Area of B2 development (m2) */
+            s.c.B8 = 0; /*Current-Area of B8 development (m2) */
+            s.p = {};
+            s.p.TD = 0; /*Proposed-Total dwellings*/
+            s.p.D1 = 0; /*Proposed-No. of 1-bed units*/
+            s.p.D2 = 0; /*Proposed-No. of 2-bed units*/
+            s.p.D3 = 0; /*Proposed-No. of 3-bed units*/
+            s.p.D4 = 0; /*Proposed-No. of 4- or more bed units*/
+            s.p.C = false; /*Proposed-Commercial?*/
+            s.p.B1 = 0; /*Proposed-Area of B1 development (m2) */
+            s.p.B2 = 0; /*Proposed-Area of B2 development (m2) */
+            s.p.B8 = 0; /*Proposed-Area of B8 development (m2) */
+            
+
+            /* Placeholders for your net increases */
+
+		s.n = {};
+            s.n.TD = 0; /*Net-Total dwellings*/
+            s.n.D1 = 0; /*Net-No. of 1-bed units*/
+            s.n.D2 = 0; /*Net-No. of 2-bed units*/
+            s.n.D3 = 0; /*Net-No. of 3-bed units*/
+            s.n.D4 = 0; /*Net-No. of 4- or more bed units*/
+            s.n.B1 = 0; /*Net-Area of B1 development (m2) */
+            s.n.B2 = 0; /*Net-Area of B2 development (m2) */
+            s.n.B8 = 0; /*Net-Area of B8 development (m2) */
+
+
+
+            /* Setting up the preset contribution values - updates should be applied here, make sure you include your admin fees and accounted for per person costs (this app just displays people data for info, not to calculate fees) */
+
+            s.v = {};
+            s.v.DL1 = 424; /*District Leisure/Community Development-1 Bed*/
+            s.v.DL2 = 848; /*District Leisure/Community Development-2 Bed*/
+            s.v.DL3 = 1272; /*District Leisure/Community Development-3 Bed*/
+            s.v.DL4 = 1908; /*District Leisure/Community Development-4 or more Bed*/
+
+            s.v.PL1 = 849; /*Parish Leisure/Community Development-1 Bed*/
+            s.v.PL2 = 1699; /*Parish Leisure/Community Development-2 Bed*/
+            s.v.PL3 = 2548; /*Parish Leisure/Community Development-3 Bed*/
+            s.v.PL4 = 3822; /*Parish Leisure/Community Development-4 or more Bed*/
+
+            s.v.EP1 = 0; /*Education Primary Schools-1 Bed*/
+            s.v.EP2 = 3821; /*Education Primary Schools-2 Bed*/
+            s.v.EP3 = 5731; /*Education Primary Schools-3 Bed*/
+            s.v.EP4 = 7642; /*Education Primary Schools-4 or more Bed*/
+
+            s.v.ES1 = 0; /*Education Secondary Schools-1 Bed*/
+            s.v.ES2 = 4025; /*Education Secondary Schools-2 Bed*/
+            s.v.ES3 = 6038; /*Education Secondary Schools-3 Bed*/
+            s.v.ES4 = 8051; /*Education Secondary Schools-4 or more Bed*/
+
+            s.v.T1 = 2079; /*NHTS-1 Bed*/
+            s.v.T2 = 4014; /*NHTS-2 Bed*/
+            s.v.T3 = 4014; /*NHTS-3 Bed*/
+            s.v.T4 = 5730; /*NHTS-4 or more Bed*/
+
+            s.v.TB1 = 4516; /*NHTS-B1 development */
+            s.v.TB2 = 1811; /*NHTS-B2 development */
+            s.v.TB8 = 2270; /*NHTS-B8 development */
+
+            s.v.SHL1 = 4051; /*SPA Mitigation - Hitches Lane-1 Bed*/
+            s.v.SHL2 = 7542; /*SPA Mitigation - Hitches Lane-2 Bed*/
+            s.v.SHL3 = 7542; /*SPA Mitigation - Hitches Lane-3 Bed*/
+            s.v.SHL4 = 10908; /*SPA Mitigation - Hitches Lane-4 or more Bed*/
+
+            s.v.SHM1 = 3549; /*SPA Mitigation - Hawley Meadows-1 Bed*/
+            s.v.SHM2 = 6607; /*SPA Mitigation - Hawley Meadows-2 Bed*/
+            s.v.SHM3 = 6607; /*SPA Mitigation - Hawley Meadows-3 Bed*/
+            s.v.SHM4 = 9555; /*SPA Mitigation - Hawley Meadows-4 or more Bed*/
+
+            s.v.SA1 = 359; /*SAMM-1 Bed*/
+            s.v.SA2 = 669; /*SAMM-2 Bed*/
+            s.v.SA3 = 669; /*SAMM-3 Bed*/
+            s.v.SA4 = 967; /*SAMM-4 or more Bed*/
+
+            s.v.PP1 = 1.3; /*People-1 Bed*/
+            s.v.PP2 = 2.42; /*People-2 Bed*/
+            s.v.PP3 = 2.42; /*People-3 Bed*/
+            s.v.PP4 = 3.5; /*People-4 or more Bed*/
+
+
+
+}]);
+
+</script>
+</html>
