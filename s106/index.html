@@ -240,7 +240,7 @@ Amt =
 
 
 
-<p>If affordable housing is required (depends on the size and location of the development): <b>{{(Math.max(0, n.TD))*0.4 | number:0 }}</b></p>
+<p>If affordable housing is required (depends on the size and location of the development): <b>{{(Math.max(0, n.TD))*0.4 | number:1 }} units</b></p>
 		
 
 
@@ -258,7 +258,7 @@ Amt =
                     </div>
                 </div>
                 <div ng-if="p.TD>0">
-                    <h4>Residential</h4>
+                    <h4>Residential Summary</h4>
                     <table class="pure-table pure-table-horizontal">
                         <thead>
                             <tr>
@@ -326,7 +326,7 @@ Amt =
                     </div>
                 </div>
                 <div ng-if="p.C">
-                    <h4>Commercial</h4>
+                    <h4>Commercial Summary</h4>
                     <table class="pure-table pure-table-horizontal">
                         <thead>
                             <tr>
