@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <link rel="stylesheet" href="style.css">
     <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
 
 </head>
 
@@ -69,11 +69,11 @@
 
                         <fieldset ng-show="Opt=='x'">
                             <label>Select a financial year:</label>
-                            <a href="" ng-click="Fy='10/11'" class="pure-button">2010/11</a>
-                            <a href="" ng-click="Fy='11/12'" class="pure-button">2011/12</a>
-                            <a href="" ng-click="Fy='12/13'" class="pure-button">2012/13</a>
-                            <a href="" ng-click="Fy='13/14'" class="pure-button">2013/14</a>
-                            <a href="" ng-click="Opt='y'" class="pure-button" hidden>More</a>
+                            <a href="" ng-click="Fy=0" class="pure-button">2010/11</a>
+                            <a href="" ng-click="Fy=1" class="pure-button">2011/12</a>
+                            <a href="" ng-click="Fy=2" class="pure-button">2012/13</a>
+                            <a href="" ng-click="Fy=4" class="pure-button">2013/14</a>
+                            <a href="" ng-click="Opt='y'" class="pure-button">More</a>
                             <!-- unhide when you're done here-->
                             <a href="" ng-click="Opt=''" ng-show="Fy==''" class="pure-button"><i class="fa fa-times"></i></a>
                             <a href="" ng-click="[Fy='',Opt='']" ng-hide="Fy==''" class="pure-button"><i class="fa fa-times"></i></a>
@@ -88,34 +88,46 @@
                         </fieldset>
                     </form>
 
-
+                    {{}}
             
                     <table class="pure-table pure-table-striped table-responsive">
                         <thead>
                             <tr>
                                 <th>ID
-                                    <a href="" ng-click="[od2=od1, od1=od, od='ID']" ><i class="fa fa-sort-numeric-asc mute" ng-class="{first: od=='ID', second: od1=='ID', third: od2=='ID'}"></i></a>
-                                    <a href="" ng-click="[od2=od1, od1=od, od='-ID']"><i class="fa fa-sort-numeric-desc mute" ng-class="{first: od=='-ID', second: od1=='-ID', third: od2=='-ID'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='ID']" >
+                    <i class="fa fa-sort-numeric-asc mute" ng-class="{first: od=='ID', second: od1=='ID', third: od2=='ID'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='-ID']">
+                    <i class="fa fa-sort-numeric-desc mute" ng-class="{first: od=='-ID', second: od1=='-ID', third: od2=='-ID'}"></i></a>
                                 </th>
                                 <th>Date
-                                    <a href="" ng-click="[od2=od1, od1=od, od='UD']"><i class="fa fa-sort-amount-asc mute" ng-class="{first: od=='UD', second: od1=='UD', third: od2=='UD'}"></i></a>
-                                    <a href="" ng-click="[od2=od1, od1=od, od='-UD']"><i class="fa fa-sort-amount-desc mute" ng-class="{first: od=='-UD', second: od1=='-UD', third: od2=='-UD'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='UD']">
+                    <i class="fa fa-sort-amount-asc mute" ng-class="{first: od=='UD', second: od1=='UD', third: od2=='UD'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='-UD']">
+                    <i class="fa fa-sort-amount-desc mute" ng-class="{first: od=='-UD', second: od1=='-UD', third: od2=='-UD'}"></i></a>
                                 </th>
                                 <th>Expense type
-                                    <a href="" ng-click="[od2=od1, od1=od, od='EA']"><i class="fa fa-sort-alpha-asc mute" ng-class="{first: od=='EA', second: od1=='EA', third: od2=='EA'}"></i></a>
-                                    <a href="" ng-click="[od2=od1, od1=od, od='-EA']"><i class="fa fa-sort-alpha-desc mute" ng-class="{first: od=='-EA', second: od1=='-EA', third: od2=='-EA'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='EA']">
+                    <i class="fa fa-sort-alpha-asc mute" ng-class="{first: od=='EA', second: od1=='EA', third: od2=='EA'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='-EA']">
+                    <i class="fa fa-sort-alpha-desc mute" ng-class="{first: od=='-EA', second: od1=='-EA', third: od2=='-EA'}"></i></a>
                                 </th>
                                 <th>Expense Area
-                                    <a href="" ng-click="[od2=od1, od1=od, od='ET']"><i class="fa fa-sort-alpha-asc mute" ng-class="{first: od=='ET', second: od1=='ET', third: od2=='ET'}"></i></a>
-                                    <a href="" ng-click="[od2=od1, od1=od, od='-ET']"><i class="fa fa-sort-alpha-desc mute" ng-class="{first: od=='-ET', second: od1=='-ET', third: od2=='-ET'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='ET']">
+                    <i class="fa fa-sort-alpha-asc mute" ng-class="{first: od=='ET', second: od1=='ET', third: od2=='ET'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='-ET']">
+                    <i class="fa fa-sort-alpha-desc mute" ng-class="{first: od=='-ET', second: od1=='-ET', third: od2=='-ET'}"></i></a>
                                 </th>
                                 <th>Supplier
-                                    <a href="" ng-click="[od2=od1, od1=od, od='S']"><i class="fa fa-sort-alpha-asc mute" ng-class="{first: od=='S', second: od1=='S', third: od2=='S'}"></i></a>
-                                    <a href="" ng-click="[od2=od1, od1=od, od='-S']"><i class="fa fa-sort-alpha-desc mute" ng-class="{first: od=='-S', second: od1=='-S', third: od2=='-S'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='S']">
+                    <i class="fa fa-sort-alpha-asc mute" ng-class="{first: od=='S', second: od1=='S', third: od2=='S'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='-S']">
+                    <i class="fa fa-sort-alpha-desc mute" ng-class="{first: od=='-S', second: od1=='-S', third: od2=='-S'}"></i></a>
                                 </th>
                                 <th>Value
-                                    <a href="" ng-click="[od2=od1, od1=od, od='V']"><i class="fa fa-sort-amount-asc mute" ng-class="{first: od=='V', second: od1=='V', third: od2=='V'}"></i></a>
-                                    <a href="" ng-click="[od2=od1, od1=od, od='-V']"><i class="fa fa-sort-amount-desc mute" ng-class="{first: od=='-V', second: od1=='-V', third: od2=='-V'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='V']">
+                    <i class="fa fa-sort-amount-asc mute" ng-class="{first: od=='V', second: od1=='V', third: od2=='V'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='-V']">
+                    <i class="fa fa-sort-amount-desc mute" ng-class="{first: od=='-V', second: od1=='-V', third: od2=='-V'}"></i></a>
                                 </th>
                             </tr>
                         </thead>
@@ -124,11 +136,11 @@
 
 
                             <tr ng-repeat="d in data | filter:{FY:Fy} | filter: Srchr | orderBy: [od,od1,od2] | limitTo: long  ">
-                                <td>{{d.ID}}</td>
-                                <td>{{d.UD *1000 | date:'dd MMM yyyy'}}</td>
-                                <td>{{d.EA}}</td>
-                                <td>{{d.ET}}</td>
-                                <td>{{d.S}}</td>
+                                <td>{{d.ID+1}}</td>
+                                <td>{{d.UD *100000 | date:'dd MMM yyyy'}}</td>
+                                <td>{{dEA[d.EA]}}</td>
+                                <td>{{dET[d.ET]}}</td>
+                                <td>{{dS[d.S]}}</td>
                                 <td>{{d.V | currency:"&pound;"}}</td>
                             </tr>
                         </tbody>
@@ -164,6 +176,9 @@
             scope.ED = filter('limitTo')(scope.Edate, 10);
             scope.Fy = "";
             scope.data = dataset;
+            scope.dEA = dEA;
+            scope.dET = dET;
+            scope.dS = dS;
             scope.long = 10;
             scope.od = "ID";
             scope.od1 = "";
