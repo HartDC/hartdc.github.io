@@ -1,0 +1,371 @@
+html,
+button,
+input,
+select,
+textarea,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+body,
+.pure-g[class *="pure-u"] {
+    font-family: 'Open Sans', sans-serif;
+    color: #222;
+    font-weight: 300;
+}
+a {
+    color: #1f8dd6;
+    text-decoration: none;
+}
+.mute {
+    color: #aaa;
+    text-decoration: none;
+}
+.plus05 {
+    padding: .5em
+}
+.plus1 {
+    padding: 1em
+}
+.plus1h {
+    padding-left: 1em;
+    padding-right: 1em
+}
+.plus2 {
+    padding: 2em
+}
+.l-pad1 {
+    padding-left: 1em
+}
+.header {
+    background: #4f5757;
+}
+.wt {
+    color: #fff;
+}
+.mw {
+    max-width: 80em;
+    margin: 0 auto
+}
+.header a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff
+}
+.footer,
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    background: #4f5757
+}
+.right {
+    text-align: right;
+}
+.center {
+    text-align: center;
+}
+.box {
+    position: relative;
+}
+.drop {
+    position: absolute;
+    bottom: 1em;
+}
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-size: 1.05em
+}
+.fullscreen {
+    min-height: 100%;
+    height: auto!important;
+    height: 100%;
+    margin: 0 auto -196px
+}
+.floor,
+.footer {
+    height: 196px
+}
+.primary-button {
+    background: #1f8dd6;
+    color: #fff
+}
+.grey {
+    background: #efefef;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    min-height: 12em;
+}
+.gry {
+    background-color: #DDD !important;
+}
+.gryc {
+    color: #DDD !important;
+}
+.gry-line {
+    border-right-color: #DDD;
+    border-right-width: 20px;
+    border-right-style: solid;
+}
+.grn {
+    background-color: #7fcba4 !important;
+}
+.grnc {
+    color: #7fcba4 !important;
+}
+.grn-line {
+    border-right-color: #7fcba4;
+    border-right-width: 20px;
+    border-right-style: solid;
+}
+.amb {
+    background-color: #fac090 !important;
+}
+.ambc {
+    color: #fac090 !important;
+}
+.amb-line {
+    border-right-color: #fac090;
+    border-right-width: 20px;
+    border-right-style: solid;
+}
+.red {
+    background-color: #c99391 !important;
+}
+.redc {
+    background-color: #c99391 !important;
+}
+.red-line {
+    border-right-color: #c99391;
+    border-right-width: 20px;
+    border-right-style: solid;
+}
+/*chart and table stuff*/
+
+html {
+    overflow-y: scroll;
+    overflow: -moz-scrollbars-vertical;
+}
+.table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    border: 1px solid #ddd;
+}
+.gray {
+    background: rgba(79, 87, 87, 0.1);
+}
+.chart {
+    width: auto;
+    height: 400px;
+    position: relative;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #fff;
+}
+.ac-line {
+    fill: none;
+    stroke-width: 2px;
+}
+
+.first  {color: #0c4e7b }
+.second {color: #488fc7 }
+.third  {color: #87ccfa }
+
+th {text-decoration: none; font-weight: 300;}
+
+/*date stuff*/
+
+.quickdate {
+    display: inline-block;
+    position: relative;
+}
+.quickdate-button div,
+.quickdate-action-link div {
+    display: inline;
+}
+.quickdate-popup {
+    z-index: 10;
+    background-color: #fff;
+    border: 0px;
+    text-align: center;
+    width: 270px;
+    display: none;
+    position: absolute;
+    padding: 5px;
+}
+.quickdate-popup.open {
+    display: block;
+}
+.quickdate-close {
+    position: absolute;
+    top: 5px;
+    right: 0px;
+    color: #ccc;
+    margin-top: -6px;
+    text-decoration: none;
+}
+.quickdate-close:hover {
+    text-decoration: none;
+}
+.quickdate-close:hover,
+.quickdate-close:visited {
+    color: #ccc;
+}
+.quickdate-calendar-header {
+    display: block;
+    padding: 0px 0px;
+    text-align: center;
+}
+.quickdate-month {
+    padding-top: 6px;
+    display: inline-block;
+}
+a.quickdate-prev-month {
+    float: left;
+}
+a.quickdate-next-month {
+    float: right;
+}
+.quickdate-text-inputs {
+    height: 1px;
+}
+.quickdate-input-wrapper {
+    width: 0%;
+    height: 1px;
+    display: inline-block;
+}
+input.quickdate-date-input,
+input.quickdate-time-input {
+    width: 0px !important;
+    margin: 0 !important;
+    height: 1px !important;
+    padding: 0px 0px !important;
+    border: 0px !important;
+    -webkit-box-shadow: 0px 0px 0px rgba(25, 25, 25, 0.92) !important;
+    -moz-box-shadow: 0px 0px 0px rgba(25, 25, 25, 0.92) !important;
+    box-shadow: 0px 0px 0px rgba(25, 25, 25, 0.92) !important;
+}
+table.quickdate-calendar {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    margin-top: 5px;
+}
+table.quickdate-calendar th,
+table.quickdate-calendar td {
+    padding: 5px;
+}
+table.quickdate-calendar td:hover {
+    cursor: pointer;
+}
+.quickdate-popup-footer {
+    text-align: right;
+    display: block;
+}
+.quickdate input.ng-invalid {
+    border: 0px solid #dd3b30;
+}
+.quickdate input.ng-invalid:focus {
+    outline-color: #eee;
+}
+.quickdate {
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 15px;
+}
+.quickdate input,
+.quickdate select {
+    font-size: 13px;
+}
+.quickdate-button {
+    background: #ffffff;
+    color: #333333;
+    border: solid 1px #cccccc;
+    box-shadow: outset 0 1px 1px rgba(0, 0, 0, 0.075);
+    border-radius: 4px;
+    padding: 4px 8px;
+    display: inline-block;
+    text-decoration: none;
+}
+.quickdate-button:hover {
+    text-decoration: none;
+}
+.quickdate-button:hover i {
+    text-decoration: none;
+}
+.quickdate-button i {
+    padding-right: 4px;
+}
+.quickdate-popup {
+    color: #333333;
+    font-size: 15px;
+    background-color: #fafafa;
+    border: 0px #dddddd;
+    -webkit-box-shadow: 0px 0px 15px rgba(25, 25, 25, 0.5);
+    -moz-box-shadow: 0px 0px 15px rgba(25, 25, 25, 0.5);
+    box-shadow: 0px 0px 15px rgba(25, 25, 25, 0.5);
+}
+.quickdate-action-link:visited,
+.quickdate-action-link:hover {
+    color: #ccc;
+}
+.quickdate-next-month i {
+    padding-left: 10px;
+}
+.quickdate-prev-month i {
+    padding-right: 10px;
+}
+table.quickdate-calendar {
+    border: solid 1px #eee;
+    background-color: #ffffff;
+}
+table.quickdate-calendar th {
+    background-color: #FAFAFA;
+    color: #ccc;
+}
+table.quickdate-calendar th,
+table.quickdate-calendar td {
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+table.quickdate-calendar td:hover {
+    background-color: #b0ccde;
+}
+table.quickdate-calendar td.other-month {
+    background-color: #FAFAFA;
+    color: #eee;
+    cursor: default;
+}
+table.quickdate-calendar td.other-month:hover {
+    background-color: #FAFAFA;
+    cursor: default;
+}
+table.quickdate-calendar td.disabled-date {
+    background-color: inherit;
+    color: #ffffff;
+}
+table.quickdate-calendar td.disabled-date:hover {
+    background-color: inherit;
+    cursor: default;
+}
+table.quickdate-calendar td.selected {
+    background-color: #b0ccde;
+    font-weight: bold;
+}
+table.quickdate-calendar td.is-today {
+    color: #b58922;
+    font-weight: bold;
+}
+table.quickdate-calendar td.is-today.disabled-date {
+    color: #929292;
+    font-weight: normal;
+}
