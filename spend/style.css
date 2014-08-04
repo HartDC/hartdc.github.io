@@ -12,7 +12,7 @@ h6,
 p,
 a,
 body,
-.pure-g[class *="pure-u"] {
+.pure-g [class *="pure-u"] {
     font-family: 'Open Sans', sans-serif;
     color: #222;
     font-weight: 300;
