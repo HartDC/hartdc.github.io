@@ -16,7 +16,7 @@
 	h2{font-size: 1.7em; color: #eee;}
 	p, li, table{font-size: 1.2em;}
     .set {max-width:64em; margin:0 auto; padding: 2em;}
-    .pad {padding: 2em; height: 12em; cursor:pointer; overflow-y: scroll; overflow-x: hidden;}
+    .pad {padding: 2em; height: 12em; cursor:pointer; overflow-y: auto; overflow-x: hidden;}
     .edge {padding: 0.5em;}
     .ledge {padding-left: 0.5em;}
     .shade {box-shadow: inset 0 0 500em rgba(0, 0, 0,0.5);}
@@ -127,6 +127,7 @@ var app = angular.module('app', [])
   .controller('kpiCtrl', ['$scope', function($scope) {
     $scope.kpis = 
 [
+
 {i:0,k:"CS01",d:"Quality of Customer Service Call Handling - % score from monitoring sample",n:"No notes",y:94.8,lq:95.3,tq:95.9,t:90,s:"lg",u:"Customer Services",c:"f",p:"%"},
 {i:1,k:"CS02a",d:"% of telephone calls answered by Contact Centre in 15 seconds",n:"No notes",y:77.1,lq:79.6,tq:78.5,t:80,s:"la",u:"Customer Services",c:"f",p:"%"},
 {i:2,k:"CS02b",d:"% of calls to Contact Centre answered within 30 seconds",n:"No notes",y:84.4,lq:85.8,tq:84.2,t:85,s:"la",u:"Customer Services",c:"f",p:"%"},
@@ -139,8 +140,8 @@ var app = angular.module('app', [])
 {i:9,k:"HR05",d:"% Complex HR queries resolved within 10 working days",n:"No notes",y:100,lq:100,tq:100,t:95,s:"lg",u:"HR",c:"f",p:"%"},
 {i:10,k:"HR11",d:"Working Days (per FTE) Lost Due to Sickness Absence (Cumulative)",n:"No notes",y:1700,lq:810,tq:260,t:158,s:"lr",u:"HR",c:"f",p:""},
 {i:11,k:"HS01",d:"Average time (in days) taken to decide whether to accept people as homeless",n:"140702 - Apr to Jun 2014 quarter: 20 decisions during the quarter, 13 Acceptances (average time taken to accept was 11 days), 4 Intentional decisions, 3 Eligible but not homeless decisions",y:0,lq:1400,tq:1100,t:1500,s:"lg",u:"Housing Services",c:"f",p:""},
-{i:12,k:"HS07",d:"Preventing Homelessness - number of housing advice cases where homelessness prevented (Values are cumulative)",n:"140702 - this figure may increase as we are not at the end of the month as yet. One of the Housing Options Officers leaves the Council on 11th July and this may impact further on our performance here. The continued implementation of more robust verification following Diagnostic Peer Review recommendations continues to keep preventions down. Although prevention figure is lower - there were 131 clients seen for housing advice Apr to Jun 2014. The majority were not technically homeless or threatened with homelessness within the scope of reporting guidance and hence could not be recorded as 'prevention'. The Housing Needs Manager will continue to monitor this.",y:36500,lq:36500,tq:3600,t:0,s:"lu",u:"Housing Services",c:"f",p:"%"},
-{i:13,k:"HS08",d:"% of private sector housing grant budgets actually spent (DFG) (Values are cumulative)",n:"24-June-2014 – To date this financial year £25k spent out of £500k budget (5%). £147k is committed but not yet paid and a potential £255k is at pre approval stage. ",y:57,lq:57,tq:5,t:0,s:"lu",u:"Housing Services",c:"f",p:"%"},
+{i:12,k:"HS07",d:"Preventing Homelessness - number of housing advice cases where homelessness prevented (Values are cumulative)",n:"140702 - this figure may increase as we are not at the end of the month as yet. One of the Housing Options Officers leaves the Council on 11th July and this may impact further on our performance here.The continued implementation of more robust verification following Diagnostic Peer Review recommendations continues to keep preventions down. Although prevention figure is lower - there were 131 clients seen for housing advice Apr to Jun 2014. The majority were not technically homeless or threatened with homelessness within the scope of reporting guidance and hence could not be recorded as 'prevention'. The Housing Needs Manager will  continue to monitor this.",y:36500,lq:36500,tq:3600,t:0,s:"lu",u:"Housing Services",c:"f",p:""},
+{i:13,k:"HS08",d:"% of private sector housing grant budgets actually spent (DFG) (Values are cumulative)",n:"24-June-2014 – To date this financial year £25k spent out of £500k budget (5%). £147k is committed but not yet paid and a potential £255k is at pre approval stage. ",y:57,lq:57,tq:5,t:10,s:"lu",u:"Housing Services",c:"f",p:"%"},
 {i:14,k:"HS16",d:"Number of affordable homes delivered (gross)",n:"Outturn for the quarter is 28 units – 12 Lismoyne House and 16 Swan Lake View – 5 s/o and 11 rent",y:8000,lq:700,tq:2800,t:1800,s:"lg",u:"Housing Services",c:"f",p:""},
 {i:15,k:"IA01",d:"Percentage of Audit Plan completed during the year",n:"Audit Plan is heavily weighted to the seond half year as that is the start date of resource from Basingstoke. ",y:87,lq:87,tq:14,t:23.8,s:"lr",u:"Audit",c:"f",p:"%"},
 {i:16,k:"IA02",d:"Percentage of Audits carried out within time allocation",n:"No notes",y:94,lq:92,tq:100,t:100,s:"lg",u:"Audit",c:"f",p:"%"},
@@ -152,14 +153,14 @@ var app = angular.module('app', [])
 {i:22,k:"IT05",d:"% uptime of key systems",n:"No notes",y:98.9,lq:99.5,tq:99.9,t:99,s:"lg",u:"IT Services",c:"f",p:"%"},
 {i:23,k:"IT06",d:"% uptime of Hart DC website",n:"No notes",y:100,lq:99.8,tq:99.6,t:98,s:"lg",u:"IT Services",c:"f",p:"%"},
 {i:24,k:"IT07",d:"% score for Council employee satisfaction with Capita IT support service",n:"No notes",y:86,lq:81.2,tq:75.7,t:80,s:"lr",u:"IT Services",c:"f",p:"%"},
-{i:25,k:"LS05",d:"Summary of Projects status - Number of days ahead / behind project timetable",n:"ELC Project 4 weeks behind schedule but project construction Cost consultant / Clerk of works appointment is progressing. Expectation is that this period will be zeroed in Aug/Sept",y:0,lq:0,tq:-2800,t:0,s:"lr",u:"Leisure Services",c:"f",p:"%"},
+{i:25,k:"LS05",d:"Summary of Projects status - Number of days ahead / behind project timetable",n:"ELC Project 4 weeks behind schedule but project construction Cost consultant / Clerk of works appointment is progressing. Expectation is that this period will be zeroed in Aug/Sept",y:0,lq:0,tq:-2800,t:0,s:"lr",u:"Leisure Services",c:"f",p:""},
 {i:26,k:"PS01",d:"Processing of planning applications: Major applications",n:"No notes",y:68.4,lq:75.2,tq:63.6,t:70,s:"la",u:"Planning Services",c:"f",p:"%"},
 {i:27,k:"PS02",d:"Processing of planning applications: Minor applications",n:"figure for delegated decisions is 85.7% and 20% for Committee decisions",y:68,lq:86,tq:78,t:65,s:"lg",u:"Planning Services",c:"f",p:"%"},
 {i:28,k:"PS03",d:"Processing of planning applications: Other applications",n:"No notes",y:82.4,lq:69.6,tq:94.2,t:85,s:"lg",u:"Planning Services",c:"f",p:"%"},
 {i:29,k:"PS05",d:"% of Tree Preservation works applications determined within eight weeks",n:"100% TPO applications & 98.2% Conservation applications",y:96.1,lq:88.6,tq:99.1,t:90,s:"lg",u:"Planning Services",c:"f",p:"%"},
 {i:30,k:"RB01",d:"% of benefit assessments calculated correctly (new and change in circumstances)",n:"No notes",y:98.5,lq:97.2,tq:98.9,t:95,s:"lg",u:"Finance, Revs and Bens",c:"f",p:"%"},
 {i:31,k:"RB02",d:"% of new benefit claims decided within 14 days",n:"No notes",y:98.8,lq:98.7,tq:95.6,t:90,s:"lg",u:"Finance, Revs and Bens",c:"f",p:"%"},
-{i:32,k:"RB03",d:"% of new claims outstanding after 50 days",n:"No notes",y:0,lq:0,tq:0,t:0,s:"lg",u:"Finance, Revs and Bens",c:"f",p:"%"},
+{i:32,k:"RB03",d:"% of new claims outstanding after 50 days",n:"No notes",y:0,lq:0,tq:0,t:0,s:"lg",u:"Finance, Revs and Bens",c:"f",p:""},
 {i:33,k:"RB04",d:"% of council tax collected electronically (DD + Internet)",n:"No notes",y:85.1,lq:85.1,tq:83.9,t:80,s:"lg",u:"Finance, Revs and Bens",c:"f",p:"%"},
 {i:34,k:"RB05",d:"Percentage of Non-domestic Rates Collected",n:"No notes",y:98.5,lq:98.5,tq:33.6,t:24.6,s:"lg",u:"Finance, Revs and Bens",c:"f",p:"%"},
 {i:35,k:"RB06",d:"% of Council Tax collected",n:"No notes",y:98.7,lq:98.7,tq:30.5,t:24.5,s:"lg",u:"Finance, Revs and Bens",c:"f",p:"%"},
@@ -170,9 +171,10 @@ var app = angular.module('app', [])
 {i:40,k:"RS21",d:"% of incident responses carried out in prescribed time",n:"No notes",y:99.5,lq:100,tq:98.8,t:98,s:"lg",u:"Regulatory Services",c:"f",p:"%"},
 {i:41,k:"SNH01",d:"% Reduction in Antisocial Behaviour across Safer North Hampshire area",n:"General increase in ASB across SNH area, in particular Hart.",y:16,lq:29,tq:0,t:3,s:"lr",u:"Safer North Hants",c:"f",p:"%"},
 {i:42,k:"SNH02",d:"% Reduction in violence against the person offences with injury across Safer North Hampshire area",n:"Increase in violence against the person offences, both domestic and related to the Night Time Economy.",y:1,lq:2,tq:-16,t:5,s:"lr",u:"Safer North Hants",c:"f",p:"%"},
-{i:43,k:"SNH03",d:"Number of Domestic Abuse incidents - domestic crimes",n:"No notes",y:128400,lq:28300,tq:37600,t:0,s:"ld",u:"Safer North Hants",c:"f",p:"%"},
-{i:44,k:"SNH04",d:"Number of Domestic Abuse incidents - Violence against the person",n:"No notes",y:103500,lq:23100,tq:16900,t:0,s:"ld",u:"Safer North Hants",c:"f",p:"%"},
-{i:45,k:"SNH06",d:"Drug Offences",n:"No notes",y:123800,lq:26000,tq:27100,t:0,s:"ld",u:"Safer North Hants",c:"f",p:"%"}
+{i:43,k:"SNH03",d:"Number of Domestic Abuse incidents - domestic crimes",n:"No notes",y:128400,lq:28300,tq:37600,t:0,s:"ld",u:"Safer North Hants",c:"f",p:""},
+{i:44,k:"SNH04",d:"Number of Domestic Abuse incidents - Violence against the person",n:"No notes",y:103500,lq:23100,tq:16900,t:0,s:"ld",u:"Safer North Hants",c:"f",p:""},
+{i:45,k:"SNH06",d:"Drug Offences",n:"No notes",y:123800,lq:26000,tq:27100,t:0,s:"ld",u:"Safer North Hants",c:"f",p:""}
+
 
 ];
  
