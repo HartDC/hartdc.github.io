@@ -1,6 +1,6 @@
 (function () {
 
-        var app = angular.module('app', ['angles'])
+        var app = angular.module('app', ['angles','ngTouch'])
      
         app.controller('kpiCtrl', ['$scope',
         function ($scope) {
