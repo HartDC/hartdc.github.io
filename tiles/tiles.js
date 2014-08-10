@@ -1,132 +1,20 @@
-<!doctype html>
-<html ng-app="app">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiles</title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+(function () {
 
-<style>
-    html, button, input, select, textarea, h1,h2,h3,h4,h5,h6,p,a,body, .pure-g [class *= "pure-u"] 
-    {font-family: 'Open Sans', sans-serif; color:#222; font-weight:300;}
-    a{color: #fff; text-decoration:none;}
-	h1{font-size: 3em; color: #fff;}
-	h2{font-size: 1.7em; color: #eee;}
-	p, li, table{font-size: 1.2em;}
-    .set {max-width:64em; margin:0 auto; padding: 2em;}
-    .pad {padding: 2em; height: 14em; cursor:pointer; overflow-y: hidden; overflow-x: hidden;}
-    .edge {padding: 0.5em;}
-    .ledge {padding-left: 0.5em;}
-    .shade {box-shadow: inset 0 0 500em rgba(0, 0, 0,0.5);}
-	.fr {float:right;}
-	.gr {color:#fff;}
-    .gy {background-color: 	#4F5757; color: #888;}
-	.lg {background-color: 	#7ECBA2; color: #B8FFD9;}
-    .la {background-color: 	#fac090; color: #fde5d2;}    
-	.lr {background-color: 	#c99391; color: #e9d3d2;}
-    .ld {background-color: 	#CCC; color: #888;}
-    .lu {background-color:   #CCC; color: #888;}
+        var app = angular.module('app', ['angles'])
+     
+        app.controller('kpiCtrl', ['$scope',
+        function ($scope) {
 
-    .out {
-	-webkit-transform-origin: 50% 50%;
-	-webkit-animation: Right .5s both ease-in;
-	-moz-transform-origin: 50% 50%;
-	-moz-animation: Right .5s both ease-in;
-	transform-origin: 50% 50%;
-	animation: Right .5s both ease-in; 	}
-	.in {
-	-webkit-transform-origin: 50% 50%;
-	-webkit-animation: Left .5s both ease-out;
-	-moz-transform-origin: 50% 50%;
-	-moz-animation: Left .5s both ease-out;
-	transform-origin: 50% 50%;
-	animation: Left .5s both ease-out;	}
+                    $scope.help = {me: 'f'};
+                    var lbl = ["previous", "current", "target"];
+                    var clr = "rgba(0,0,0,0.2)";
 
-@-webkit-keyframes Right {to { -webkit-transform: translateZ(-1000px) rotateY(90deg); opacity: 0.2; }}
-@-moz-keyframes Right {to { -moz-transform: translateZ(-1000px) rotateY(90deg); opacity: 0.2; }}
-@keyframes Right {to { transform: translateZ(-1000px) rotateY(90deg); opacity: 0.2; }}
+                    $scope.options = {animation: false, scaleGridLineWidth: 0, barShowStroke: false,
+                        barDatasetSpacing: 0, barValueSpacing: 1, showScale: false};
 
-@-webkit-keyframes Left {from { -webkit-transform: translateZ(-1000px) rotateY(-90deg); opacity: 0.2; }}
-@-moz-keyframes Left {from { -moz-transform: translateZ(-1000px) rotateY(-90deg); opacity: 0.2; }}
-@keyframes Left {from { transform: translateZ(-1000px) rotateY(-90deg); opacity: 0.2; }}
-
-*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
-.current {
-   
-    margin-top: -2em;
-	width: 0%;
-	height: 1.5em;
-	background: rgba(0,0,0,.8);
-}
-
-
-   
-    .target {
- 
-    margin-top: -2em;
-	width: 0%;
-	height: 2.5em;
-	background: rgba(0,0,0,0.2);
-}
-
-    
-.target::before { position: absolute;	 margin-left: -2em; top: auto; width: 100%;	height: inherit; content: '';} 
-.current::before { position: absolute;	 margin-left: -2em; top: auto; width: 100%;	height: inherit; content: '';}
-
-    
-</style>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js"></script>
-
-</head>
-
-<body class="set gy" ng-controller="kpiCtrl">
-
-<h1 class="ledge">KPIs</h1>
-
-<div class="pure-g">
-<div class="pure-u-1 pure-u-md-1-3" ng-repeat="kpi in kpis"><div class="edge">
-    
-<div class="pad {{kpi.s}}" ng-class="{in: kpi.c=='f', out: kpi.c=='t'}" ng-show="kpi.c=='f'" ng-click="[kpi.c = 't',]">
-    <h2>{{kpi.k}}<span class="fr gr">{{kpi.tq}}{{kpi.p}}</span></h2> 
-        {{kpi.d}} 
-</div>
-
-<div class="pad {{kpi.s}} shade" ng-class="{in: kpi.c=='t', out: kpi.c=='f'}" ng-hide="kpi.c=='f'" ng-click="[kpi.c = 'f',]">   
-
-        <div ng-if="kpi.p =='%'">
-    <div class="target" style="width:100%;"></div>
-    <div class="current" style="width:{{kpi.tq}}%;">&nbsp;
-        {{(kpi.lq-kpi.tq) | number:1}}%
-    </div> 
-    </div>
-        
-        <div ng-if="kpi.p !='%'">
-    <div class="target" style="width:{{100}}%;"></div>
-    <div class="current" style="width:{{(kpi.tq/kpi.t)*100}}%;">&nbsp;
-        {{(kpi.lq-kpi.tq)/kpi.lq | number:1}}%
-    </div>
-            
-    </div>
-    <br />
-    {{kpi.n}} 
-</div>
-
-</div></div>
-</div>
-
-
-
-
-
-</body>
-
-<script>
-var app = angular.module('app', [])
-  .controller('kpiCtrl', ['$scope', function($scope) {
-    $scope.kpis = 
-[
+                    $scope.chartEg = {labels: lbl,datasets: [{fillColor: clr,data: [90, 100, 95]}]};
+      
+var k = $scope.kpis = [
 
 {i:0,k:"CS01",d:"Quality of Customer Service Call Handling - % score from monitoring sample",n:"No notes",y:94.8,lq:95.3,tq:95.9,t:90,s:"lg",u:"Customer Services",c:"f",p:"%"},
 {i:1,k:"CS02a",d:"% of telephone calls answered by Contact Centre in 15 seconds",n:"No notes",y:77.1,lq:79.6,tq:78.5,t:80,s:"la",u:"Customer Services",c:"f",p:"%"},
@@ -176,10 +64,52 @@ var app = angular.module('app', [])
 
 
 ];
- 
- 
-  }]);
-</script>
-
-
-</html>
+$scope.chart = [
+{labels: lbl,datasets: [{fillColor: clr,data: [k[0].lq,k[0].tq,k[0].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[1].lq,k[1].tq,k[1].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[2].lq,k[2].tq,k[2].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[3].lq,k[3].tq,k[3].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[4].lq,k[4].tq,k[4].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[5].lq,k[5].tq,k[5].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[6].lq,k[6].tq,k[6].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[7].lq,k[7].tq,k[7].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[8].lq,k[8].tq,k[8].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[9].lq,k[9].tq,k[9].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[10].lq,k[10].tq,k[10].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[11].lq,k[11].tq,k[11].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[12].lq,k[12].tq,k[12].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[13].lq,k[13].tq,k[13].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[14].lq,k[14].tq,k[14].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[15].lq,k[15].tq,k[15].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[16].lq,k[16].tq,k[16].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[17].lq,k[17].tq,k[17].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[18].lq,k[18].tq,k[18].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[19].lq,k[19].tq,k[19].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[20].lq,k[20].tq,k[20].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[21].lq,k[21].tq,k[21].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[22].lq,k[22].tq,k[22].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[23].lq,k[23].tq,k[23].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[24].lq,k[24].tq,k[24].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[25].lq,k[25].tq,k[25].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[26].lq,k[26].tq,k[26].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[27].lq,k[27].tq,k[27].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[28].lq,k[28].tq,k[28].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[29].lq,k[29].tq,k[29].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[30].lq,k[30].tq,k[30].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[31].lq,k[31].tq,k[31].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[32].lq,k[32].tq,k[32].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[33].lq,k[33].tq,k[33].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[34].lq,k[34].tq,k[34].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[35].lq,k[35].tq,k[35].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[36].lq,k[36].tq,k[36].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[37].lq,k[37].tq,k[37].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[38].lq,k[38].tq,k[38].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[39].lq,k[39].tq,k[39].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[40].lq,k[40].tq,k[40].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[41].lq,k[41].tq,k[41].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[42].lq,k[42].tq,k[42].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[43].lq,k[43].tq,k[43].t]}]},
+{labels: lbl,datasets: [{fillColor: clr,data: [k[44].lq,k[44].tq,k[44].t]}]}
+];     
+   }]);
+        })();
