@@ -64,7 +64,7 @@
         <div class="pure-u-1 pure-u-md-1-3" ng-repeat="kpi in kpis" >
             <div class="edge">
                 <div class="pad {{kpi.s}}" ng-class="{in: kpi.c=='f', out: kpi.c=='t'}" ng-show="kpi.c=='f'" ng-click="[kpi.c = 't',]" ng-swipe-left="[kpi.c = 't',]">
-                    <h2>{{kpi.k}}<span class="fr gr">{{kpi.tq}}%</span></h2> {{kpi.d}}
+                    <h2>{{kpi.k}}<span class="fr gr">{{kpi.tq}}{{kpi.p}}</span></h2> {{kpi.d}}
                     <br />
                     <div>
                     <canvas barchart options="options" data="chart[kpi.i]" width="100" height="75" class="chart"></canvas>
