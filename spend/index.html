@@ -19,18 +19,7 @@
 <body ng-controller="appCtrl" class="ng-cloak">
     <div class="fullscreen">
         <header>
-            <div class="pure-menu pure-menu-open pure-menu-horizontal">
-                <a href class="pure-menu-heading">HDC Spend Analysis</a>
-                <ul hidden>
-                    <li class="pure-menu-selected"><a href="">one</a>
-                    </li>
-                    <li><a href="">two</a>
-                    </li>
-                    <li><a href="">three</a>
-                    </li>
-                </ul>
-
-            </div>
+<p>HDC Spend Analysis</p>
         </header>
         <article class="mw plus1">
             <div class="pure-g">
@@ -38,10 +27,10 @@
 
                 <div class="pure-u-1 plus1">
                     <p class="pull-right">
-                        <span ng-show="(data | filter:{FY:Fy} | filter: Srchr ).length < data.length">
-{{(data | filter:{FY:Fy} | filter: Srchr ).length}} of </span>{{data.length}} records
+                        <span ng-show="(data | filter:{Y:Fy} | filter: Srchr ).length < data.length">
+{{(data | filter:{Y:Fy} | filter: Srchr ).length}} of </span>{{data.length}} records
 
-                        <a href="" ng-click="[od='ID',od1='',od2='']" ng-hide="od1==''"><b>reset sort <i class="fa fa-undo"></i></b></a>
+                        <a href="" ng-click="[od='I',od1='',od2='']" ng-hide="od1==''"><b>reset sort <i class="fa fa-undo"></i></b></a>
                     </p>
 
 
@@ -53,14 +42,14 @@
                             <input ng-model="Srchr" ng-show="Opt==''" placeholder="search" ng-focus="Sopt='on'">
 
                             <span ng-hide="Srchr==''"> <!-- broken -->
- <!--  <select ng-model="myColor" ng-options="color.name for color in colors"></select> -->
+ <select ng-model="sT" ng-options="t for t in dET"></select>
 <select id="srch" ng-show="Sopt=='on'">
             <option>Expense Area</option>
             <option>Expense Type</option>
             <option>Supplier</option>
         </select></span>
                             <label>and/or filter by</label>
-                            <button ng-click="Opt='x'" class="pure-button"><i class="fa fa-calendar"></i>
+                            <button ng-click="Opt='x'" class="pure-button" ng-class="{'pure-button-primary': (data | filter:{Y:Fy} ).length < data.length}"><i class="fa fa-calendar"></i>
                             </button>
                         </fieldset>
 
@@ -68,10 +57,10 @@
 
                         <fieldset ng-show="Opt=='x'">
                             <label>Select a financial year:</label>
-                            <a href="" ng-click="Fy=0" class="pure-button">2010/11</a>
-                            <a href="" ng-click="Fy=1" class="pure-button">2011/12</a>
-                            <a href="" ng-click="Fy=2" class="pure-button">2012/13</a>
-                            <a href="" ng-click="Fy=4" class="pure-button">2013/14</a>
+                            <a href="" ng-click="[Fy=0,Opt='']" class="pure-button">2010/11</a>
+                            <a href="" ng-click="[Fy=1,Opt='']" class="pure-button">2011/12</a>
+                            <a href="" ng-click="[Fy=2,Opt='']" class="pure-button">2012/13</a>
+                            <a href="" ng-click="[Fy=3,Opt='']" class="pure-button">2013/14</a>
                             <a href="" ng-click="Opt='y'" class="pure-button">More</a>
                             <!-- unhide when you're done here-->
                             <a href="" ng-click="Opt=''" ng-show="Fy==''" class="pure-button"><i class="fa fa-times"></i></a>
@@ -83,6 +72,7 @@
                             <quick-datepicker ng-model='Sdate' placeholder="from"></quick-datepicker>
                             -
                             <quick-datepicker ng-model='Edate' placeholder="to"></quick-datepicker>
+				    <a href="" ng-click="Opt=''"><i class="fa fa-check"></i></a> 
                             <a href="" ng-click="Opt='x'"><i class="fa fa-reply"></i></a> {{Sdate}} | {{Edate}}
                         </fieldset>
                     </form>
@@ -93,28 +83,28 @@
                         <thead>
                             <tr>
                                 <th>ID
-                                    <a href="" ng-click="[od2=od1, od1=od, od='ID']" >
-                    <i class="fa fa-sort-numeric-asc mute" ng-class="{first: od=='ID', second: od1=='ID', third: od2=='ID'}"></i></a>
-                                    <a href="" ng-click="[od2=od1, od1=od, od='-ID']">
-                    <i class="fa fa-sort-numeric-desc mute" ng-class="{first: od=='-ID', second: od1=='-ID', third: od2=='-ID'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='I']" >
+                    <i class="fa fa-sort-numeric-asc mute" ng-class="{first: od=='I', second: od1=='I', third: od2=='I'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='-I']">
+                    <i class="fa fa-sort-numeric-desc mute" ng-class="{first: od=='-I', second: od1=='-I', third: od2=='-I'}"></i></a>
                                 </th>
                                 <th>Date
-                                    <a href="" ng-click="[od2=od1, od1=od, od='UD']">
-                    <i class="fa fa-sort-amount-asc mute" ng-class="{first: od=='UD', second: od1=='UD', third: od2=='UD'}"></i></a>
-                                    <a href="" ng-click="[od2=od1, od1=od, od='-UD']">
-                    <i class="fa fa-sort-amount-desc mute" ng-class="{first: od=='-UD', second: od1=='-UD', third: od2=='-UD'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='D']">
+                    <i class="fa fa-sort-amount-asc mute" ng-class="{first: od=='D', second: od1=='D', third: od2=='D'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='-D']">
+                    <i class="fa fa-sort-amount-desc mute" ng-class="{first: od=='-D', second: od1=='-D', third: od2=='-D'}"></i></a>
                                 </th>
                                 <th>Expense type
-                                    <a href="" ng-click="[od2=od1, od1=od, od='EA']">
-                    <i class="fa fa-sort-alpha-asc mute" ng-class="{first: od=='EA', second: od1=='EA', third: od2=='EA'}"></i></a>
-                                    <a href="" ng-click="[od2=od1, od1=od, od='-EA']">
-                    <i class="fa fa-sort-alpha-desc mute" ng-class="{first: od=='-EA', second: od1=='-EA', third: od2=='-EA'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='A']">
+                    <i class="fa fa-sort-alpha-asc mute" ng-class="{first: od=='A', second: od1=='A', third: od2=='A'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='-A']">
+                    <i class="fa fa-sort-alpha-desc mute" ng-class="{first: od=='-A', second: od1=='-A', third: od2=='-A'}"></i></a>
                                 </th>
                                 <th>Expense Area
-                                    <a href="" ng-click="[od2=od1, od1=od, od='ET']">
-                    <i class="fa fa-sort-alpha-asc mute" ng-class="{first: od=='ET', second: od1=='ET', third: od2=='ET'}"></i></a>
-                                    <a href="" ng-click="[od2=od1, od1=od, od='-ET']">
-                    <i class="fa fa-sort-alpha-desc mute" ng-class="{first: od=='-ET', second: od1=='-ET', third: od2=='-ET'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='T']">
+                    <i class="fa fa-sort-alpha-asc mute" ng-class="{first: od=='T', second: od1=='T', third: od2=='T'}"></i></a>
+                                    <a href="" ng-click="[od2=od1, od1=od, od='-T']">
+                    <i class="fa fa-sort-alpha-desc mute" ng-class="{first: od=='-T', second: od1=='-T', third: od2=='-T'}"></i></a>
                                 </th>
                                 <th>Supplier
                                     <a href="" ng-click="[od2=od1, od1=od, od='S']">
@@ -134,17 +124,17 @@
 
 
 
-                            <tr ng-repeat="d in data | filter:{FY:Fy} | filter: Srchr | orderBy: [od,od1,od2] | limitTo: long  ">
-                                <td>{{d.ID+1}}</td>
-                                <td>{{d.UD *100000 | date:'dd MMM yyyy'}}</td>
-                                <td>{{dEA[d.EA]}}</td>
-                                <td>{{dET[d.ET]}}</td>
+                            <tr ng-repeat="d in data | filter:{Y:Fy} | filter: Srchr | orderBy: [od,od1,od2] | limitTo: long  ">
+                                <td>{{d.I+1}}</td>
+                                <td>{{d.D *100000 | date:'dd MMM yyyy'}}</td>
+                                <td>{{dEA[d.A]}}</td>
+                                <td>{{dET[d.T]}}</td>
                                 <td>{{dS[d.S]}}</td>
                                 <td>{{d.V | currency:"&pound;"}}</td>
                             </tr>
                         </tbody>
                     </table>
-                    <a href="" ng-click="long = long+10" class="pure-button" ng-hide="long>=(data | filter:{FY:Fy} | filter: Srchr ).length">show more</a>
+                    <a href="" ng-click="long = long+10" class="pure-button" ng-hide="long>=(data | filter:{Y:Fy} | filter: Srchr ).length">show more</a>
                 </div>
             </div>
         </article>
@@ -162,7 +152,7 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/sugar/1.4.1/sugar.min.js"></script>
 <script src="ng-quick-date.js"></script>
 <script src="ac.js"></script>
-<script src="data.js"></script>
+<script src="data1.js"></script>
 
 <script>
     var app = angular.module('app', ['angularCharts', 'ngQuickDate']);
@@ -174,12 +164,13 @@
             scope.SD = filter('limitTo')(scope.Sdate, 10);
             scope.ED = filter('limitTo')(scope.Edate, 10);
             scope.Fy = "";
+		scope.fy = scope.Fy != "";
             scope.data = dataset;
             scope.dEA = dEA;
             scope.dET = dET;
             scope.dS = dS;
             scope.long = 10;
-            scope.od = "ID";
+            scope.od = "I";
             scope.od1 = "";
             scope.od2 = "";
             scope.Opt = "";
