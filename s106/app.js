@@ -27,8 +27,8 @@ app.controller("appCtrl", [ '$scope', function($scope) {
 			});
 
   function Click(Parish, event) {
-                $scope.selectedParish = Parish.properties.name;
 		    $scope.parish = Parish.properties.name;
+            $scope.parishC = Parish.properties.c;
 		    $scope.markers.point.lat = event.latlng.lat;
 	  	    $scope.markers.point.lng = event.latlng.lng;
 		  }
