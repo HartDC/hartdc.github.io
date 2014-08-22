@@ -1,4 +1,3 @@
-var pcodes = [
-{p:"GU51 4AE",lng:51.5,lat:-0.89},
-{p:"GU51 4AE2",lng:51.4,lat:-0.90}
+var pcodes = [{"p":"GU51 4AE","lng":-0.846065,"lat":51.279490},
+{"p":"RG27 0NF","lng":-0.869552,"lat":51.347941}
 ];
