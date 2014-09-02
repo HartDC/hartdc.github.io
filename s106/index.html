@@ -41,7 +41,6 @@
                     <div class="pure-control-group"><button href ng-click="sm =!sm" class="pure-button"><span ng-show="sm">hide</span><span ng-show="!sm">use</span> map</button>
                         or select parish 
 <select ng-model="parish" ng-options="parish.p as parish.p for parish in parishes"></select> 
-  <table><tr ng-repeat="p in parishes | filter:parish:strict"><td>{{p.c}}</td></tr></table>
                     </div>
 			  <div ng-if="sm">
 			  <p>Click on the map to mark the location</p>
@@ -327,7 +326,7 @@
 
 
 </body>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src="angular-leaflet-directive.min.js"></script>
 <script src="settings.js"></script>
