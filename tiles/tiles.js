@@ -41,7 +41,7 @@ var k = $scope.kpis = [
 {i:22,k:"IT05",d:"% uptime of key systems",n:" ",y:98.9,lq:99.5,tq:99.9,t:99,s:"lg",u:"IT Services",c:"f",p:"%"},
 {i:23,k:"IT06",d:"% uptime of Hart DC website",n:" ",y:100,lq:99.8,tq:99.6,t:98,s:"lg",u:"IT Services",c:"f",p:"%"},
 {i:24,k:"IT07",d:"% score for Council employee satisfaction with Capita IT support service",n:" ",y:86,lq:81.2,tq:75.7,t:80,s:"la",u:"IT Services",c:"f",p:"%"},
-{i:25,k:"LS05",d:"Summary of Projects status - Number of days ahead / behind project timetable",n:" ",y: ,lq: ,tq:-28,t:0,s:"lr",u:"Leisure Services",c:"f",p:""},
+{i:25,k:"LS05",d:"Summary of Projects status - Number of days ahead / behind project timetable",n:" ",y: 0,lq: 0,tq:-28,t:0,s:"lr",u:"Leisure Services",c:"f",p:""},
 {i:26,k:"PS01",d:"Processing of planning applications: Major applications",n:" ",y:68.4,lq:75.2,tq:63.6,t:70,s:"la",u:"Planning Services",c:"f",p:"%"},
 {i:27,k:"PS02",d:"Processing of planning applications: Minor applications",n:"figure for delegated decisions is 85.7% and 20% for Committee decisions",y:68,lq:86,tq:78,t:65,s:"lg",u:"Planning Services",c:"f",p:"%"},
 {i:28,k:"PS03",d:"Processing of planning applications: Other applications",n:" ",y:82.4,lq:69.6,tq:94.2,t:85,s:"lg",u:"Planning Services",c:"f",p:"%"},
