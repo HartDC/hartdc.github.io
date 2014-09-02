@@ -9,99 +9,25 @@
 	  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 	  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     	  <link rel="stylesheet" type="text/css" href="style.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.11/angular.min.js"></script>
-	  <script src="https://code.angularjs.org/1.3.0-beta.11/angular-animate.min.js"></script>
-        <script type="text/javascript">var App = angular.module('App', ['ngAnimate']);</script>
 	</head>
 <body ng-init="count = 0">
 <div class="rt">
 <button class="pure-button" ng-show="count >1" ng-click="count = count - 1">back</button>
-<button class="pure-button pure-button-primary" ng-hide="count >9" ng-click="count = count + 1"><span ng-show="count == 0">start</span><span ng-show="count >0">next</span></button>
+<button class="pure-button pure-button-primary" ng-hide="count >9" ng-class="{start:count == 0}" ng-click="count = count + 1"><span ng-show="count == 0">start</span><span ng-show="count >0">next</span></button>
 </div>
-<div class="abs">
-    <div class="slide pad2" ng-include=count></div>
-</div>
+<div class="slide abs" ng-include=count></div>
 </body>
-
-<script type="text/ng-template" id=1>
-<div class="pure-g"><div class="pure-u-1 ctr">
-	<h1>Old Covalent</h1>
-</div><div class="pure-u-1">
-	<img class="pure-img ctri" src="1.png">
-</div><div class="pure-u-1">
-	<p></p>
-</div></div></script>
-
-<script type="text/ng-template" id=2>
-<div class="pure-g"><div class="pure-u-1 ctr">
-	<h1>New Covalent</h1>
-</div><div class="pure-u-1">
-	<img class="pure-img ctri" src="2.png">
-</div>
-</div></script>
-
-<script type="text/ng-template" id=3>
-<div class="pure-g"><div class="pure-u-1 ctr">
-	<h1>simpler, faster, more focused</h1>
-</div>
-</div></script>
-
-<script type="text/ng-template" id=4>
-<div class="pure-g"><div class="pure-u-1 ctr">
-	<h1>See only what your team has to do</h1>
-</div><div class="pure-u-1">
-	<img class="pure-img ctri" src="2a.png">
-</div>
-</div></script>
-
-<script type="text/ng-template" id=5>
-<div class="pure-g"><div class="pure-u-1 ctr">
-	<h1>Quickly update actions / risks / KPIs</h1>
-</div><div class="pure-u-1">
-	<img class="pure-img ctri" src="2b.png">
-</div>
-</div></script>
-
-<script type="text/ng-template" id=6>
-<div class="pure-g"><div class="pure-u-1 ctr">
-	<h1>Or explore other service plans,<br />corporate plan, etc</h1>
-</div><div class="pure-u-1">
-	<img class="pure-img ctri" src="2c.png">
-</div>
-</div></script>
-
-<script type="text/ng-template" id=7>
-<div class="pure-g"><div class="pure-u-1 ctr">
-	<h1>Cleaner views for KPIs</h1>
-</div><div class="pure-u-1">
-	<img class="pure-img ctri" src="3.png">
-</div>
-</div></script>
-
-<script type="text/ng-template" id=8>
-<div class="pure-g"><div class="pure-u-1 ctr">
-	<h1>Find all your required updates in one place</h1>
-</div><div class="pure-u-1">
-	<img class="pure-img ctri" src="4.png">
-</div>
-</div></script>
-
-<script type="text/ng-template" id=9>
-<div class="pure-g"><div class="pure-u-1 ctr">
-	<h1>Easily update milestones and actions</h1>
-</div><div class="pure-u-1">
-	<img class="pure-img ctri" src="5.png">
-</div>
-</div></script>
-
-<script type="text/ng-template" id=10>
-<div class="pure-g"><div class="pure-u-1 ctr">
-	<h1>Access the reports you need, via download</h1>
-</div><div class="pure-u-1">
-	<img class="pure-img ctri" src="6.png">
-</div><div class="pure-u-1">
-	<p class="ctr"><a href="https://hart.covalentcpm.com">hart.covalentcpm.com</a></p>
-</div></div></script>
-
-
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-animate.min.js"></script>
+        <script type="text/javascript">var App = angular.module('App', ['ngAnimate']);</script>
+<script type="text/ng-template" id=1><div class="pure-g"><div class="pure-u-1 ctr"><h1>Old Covalent</h1></div><div class="pure-u-1"><img class="pure-img ctri" src="1.png"></div></div></script>
+<script type="text/ng-template" id=2><div class="pure-g"><div class="pure-u-1 ctr"><h1>New Covalent</h1></div><div class="pure-u-1"><img class="pure-img ctri" src="2.png"></div></div></script>
+<script type="text/ng-template" id=3><div class="pure-g"><div class="pure-u-1 ctr"><h1>simpler, faster, more focused</h1><div class="spacer">&nbsp;</div></div></div></script>
+<script type="text/ng-template" id=4><div class="pure-g"><div class="pure-u-1 ctr"><h1>See only what your team has to do</h1></div><div class="pure-u-1"><img class="pure-img ctri" src="2a.png"></div></div></script>
+<script type="text/ng-template" id=5><div class="pure-g"><div class="pure-u-1 ctr"><h1>Quickly update actions / risks / KPIs</h1></div><div class="pure-u-1"><img class="pure-img ctri" src="2b.png"></div></div></script>
+<script type="text/ng-template" id=6><div class="pure-g"><div class="pure-u-1 ctr"><h1>Or explore other service plans,<br />corporate plan, etc</h1></div><div class="pure-u-1"><img class="pure-img ctri" src="2c.png"></div></div></script>
+<script type="text/ng-template" id=7><div class="pure-g"><div class="pure-u-1 ctr"><h1>Cleaner views for KPIs</h1></div><div class="pure-u-1"><img class="pure-img ctri" src="3.png"></div></div></script>
+<script type="text/ng-template" id=8><div class="pure-g"><div class="pure-u-1 ctr"><h1>Find all your required updates in one place</h1></div><div class="pure-u-1"><img class="pure-img ctri" src="4.png"></div></div></script>
+<script type="text/ng-template" id=9><div class="pure-g"><div class="pure-u-1 ctr"><h1>Easily update milestones and actions</h1></div><div class="pure-u-1"><img class="pure-img ctri" src="5.png"></div></div></script>
+<script type="text/ng-template" id=10><div class="pure-g"><div class="pure-u-1 ctr"><h1>Access the reports you need, via download</h1></div><div class="pure-u-1"><img class="pure-img ctri" src="6.png"></div><div class="pure-u-1"><p class="ctr"><a href="https://hart.covalentcpm.com">hart.covalentcpm.com</a></p></div></div></script>
 </html>
