@@ -58,9 +58,9 @@ var k = $scope.kpis = [
 {i:39,k:"RS21",d:"% of incident responses carried out in prescribed time",n:" ",y:99.5,lq:100,tq:98.8,t:98,s:"lg",u:"Regulatory Services",c:"f",p:"%"},
 {i:40,k:"SNH01",d:"% Reduction in Antisocial Behaviour across Safer North Hampshire area",n:"ASB – Reclassification of miscellaneous incidents by police has led to an increase, monitor for Q2",y:16,lq:29,tq:0,t:3,s:"lr",u:"Safer North Hants",c:"f",p:"%"},
 {i:41,k:"SNH02",d:"% Reduction in violence against the person offences with injury across Safer North Hampshire area",n:"Increase in violence against the person offences, both domestic and related to the Night Time Economy. Multi agency response to address and reduce Town Centre issues, including early intervention patrolling and increased enforcement",y:1,lq:2,tq:-16,t:5,s:"lr",u:"Safer North Hants",c:"f",p:"%"},
-{i:42,k:"SNH03",d:"Number of Domestic Abuse incidents - domestic crimes",n:" ",y:1284,lq:283,tq:376,t: ,s:"ld",u:"Safer North Hants",c:"f",p:""},
-{i:43,k:"SNH04",d:"Number of Domestic Abuse incidents - Violence against the person",n:" ",y:1035,lq:231,tq:169,t: ,s:"ld",u:"Safer North Hants",c:"f",p:""},
-{i:44,k:"SNH06",d:"Drug Offences",n:" ",y:1238,lq:260,tq:271,t: ,s:"ld",u:"Safer North Hants",c:"f",p:""}
+{i:42,k:"SNH03",d:"Number of Domestic Abuse incidents - domestic crimes",n:" ",y:1284,lq:283,tq:376,t: 0,s:"ld",u:"Safer North Hants",c:"f",p:""},
+{i:43,k:"SNH04",d:"Number of Domestic Abuse incidents - Violence against the person",n:" ",y:1035,lq:231,tq:169,t: 0,s:"ld",u:"Safer North Hants",c:"f",p:""},
+{i:44,k:"SNH06",d:"Drug Offences",n:" ",y:1238,lq:260,tq:271,t: 0,s:"ld",u:"Safer North Hants",c:"f",p:""}
 
 
 ];
