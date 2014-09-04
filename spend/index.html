@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <link rel="stylesheet" href="style.css">
     <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
 
 </head>
 
@@ -23,35 +23,25 @@
         </header>
         <article class="mw plus1">
             <div class="pure-g">
-                <div class="pure-u-1 plus1"></div>
-
                 <div class="pure-u-1 plus1">
-                    <p class="pull-right">
-                        <span ng-show="(data | filter:{Y:Fy} | filter: Srchr ).length < data.length">
-{{(data | filter:{Y:Fy} | filter: Srchr ).length}} of </span>{{data.length}} records
-
-                        <a href="" ng-click="[od='I',od1='',od2='']" ng-hide="od1==''"><b>reset sort <i class="fa fa-undo"></i></b></a>
-                    </p>
-
-
-
+<p class="pull-right">
+<span ng-show="(data | filter:{Y:Fy} | filter: {A:sA,T:sT,S:sS}:true ).length < data.length">
+{{(data | filter:{Y:Fy} | filter: {A:sA,T:sT,S:sS}:true ).length}} of </span>{{data.length}} records
+<a href="" ng-click="[od='I',od1='',od2='']" ng-hide="od1==''"><b>reset sort <i class="fa fa-undo"></i></b></a>
+</p>
 
 
                     <form class="pure-form">
                         <fieldset ng-show="Opt==''">
-                            <input ng-model="Srchr" ng-show="Opt==''" placeholder="search" ng-focus="Sopt='on'">
-
-                            <span ng-hide="Srchr==''"> <!-- broken -->
- <select ng-model="sT" ng-options="t for t in dET"></select>
-<select id="srch" ng-show="Sopt=='on'">
-            <option>Expense Area</option>
-            <option>Expense Type</option>
-            <option>Supplier</option>
-        </select></span>
-                            <label>and/or filter by</label>
-                            <button ng-click="Opt='x'" class="pure-button" ng-class="{'pure-button-primary': (data | filter:{Y:Fy} ).length < data.length}"><i class="fa fa-calendar"></i>
+<label>Filter by</label>
+<button ng-hide="OptB=='t'" ng-click="OptB='t'" class="pure-button" ng-class="{'pure-button-primary': (data | filter: {A:sA,T:sT,S:sS}:true ).length < data.length}">category <i class="fa fa-chevron-down"></i></button>
+<button ng-show="OptB=='t'" ng-click="OptB=''" class="pure-button" ng-class="{'pure-button-primary': (data | filter: {A:sA,T:sT,S:sS}:true ).length < data.length}">category <i class="fa fa-chevron-up"></i></button>
+                         
+                            <label>and/or by</label>
+                            <button ng-click="Opt='x'" class="pure-button" ng-class="{'pure-button-primary':(data | filter:{Y:Fy}).length < data.length }"><i class="fa fa-calendar"></i> date
                             </button>
                         </fieldset>
+
 
 
 
@@ -61,10 +51,10 @@
                             <a href="" ng-click="[Fy=1,Opt='']" class="pure-button">2011/12</a>
                             <a href="" ng-click="[Fy=2,Opt='']" class="pure-button">2012/13</a>
                             <a href="" ng-click="[Fy=3,Opt='']" class="pure-button">2013/14</a>
-                            <a href="" ng-click="Opt='y'" class="pure-button">More</a>
+                            <a href="" ng-click="Opt='y'" class="pure-button" hidden>More</a>
                             <!-- unhide when you're done here-->
-                            <a href="" ng-click="Opt=''" ng-show="Fy==''" class="pure-button"><i class="fa fa-times"></i></a>
-                            <a href="" ng-click="[Fy='',Opt='']" ng-hide="Fy==''" class="pure-button"><i class="fa fa-times"></i></a>
+                            <a href="" ng-click="Opt=''" ng-show="Fy==undefined" class="pure-button"><i class="fa fa-times"></i></a>
+                            <a href="" ng-click="[Fy=undefined,Opt='']" ng-hide="Fy==undefined" class="pure-button"><i class="fa fa-times"></i></a>
                         </fieldset>
 
                         <fieldset ng-show="Opt=='y'">
@@ -77,7 +67,28 @@
                         </fieldset>
                     </form>
 
-                    {{}}
+<div class="pure-form pure-form-aligned grey" ng-show="OptB=='t'">
+	  <div class="pure-control-group">
+            <label></label>
+        </div>
+
+        <div class="pure-control-group">
+		<label>Expense type</label><select ng-model="sT" ng-options="dET.indexOf(t) as t for t in dET"></select>&nbsp; 
+ 
+<a href="" ng-hide="sT==undefined" ng-click="sT=undefined" class="pure-button"><i class="fa fa-times"></i></a>&nbsp; 
+<button ng-click="[sS=undefined,sA=undefined,sT=undefined]"  class="pure-button" ng-hide="sS+sA+sT == undefined">Reset all</button>
+
+        </div>
+
+        <div class="pure-control-group">
+		<label>Expense area</label><select ng-model="sA" ng-options="dEA.indexOf(a) as a for a in dEA"></select>&nbsp; <a href="" ng-hide="sA==undefined" ng-click="sA=undefined" class="pure-button"><i class="fa fa-times"></i></a>
+        </div>
+
+        <div class="pure-control-group">
+		<label>Supplier</label><select ng-model="sS" ng-options="dS.indexOf(sup) as sup for sup in dS"></select>&nbsp; <a href="" ng-hide="sS==undefined" ng-click="sS=undefined" class="pure-button"><i class="fa fa-times"></i></a>
+        </div>
+</div>
+
             
                     <table class="pure-table pure-table-striped table-responsive">
                         <thead>
@@ -87,44 +98,44 @@
                     <i class="fa fa-sort-numeric-asc mute" ng-class="{first: od=='I', second: od1=='I', third: od2=='I'}"></i></a>
                                     <a href="" ng-click="[od2=od1, od1=od, od='-I']">
                     <i class="fa fa-sort-numeric-desc mute" ng-class="{first: od=='-I', second: od1=='-I', third: od2=='-I'}"></i></a>
-                                </th>
+                                &nbsp;</th>
                                 <th>Date
                                     <a href="" ng-click="[od2=od1, od1=od, od='D']">
                     <i class="fa fa-sort-amount-asc mute" ng-class="{first: od=='D', second: od1=='D', third: od2=='D'}"></i></a>
                                     <a href="" ng-click="[od2=od1, od1=od, od='-D']">
                     <i class="fa fa-sort-amount-desc mute" ng-class="{first: od=='-D', second: od1=='-D', third: od2=='-D'}"></i></a>
-                                </th>
+                                &nbsp;</th>
                                 <th>Expense type
                                     <a href="" ng-click="[od2=od1, od1=od, od='A']">
                     <i class="fa fa-sort-alpha-asc mute" ng-class="{first: od=='A', second: od1=='A', third: od2=='A'}"></i></a>
                                     <a href="" ng-click="[od2=od1, od1=od, od='-A']">
                     <i class="fa fa-sort-alpha-desc mute" ng-class="{first: od=='-A', second: od1=='-A', third: od2=='-A'}"></i></a>
-                                </th>
+                                &nbsp;</th>
                                 <th>Expense Area
                                     <a href="" ng-click="[od2=od1, od1=od, od='T']">
                     <i class="fa fa-sort-alpha-asc mute" ng-class="{first: od=='T', second: od1=='T', third: od2=='T'}"></i></a>
                                     <a href="" ng-click="[od2=od1, od1=od, od='-T']">
                     <i class="fa fa-sort-alpha-desc mute" ng-class="{first: od=='-T', second: od1=='-T', third: od2=='-T'}"></i></a>
-                                </th>
+                                &nbsp;</th>
                                 <th>Supplier
                                     <a href="" ng-click="[od2=od1, od1=od, od='S']">
                     <i class="fa fa-sort-alpha-asc mute" ng-class="{first: od=='S', second: od1=='S', third: od2=='S'}"></i></a>
                                     <a href="" ng-click="[od2=od1, od1=od, od='-S']">
                     <i class="fa fa-sort-alpha-desc mute" ng-class="{first: od=='-S', second: od1=='-S', third: od2=='-S'}"></i></a>
-                                </th>
+                                &nbsp;</th>
                                 <th>Value
                                     <a href="" ng-click="[od2=od1, od1=od, od='V']">
                     <i class="fa fa-sort-amount-asc mute" ng-class="{first: od=='V', second: od1=='V', third: od2=='V'}"></i></a>
                                     <a href="" ng-click="[od2=od1, od1=od, od='-V']">
                     <i class="fa fa-sort-amount-desc mute" ng-class="{first: od=='-V', second: od1=='-V', third: od2=='-V'}"></i></a>
-                                </th>
+                                &nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
 
 
 
-                            <tr ng-repeat="d in data | filter:{Y:Fy} | filter: Srchr | orderBy: [od,od1,od2] | limitTo: long  ">
+                            <tr ng-repeat="d in data | filter:{Y:Fy} | filter: {A:sA,T:sT,S:sS} :true | orderBy: [od,od1,od2] | limitTo: long  ">
                                 <td>{{d.I+1}}</td>
                                 <td>{{d.D *100000 | date:'dd MMM yyyy'}}</td>
                                 <td>{{dEA[d.A]}}</td>
@@ -134,7 +145,10 @@
                             </tr>
                         </tbody>
                     </table>
-                    <a href="" ng-click="long = long+10" class="pure-button" ng-hide="long>=(data | filter:{Y:Fy} | filter: Srchr ).length">show more</a>
+
+<span style="float: right;">total: <a ng-click="tot = getSum()">update</a>  <b>{{tot | currency:'&pound;'}}</b> {{subset.length}} </span>
+
+                    <a href="" ng-click="long = long+10" class="pure-button" ng-hide="long>=(data | filter:{Y:Fy} | filter: {A:sA,T:sT,S:sS} :true ).length">show more</a>
                 </div>
             </div>
         </article>
@@ -148,33 +162,39 @@
         </div>
     </footer>
 </body>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/sugar/1.4.1/sugar.min.js"></script>
-<script src="ng-quick-date.js"></script>
-<script src="ac.js"></script>
-<script src="data1.js"></script>
+<script asnyc src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script asnyc src="http://cdnjs.cloudflare.com/ajax/libs/sugar/1.4.1/sugar.min.js"></script>
+<script asnyc src="ng-quick-date.js"></script>
+<script asnyc src="ac.js"></script>
+<script asnyc src="data.js"></script>
 
 <script>
     var app = angular.module('app', ['angularCharts', 'ngQuickDate']);
     app.controller('appCtrl', ['$scope', '$filter',
-        function (scope, filter) {
+        function (s, f) {
 
-            scope.Sdate = "2010-04-01T00:00:00.000Z";
-            scope.Edate = "2014-03-31T00:00:00.000Z";
-            scope.SD = filter('limitTo')(scope.Sdate, 10);
-            scope.ED = filter('limitTo')(scope.Edate, 10);
-            scope.Fy = "";
-		scope.fy = scope.Fy != "";
-            scope.data = dataset;
-            scope.dEA = dEA;
-            scope.dET = dET;
-            scope.dS = dS;
-            scope.long = 10;
-            scope.od = "I";
-            scope.od1 = "";
-            scope.od2 = "";
-            scope.Opt = "";
-
+            s.Sdate = "2010-04-01T00:00:00.000Z";
+            s.Edate = "2014-03-31T00:00:00.000Z";
+            s.SD = f('limitTo')(s.Sdate, 10);
+            s.ED = f('limitTo')(s.Edate, 10);
+            s.Fy = "";
+            s.data = dataset;
+		s.subset = f('limitTo')(s.data, {Y:s.Fy},true);
+            s.dEA = dEA;
+            s.dET = dET;
+            s.dS = dS;
+            s.long = 10;
+            s.od = "I";
+            s.od1 = "";
+            s.od2 = "";
+            s.Opt = "";
+		s.tot = 0;
+		
+		s.getSum = function(){
+     var sum = 0;
+     for( t=0; t < s.data.length; t++) { sum += s.data[t].V }
+     return sum.toFixed(2);
+}
 }
 
 
