@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="robots" content="noindex, nofollow">
+		<title>Project</title>
+
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+		<style>body{margin: 0 auto;max-width:1080px;}.pad{padding: 2em;}</style>
+
+	</head>
+	<body>
+	<div class="pad">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script src="http://hartdc.github.io/js/consult.js"></script>
+<style>.box, .box th, .box td{padding:0.5em; border:1px solid #ddd;background-color: #eee;}.ctr{text-align:center;}.qst{color:#7f7f7f;}.fade{background-color:#ccc !important;border-right:4px solid #aaa !important;}.wt{background-color: #fff;}.navi ul li a{padding:0.5em; margin: 2px 0px;text-decoration: none; display: block;color:#fff;}.navi ul{list-style-type: none; padding: 0; margin: 0;}.box2{border-right:4px solid #444;background-color: #7f7f7f;}.bol{color:#111;font-weight:bold;font-size:1.1em;}.a-s{clear:both;padding:0;margin:0}.a-g:after,.a-g:before{content:"";display:table}.a-g:after{clear:both}.a-g{zoom:1}.a-c{display:block;float:left;margin:1% 0 1% 1.6%}.a-c:first-child{margin-left:0}.gr4-5{width:79.68%}.gr1-5{width:18.72%}</style>
+		<div ng-app="App" ng-controller="AppCtrl" class="a-s a-g">
+			<div class="a-c gr1-5 navi">
+			  <input type="text" ng-model="search" placeholder="Search" ng-focus="m.d=0" style="width:100%;">  
+			  <ul>
+				<li ng-hide="l >= (data | filter:search).length" class="box2 fade ctr"><a href="" ng-click="l = l + 10">showing {{l}} of {{(data | filter:search).length}} - show more</a></li>
+				<li ng-repeat="d in data | filter:search | limitTo:l |orderBy:'-i'" class="box2"><a href="" ng-click="m.d= d.i">{{d.i}} - {{d.r[5]}}</a></li>
+			  </ul>
+			</div>
+			<div ng-show="m.d==0" class="a-c gr4-5">
+				<p>You can explore {{data.length}} of the 684 consultation responses received to the Housing Development Options Paper and the accompanying Sustainability Appraisal here.</p>
+				<p>The remaining responses received were as written representations, rather than as responses to the questionnaire and have been attached separately.</p>
+				<p>Use the search box on the left to find responses by reference number, name/organisation or any other keyword.</p>
+ 			</div>
+			<div ng-repeat="d in data | filter:{i:m.d}:true | limitTo:1" class="a-c gr4-5" nd-hide="m.d==0">
+<small><span class="qst">Response reference number: </span>{{d.i}} <br /> <span class="qst">Name: </span>{{d.r[5]}} <span class="qst">| Organisation / Agent: </span>{{d.r[6]}}</small>
+<p class="qst">Ranking of options:</p>
+<table>
+  <tr><td class="box qst wt"> Option 1 - Settlement Focus </td><td class="box ctr">{{d.r[0]}}</td></tr>   
+  <tr><td class="box qst wt"> Option 2 - Dispersal Strategy </td><td class="box ctr">{{d.r[1]}}</td></tr>
+  <tr><td class="box qst wt"> Option 3 - Focused Growth (Strategic Urban Extensions) </td><td class="box ctr">{{d.r[2]}}</td></tr>
+  <tr><td class="box qst wt"> Option 4 - Focused Growth (New Settlement) </td><td class="box ctr">{{d.r[3]}}</td></tr>
+  <tr><td class="box qst wt"> Option 5 - Special Protection Area Avoidance Strategy </td><td class="box ctr">{{d.r[4]}}</td></tr>
+</table>
+<p class="qst">Q1 - Comments on the options</p>
+<p class="box">{{d.q1}}</p>
+<p class="qst">Q2 - Do you think even the smallest settlements should see some new housing? &nbsp;<span class="bol">{{d.q2}}</span></p>
+<p class="box">{{d.q2a}}</p>
+<p class="qst">Q3 - If Option 4 were selected, where in Hart do you think the new settlement should be located and how large should it be?</p>
+<p class="box">{{d.q3}}</p>
+<p class="qst">Q4 - Are there any other possible housing development options? &nbsp;<span class="bol">{{d.q4}}</span></p>
+<p class="box">{{d.q4a}}</p>
+<p class="qst">Q5 - Any other comments</p>
+<p class="box">{{d.q5}}</p>
+			</div>
+		</div>
+
+	</div>
+	</body>
+</html>
