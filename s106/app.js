@@ -28,7 +28,7 @@ app.controller("appCtrl", [ '$scope', function($scope) {
 
   function Click(Parish, event) {
 		    $scope.parish = Parish.properties.name;
-            $scope.parishC = Parish.properties.c;
+                $scope.parishC = Parish.properties.c;
 		    $scope.markers.point.lat = event.latlng.lat;
 	  	    $scope.markers.point.lng = event.latlng.lng;
 		  }
@@ -85,11 +85,7 @@ app.controller("appCtrl", [ '$scope', function($scope) {
            $scope.v.S3 = 0; /*SPA Mitigation -Selected */
            $scope.v.S4 = 0; /*SPA Mitigation -Selected */
 
-            /*Parish */
-           $scope.v.SP = {
-                p: '',
-                c: 0
-            };
+
 
             /* Setting up the preset contribution values - updates should be applied here, make sure you include your admin fees and accounted for per person costs (this app just displays people data for info, not to calculate fees) */
 
@@ -127,15 +123,18 @@ app.controller("appCtrl", [ '$scope', function($scope) {
            $scope.v.TB2 = 1811 / 100; /*NHTS-B2 development */
            $scope.v.TB8 = 2270 / 100; /*NHTS-B8 development */
 
-           $scope.v.SHL1 = 4051; /*SPA Mitigation - Hitches Lane-1 Bed*/
-           $scope.v.SHL2 = 7542; /*SPA Mitigation - Hitches Lane-2 Bed*/
-           $scope.v.SHL3 = 7542; /*SPA Mitigation - Hitches Lane-3 Bed*/
-           $scope.v.SHL4 = 10908; /*SPA Mitigation - Hitches Lane-4 or more Bed*/
+ 	     $scope.v.SHL = [];
+	     $scope.v.SHM = [];
 
-           $scope.v.SHM1 = 3549; /*SPA Mitigation - Hawley Meadows-1 Bed*/
-           $scope.v.SHM2 = 6607; /*SPA Mitigation - Hawley Meadows-2 Bed*/
-           $scope.v.SHM3 = 6607; /*SPA Mitigation - Hawley Meadows-3 Bed*/
-           $scope.v.SHM4 = 9555; /*SPA Mitigation - Hawley Meadows-4 or more Bed*/
+           $scope.v.SHL[0] = 4051; /*SPA Mitigation - Hitches Lane-1 Bed*/
+           $scope.v.SHL[1] = 7542; /*SPA Mitigation - Hitches Lane-2 Bed*/
+           $scope.v.SHL[2] = 7542; /*SPA Mitigation - Hitches Lane-3 Bed*/
+           $scope.v.SHL[3] = 10908; /*SPA Mitigation - Hitches Lane-4 or more Bed*/
+
+           $scope.v.SHM[0] = 3549; /*SPA Mitigation - Hawley Meadows-1 Bed*/
+           $scope.v.SHM[1] = 6607; /*SPA Mitigation - Hawley Meadows-2 Bed*/
+           $scope.v.SHM[2] = 6607; /*SPA Mitigation - Hawley Meadows-3 Bed*/
+           $scope.v.SHM[3] = 9555; /*SPA Mitigation - Hawley Meadows-4 or more Bed*/
 
            $scope.v.SA1 = 359; /*SAMM-1 Bed*/
            $scope.v.SA2 = 669; /*SAMM-2 Bed*/
@@ -151,5 +150,6 @@ app.controller("appCtrl", [ '$scope', function($scope) {
 
 
 }]);
+
 
 })();
