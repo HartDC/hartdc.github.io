@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="robots" content="noindex, nofollow">
+		<title>Project</title>
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+		<style>body{margin: 0 auto;max-width:1080px;}.pad{padding: 2em;}</style>
+	</head>
+	<body class="pad">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular-sanitize.min.js"></script>
+<script src="http://hartdc.github.io/js/foi.js"></script>
+<div ng-app="App" ng-controller="AppCtrl" >
+<p><input type="text" ng-model="search.val" ng-focus="[m.d=0, l = 10]" placeholder="Search previous responses" style="min-width:90%;"><span style="float:right"><a href="" ng-click="[search.val='', m.d = 0, l=10]">reset</a></span></p>
+
+<div ng-show="m.d==0">
+<p style="float:right">{{(data | filter:search.val).length}} results</p>
+<table style="width:100%">
+<tr ng-repeat="d in data | filter:search.val | limitTo:l" style="padding:0.5em; border:1px solid #ddd;background-color: #eee;">
+<td style="padding:0.5em">{{d.id}}</td>
+<td style="padding:0.5em; width:75%"><a href="" ng-click="m.d = d.id">{{d.title}}</a></td>
+<td style="padding:0.5em">{{d.date | date:'dd/MM/yyyy'}}</td>
+</tr>
+</table>
+<a href="" ng-hide="l >= (data | filter:search.val).length" ng-click="l = l + 10">show more</a>&nbsp;&nbsp;&nbsp;<span ng-hide="(data | filter:search.val).length + 9 <= 10"><a href="" ng-show="l > 10"  ng-click="l = l - 10">show less</a></span>
+</div>
+
+<div ng-repeat="d in data | filter:{id:m.d}:true | limitTo:1" ng-hide="m.d==0">
+<a href="" ng-click="m.d = 0">back</a>
+<p style="float:right">response date: {{d.date | date:'dd/MM/yyyy'}}</p>
+<p><strong>Question(s)</strong></p>
+<p ng-bind-html="d.req"></p>
+<div style="padding:0.5em; border:1px solid #ddd;background-color: #eee;">
+<p><strong>Reply</strong></p>
+<p ng-bind-html="d.res"></p> 
+</div>
+</div>
+
+</div>
+
+	</body>
+</html>
