@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Map</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+	.filter-ui { background:#fff;  position:absolute;  top:10px;  right:10px;  z-index:100;  padding:10px;  border-radius:3px;}
+</style>
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
+<script src="https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v1.4.0/turf.min.js"></script>
+	
+	<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.css' rel='stylesheet' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js'></script>
+<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-geodesy/v0.1.0/leaflet-geodesy.js'></script>
+	
+</head>
+<body>
+<nav id='filters' class='filter-ui'></nav>
+<div id='map'></div>
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiaGFydGRjIiwiYSI6IkM1ZE5oV3cifQ.jy4ZBTvjw_k8EspgEqCnLw';
+var map = L.mapbox.map('map', null)
+    .setView([51.279367, -0.8460330000000056], 12)
+    .addControl(L.mapbox.geocoderControl('mapbox.places', {autocomplete: true}));
+ var layers = {
+      Streets: L.mapbox.tileLayer('hartdc.l67nl481'),
+      Outdoors: L.mapbox.tileLayer('hartdc.lbigbm40'),
+      Satellite: L.mapbox.tileLayer('hartdc.lbig6042')
+  };
+  layers.Streets.addTo(map);
+  L.control.layers(layers).addTo(map);
+
+var featureGroup = L.featureGroup().addTo(map);
+
+var drawControl = new L.Control.Draw({
+  edit: {
+    featureGroup: featureGroup
+  },
+  draw: {
+    polygon: true,
+    polyline: true,
+    rectangle: true,
+    circle: false,
+    marker: true
+  }
+}).addTo(map);
+
+map.on('draw:created', showPolygonArea);
+map.on('draw:edited', showPolygonAreaEdited);
+
+function showPolygonAreaEdited(e) {
+  e.layers.eachLayer(function(layer) {
+    showPolygonArea({ layer: layer });
+  });
+}
+function showPolygonArea(e) {
+  featureGroup.clearLayers();
+  featureGroup.addLayer(e.layer);
+  e.layer.bindPopup((LGeo.area(e.layer) / 1000000).toFixed(2) + ' km<sup>2</sup>');
+  e.layer.openPopup();
+}
+
+	var pt = {
+  "type": "Feature",
+  "properties": {},
+  "geometry": {
+    "type": "Point",
+    "coordinates": [51.4, -0.84]
+  }
+};
+var unit = 'miles';
+
+var buffered = turf.buffer(pt, 50, unit);
+
+var resultFeatures = buffered.features.concat(pt);
+var result = {
+  "type": "FeatureCollection",
+  "features": resultFeatures
+};
+//result.addTo(map);
+
+	
+var filters = document.getElementById('filters');
+
+// Wait until the marker layer is loaded in order to build a list of possible
+// types. If you are doing this with another featureLayer, you should change
+// map.featureLayer to the variable you have assigned to your featureLayer.
+map.featureLayer.on('ready', function() {
+  // Collect the types of symbols in this layer. you can also just
+  // hardcode an array of types if you know what you want to filter on,
+  // like var types = ['foo', 'bar'];
+  var typesObj = {}, types = [];
+  var features = map.featureLayer.getGeoJSON().features;
+  for (var i = 0; i < features.length; i++) {
+    typesObj[features[i].properties['marker-symbol']] = true;
+  }
+  for (var k in typesObj) types.push(k);
+
+  var checkboxes = [];
+  // Create a filter interface.
+  for (var i = 0; i < types.length; i++) {
+    // Create an an input checkbox and label inside.
+    var item = filters.appendChild(document.createElement('div'));
+    var checkbox = item.appendChild(document.createElement('input'));
+    var label = item.appendChild(document.createElement('label'));
+    checkbox.type = 'checkbox';
+    checkbox.id = types[i];
+    checkbox.checked = true;
+    // create a label to the right of the checkbox with explanatory text
+    label.innerHTML = types[i];
+    label.setAttribute('for', types[i]);
+    // Whenever a person clicks on this checkbox, call the update().
+    checkbox.addEventListener('change', update);
+    checkboxes.push(checkbox);
+  }
+
+  // This function is called whenever someone clicks on a checkbox and changes
+  // the selection of markers to be displayed.
+  function update() {
+    var enabled = {};
+    // Run through each checkbox and record whether it is checked. If it is,
+    // add it to the object of types to display, otherwise do not.
+    for (var i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].checked) enabled[checkboxes[i].id] = true;
+    }
+    map.featureLayer.setFilter(function(feature) {
+      // If this symbol is in the list, return true. if not, return false.
+      // The 'in' operator in javascript does exactly that: given a string
+      // or number, it says if that is in a object.
+      // 2 in { 2: true } // true
+      // 2 in { } // false
+      return (feature.properties['marker-symbol'] in enabled);
+    });
+  }
+});
+	
+</script>
+</body>
+</html>
