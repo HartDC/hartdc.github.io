@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="robots" content="noindex, nofollow">
+		<title>Project</title>
+	</head>
+	<body>
+
+<!--[if lt IE 9]><p>Apologies this feature may not work on internet explorer 8 or less. You can still download the spreadsheet above or use a more up-to-date browser.</p><![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+
+<script>var App = angular.module('App', []);App.controller('AppCtrl',['$scope','$filter',function($scope,$filter){$scope.m ={d:0};$scope.l =10;$scope.data = dat;}]);</script>
+<style>.box, .box th, .box td{padding:0.5em; border:1px solid #ddd;background-color: #eee;}.ctr{text-align:center;}.qst{color:#7f7f7f;}.wt th{background-color: #fff;}.navi ul li a{padding:0.5em; margin-bottom: 2px;text-decoration: none; display: block;color:#fff;}.navi ul{list-style-type: none; padding: 0; margin: 0;}.box2{border:0px 3px 0px 0px solid #777;background-color: #7f7f7f;}</style>
+
+		<div ng-app="App" ng-controller="AppCtrl">
+			<div style="float:left; padding:2em; max-width:15%;" class="navi">
+			<input type="text" ng-model="search" placeholder="Search" ng-focus="m.d=0">  
+			<ul><li ng-repeat="d in data | filter:search | limitTo:l" class="box2">
+			<a href="" ng-click="m.d= d.i">{{d.i}} - {{d.a}}</a>
+			</li>
+			<li ng-hide="l >= data.length" class="box2"><a href="" ng-click="l = l + 10">show more</a></li>	
+			</ul>
+			</div>
+			<div ng-repeat="d in data | filter:{'i':m.d}:true | limitTo:1" style="padding:2em; float:right; width:75%;" nd-hide="m.d==0">
+<small>Response reference: {{d.i}}</small>
+<p class="qst">Q1 ranking of options:</p>
+<table class="ctr">
+  <thead>
+  <tr class="box qst wt">
+    <th> Option 1 </th><th> Option 2 </th><th> Option 3 </th><th> Option 4 </th><th> Option 5 </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="box">
+    <td>{{d.a}}</td><td>{{d.b}}</td><td>{{d.c}}</td><td>{{d.d}}</td><td>{{d.e}}</td>
+  </tr>
+  </tbody>
+</table>
+<p class="qst">Comments:</p>
+<p class="box">{{d.q1a}}</p>
+<p class="qst">Q2 None of the options suggest housing in Hart's smallest villages and hamlets.  Do you think even the smallest settlements should see some new housing?</p>
+<p class="box">{{d.q2}}</p>
+<p class="qst">Comments:</p>
+<p class="box">{{d.q2a}}</p>
+<p class="qst">Q3 - If Option 4 (Focused Growth - New Settlement) were selected, where in Hart do you think the new settlement should be located and how large should it be?  Please give reasons for your views</p>
+<p class="box">{{d.q3}}</p>
+<p class="qst">Q4 - Are there any other possible housing development options?</p>
+<p class="box">{{d.q4}}</p>
+<p class="qst">Comments:</p>
+<p class="box">{{d.q4a}}</p>
+<p class="qst">Q5 - Please use this space to make any other comments on the Housing Development Options Paper or the accompanying Sustainability Appraisal</p>
+<p class="box">{{d.q5}}</p>
+			</div>
+		</div>
+	</body>
+	
+<script>
+var dat =
+	[ {
+  "a" : "3",
+  "b" : "4",
+  "c" : "5",
+  "d" : "1",
+  "e" : "2",
+  "i" : 1,
+  "p" : 1,
+  "q1" : "the existing infrastructure near the already developed town centre areas in and around Fleet is struggling to cope with current development and proposed mitigation that has been put forward for building so close to the SPA areas does not seem to be working properly. I would think the most sensible options would be to create a new town with purpose build infrastructure and also strategically develop in the areas away from the SPA where its current infrastructure is underused or has less strain on it as currently seen in and around the Fleet area.",
+  "q2" : "Yes",
+  "q2a" : "",
+  "q3" : "somewhere near expandable infrastructure like Winchfield where it is close to the M3 and also has a mainline train station or right on the north border of the district as this will be strategically located between the major road network of the M3 and M4",
+  "q4" : "Don't know",
+  "q4a" : "",
+  "q5" : ""
+}, {
+  "a" : "4",
+  "b" : "3",
+  "c" : "5",
+  "d" : "2",
+  "e" : "1",
+  "i" : 2,
+  "p" : 1,
+  "q1" : "I understand the need to expand housing options and support that - but the key question is where that happens in the region. What I see as a local resident is over development of Fleet compared to surrounding areas. Major strain already applied to local services and infrastructure (doctors, schools, roads, rail etc) - some of which are at or near breaking point in Fleet.My understanding is council have approved Edenbrook Village which is already another large development in Fleet. Hopefully this is being considered as part of this. I know Berkeley also have another application for a further site just down Hitches Lane.Other areas have better capacity to absorb expansion in a sustainable manner - I think the burden should be shared around the other surrounding areas. Some of the proposed sites in Fleet are very close to the flood plain which is a risk given increasing occurrences of 'rare' weather events such as flooding etc. Having seen the area around the country park at the turn of the year, even with flood modelling and the use of detenion basins etc I think it would be risky for development to continue in the Hitches Lane / Church Crookham area. This area also boasts several rare forms of wildlife that have already been disturbed by currently approved sites - is it fair to continue this disruption?",
+  "q2" : "Yes",
+  "q2a" : "I think it's right that the commitment to housing is shared - by having some new housing in even the smallest areas it promotes diversity and integration.",
+  "q3" : "",
+  "q4" : "Yes",
+  "q4a" : "Whilst I understand that developers want good economies of scale and so want large sites to develop hundreds of houses, I think we should be considering areas where we have unused buildings that could be repurposed too. Developers ALWAYS make huge profits regardless of the price paid for land and deals done on 106 agreements etc. I think it's time for the region to take a stronger stance ie welcome developers to develop the land but only the land that we want developed. Feel free to check the theory here - Berekely Homes recorded profits this year - in no small part down to Edenbrook I am sure!",
+  "q5" : "Alongside the need for new homes I am sure the council is considering the need for supporting services and infrastructure (roads, schools, doctors etc). It would be great to demostrate the thinking on this alongside the housing strategy ie there is little diaglogue with (worried) residents about how all this developement can be accomodated and we can all still move around the roads, get a doctors appointment and get our children into local schools.The housing quota required for the region is clearly a difficult aim to achieve. I think the most democratic way to deal with the problem is now to share the development around the region (putting a focus on the areas which have not be as heavily developed in recent years). This will be a difficult decision for residents to accept but in terms of the logic as to why the council would take this approach it seems the fairest way to proceed to me - and I think a lot of people would ultimately recognise that. I fear however that the council may roll over here - putting all the development in one area - thus angering one set of people rather the whole region (I really hope not)."
+}]
+
+	
+</script>
+	
+</html>
