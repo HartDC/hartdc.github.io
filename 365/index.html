@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" ng-app="todomvc" data-framework="firebase">
+	<head>
+		<meta charset="utf-8">
+		<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+		<title>PhoneList</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+		<style>[ng-cloak] { display: none; }</style>
+	</head>
+	<body>
+		<div class='container' ng-controller="TodoCtrl">
+			<section class='row' ng-cloak>
+				<header>
+					<h1 class='text-center text-muted'>Office 365</h1>
+					<p class='text-center text-muted' >Raise or check progress of an issue with the new email system</p>
+					<button type="submit" class="btn btn-primary" ng-click="check.it=1" ng-hide="check.it==1">Raise an issue</button>
+					
+					<div class="well" ng-show="check.it==1">
+					<form ng-submit="addTodo()">
+						 <div class="form-group">
+    <label for="issue" ng-model="todo.title">Raise an issue</label>
+							 <textarea class="form-control" rows="3" ng-model="newTodo" id="response" placeholder="describe the issue" autofocus></textarea>
+							   </div>
+						<button type="submit" class="btn btn-primary" ng-click="addTodo()">Submit</button>
+						<button type="submit" class="btn btn-default" ng-click="check.it=0" ng-show="check.it==1">Cancel</button>
+					</form>
+					 </div>
+				</header>
+				
+				<section ng-show="totalCount" >
+<p>&nbsp;</p>
+											<div ng-repeat="todo in todos">	
+							<div class="well" ng-if='todo == editedTodo'>
+							<form ng-submit="doneEditing(todo)" >
+  <div class="form-group">
+    <label for="issue" ng-model="todo.title">Issue</label>
+    <textarea class="form-control" rows="3" ng-model="todo.title" id="issue" placeholder="describe the issue"></textarea>
+  </div>
+   							
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ng-model="todo.completed" ng-change="todos.$save(todo)"> Close issue
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary" ng-click="{todos.$save(todo),doneEditing(todo)}">Save</button>
+								<button type="submit" class="btn btn-default" ng-click="{doneEditing(todo)}">Cancel</button>
+</form>
+				</div>
+					</div>
+					
+					<h3 class="text-warning">Outstanding issues ( {{remainingCount}} )</h3>
+			
+						<div ng-repeat="todo in todos | orderBy:'-dt'">
+							<div class="list-group-item" ng-hide="todo.completed">
+							
+								<label>{{todo.title}}</label> <br />
+								<label class='text-info'>{{todo.stat}}</label>
+                              <button class='btn btn-sm btn-default pull-right' ng-click="editTodo(todo)">edit</button>
+						
+							<button class='hidden btn btn-sm btn-danger pull-right' ng-click="removeTodo(todo)">delete</button>
+							</div>
+					</div>
+						
+							
+
+			
+				
+										<h3 class="text-success">Closed issues ( {{totalCount - remainingCount}} )</h3>
+				
+						<div ng-repeat="todo in todos | filter:!todo.completed | orderBy:'-dt'" class="list-group-item">
+						
+								<label class="text-muted">{{todo.title}}</label><br />
+							<label>{{todo.stat}}</label>
+                              <button class='btn btn-sm btn-default pull-right' ng-click="editTodo(todo)">edit</button>
+
+							
+						
+						</div>
+		
+					
+					
+					
+				</section>
+			</section>
+		</div>
+
+		<!-- AngularJS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+		<!-- Firebase -->
+		<script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+		<!-- AngularFire -->
+		<script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
