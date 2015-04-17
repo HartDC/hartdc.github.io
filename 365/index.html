@@ -11,9 +11,9 @@
 		<div class='container' ng-controller="TodoCtrl">
 			<section class='row' ng-cloak>
 				<header>
-					<h1 class='text-center text-muted'>Office 365</h1>
-					<p class='text-center text-muted' >Raise or check progress of an issue with the new email system</p>
-					<button type="submit" class="btn btn-primary" ng-click="check.it=1" ng-hide="check.it==1">Raise an issue</button>
+					<h1 class='text-center text-success'>Office 365</h1>
+					<p class='text-center text-success' >Raise or check progress of an issue with the new email system</p>
+					<button type="submit" class="btn btn-success" ng-click="check.it=1" ng-hide="check.it==1">Raise an issue</button>
 					
 					<div class="well" ng-show="check.it==1">
 					<form ng-submit="addTodo()">
@@ -21,7 +21,7 @@
     <label for="issue" ng-model="todo.title">Raise an issue</label>
 							 <textarea class="form-control" rows="3" ng-model="newTodo" id="response" placeholder="describe the issue" autofocus></textarea>
 							   </div>
-						<button type="submit" class="btn btn-primary" ng-click="addTodo()">Submit</button>
+						<button type="submit" class="btn btn-success" ng-click="addTodo()">Submit</button>
 						<button type="submit" class="btn btn-default" ng-click="check.it=0" ng-show="check.it==1">Cancel</button>
 					</form>
 					 </div>
@@ -42,7 +42,7 @@
       <input type="checkbox" ng-model="todo.completed" ng-change="todos.$save(todo)"> Close issue
     </label>
   </div>
-  <button type="submit" class="btn btn-primary" ng-click="{todos.$save(todo),doneEditing(todo)}">Save</button>
+  <button type="submit" class="btn btn-success" ng-click="{todos.$save(todo),doneEditing(todo)}">Save</button>
 								<button type="submit" class="btn btn-default" ng-click="{doneEditing(todo)}">Cancel</button>
 </form>
 				</div>
