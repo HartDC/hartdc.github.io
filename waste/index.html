@@ -1,0 +1,86 @@
+<html lang="en" ng-app="StarterApp">
+  <head>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="initial-scale=1" />
+  </head>
+  <body layout="column" ng-controller="AppCtrl">
+    <md-toolbar layout="row">
+      <div class="md-toolbar-tools">
+        <h1>GW prototype - this is just a test site. Ignore everything it says, thanks.</h1>
+      </div>
+    </md-toolbar>
+    <div layout="row" flex>
+        <div layout="column" flex id="content">
+            <md-content layout="column" flex class="md-padding">
+
+
+              <div>
+                <md-content class="md-padding">
+                  <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex">
+                    <md-tab label="01">
+                      <md-content class="md-padding">
+                          <h2>Go even greener with your gardening!</h2>
+
+<p>Get fortnightly garden waste collections and can save on horrible bonfires and trips to the recycling centre.</p>
+
+<h3 ><a ng-click="selectedIndex=1" href="/">Not a member? Sign up now</a></h3>
+<h4 ><a ng-click="selectedIndex=2" href="">Already benefiting? Renew now, or change your subscription</a></h4>
+
+
+<h4>Home Composting</h4>
+<p>As well as getting your garden waste recycled thorugh our garden waste service you can benefit from composting those smaller garden items like grass cuttings as well as some food waste. Composting is an inexpensive, natural process that transforms your kitchen and garden waste into a valuable and nutrient rich food for your garden. It's easy to make and use.</p>
+
+<p>Home composting has many benefits:</p>
+
+<p>It’s easy to make and easy to use, it Produces a free continual source of the very best compost, Improves soil structure, Maintains moisture Helps the soil PH balance Suppresses plant disease Reduces the need for polluting bonfires  Reduces carbon emissions Helps to divert organic waste from landfill Reduces refuse collection costs</p>
+<p>
+To encourage residents to get composting, Hart District Council has teamed up with Getcomposting.com to offer Home Compost Bins at special offer prices from only £19.98 (RRP £39). There is also a Buy One Get One Half Price Offer, adding extra value to residents with larger gardens or those who team up with a friend or neighbour to buy a bin. To see what’s available, visit  www.getcomposting.com or call 0844 571 4444.</p>
+
+                      </md-content>
+                    </md-tab>
+                    <md-tab label="02">
+                      <md-content class="md-padding">
+                        <h2 >Sign up for our Garden Waste service and get:</h2>
+                        <ul>
+                        <li>Fortnightly collections all year round (expect Christmas/New Year)</li>
+                        <li>Your container(s) delivered with a calendar of your collection dates</li>
+                        <li>Collection the same day as your waste or recycling to keep it simple</li>
+                        </ul>
+                        <p>Choose your service:</p>
+
+
+</p>
+                      </md-content>
+                    </md-tab>
+                    <md-tab label="03">
+                      <md-content class="md-padding">
+                          <h2 >Welcome back to your garden waste subscription</h2>
+
+<h3 ><a ng-click="selectedIndex=3" href="">Upgrade your service</a></h3>
+<h3 ><a ng-click="selectedIndex=3" href="">Change your account details</a></h3>
+
+                        <p><strong>Remember</strong> To ensure your service continues uninterrupted, please renew at least 7 days before your subscription ends. Unfortunately the service is non-refundable if you wish to cancel part way through, but if you move within the district, you can transfer the service to your new property.</p>
+                      </md-content>
+                    </md-tab>
+                  </md-tabs>
+                </md-content>
+              </div>
+
+
+
+
+
+            </md-content>
+        </div>
+    </div>
+    <!-- Angular Material Dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
