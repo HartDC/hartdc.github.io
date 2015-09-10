@@ -4,3 +4,38 @@
   margin: inherit;
 }
 a {color: #4183c4; text-decoration: none;}
+
+.lite{
+  background-color: #CE93D8;
+  cursor: pointer;
+}
+.standard {
+background-color: #64B5F6;
+cursor: pointer;
+}
+.pro {
+  background-color: #FFCA28;
+  cursor: pointer;
+}
+.current {
+background-color: #ddd;
+}
+.banner{
+color: #004D40;
+
+}
+.ctr {
+text-align: center;
+}
+.pad1{
+padding-top: 30%;
+}
+.pad2{
+  padding-top: 15%;
+}
+.about{
+color: #ffffff;
+text-shadow: #888;
+}
+.jump { margin-top: -55px !important;
+  margin-right: 10px !important; }

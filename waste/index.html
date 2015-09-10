@@ -17,6 +17,7 @@
 
 
               <div>
+                <a href=" " ng-click="selectedIndex=0">Home</a>
                 <md-content class="md-padding">
                   <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex">
                     <md-tab label="01">
@@ -25,8 +26,8 @@
 
 <p>Get fortnightly garden waste collections and can save on horrible bonfires and trips to the recycling centre.</p>
 
-<h3 ><a ng-click="selectedIndex=1" href="">Not a member? Sign up now</a></h3>
-<h4 ><a ng-click="selectedIndex=2" href="">Already benefiting? Renew now, or change your subscription</a></h4>
+<h3 ><a href="" ng-click="selectedIndex=1">Not a member? Sign up now</a></h3>
+<h4 ><a href="" ng-click="selectedIndex=2">Already benefiting? Renew now, or change your subscription</a></h4>
 
 
 <h4>Home Composting</h4>
@@ -49,7 +50,24 @@ To encourage residents to get composting, Hart District Council has teamed up wi
                         <li>Collection the same day as your waste or recycling to keep it simple</li>
                         </ul>
                         <p>Choose your service:</p>
+                        <div layout="row" layout-margin class="ctr">
+                          <div flex class="lite" ng-click="selectedIndex=5">
+                            <h1 class="banner">Lite - $10</h1>
+                            <p class="about">For small gardens - 1 sack per collection</p>
+                            <img  src="https://openclipart.org/download/169402/Recycle-bin.svg" width="50%" class="pad1"/>
+                          </div>
+                          <div flex class="standard" ng-click="selectedIndex=5">
+                            <h1 class="banner">Standard - $20</h1>
+                            <p class="about">For medium size gardens - 1 wheeled bin per collection</p>
+                            <img  src="https://openclipart.org/download/169402/Recycle-bin.svg" width="75%" class="pad2"/>
 
+                          </div>
+                          <div flex class="pro" ng-click="selectedIndex=5">
+                            <h1 class="banner">Pro - $30</h1>
+                            <p class="about">For large gardens - 2 wheeled bins per collection</p>
+                            <img  src="https://openclipart.org/download/169402/Recycle-bin.svg" width="100%"/>
+                          </div>
+                        </div>
 
 </p>
                       </md-content>
@@ -59,11 +77,113 @@ To encourage residents to get composting, Hart District Council has teamed up wi
                           <h2 >Welcome back to your garden waste subscription</h2>
 
 <h3 ><a ng-click="selectedIndex=3" href="">Upgrade your service</a></h3>
-<h3 ><a ng-click="selectedIndex=3" href="">Change your account details</a></h3>
+<h3 ><a ng-click="selectedIndex=4" href="">Change your account details</a></h3>
 
                         <p><strong>Remember</strong> To ensure your service continues uninterrupted, please renew at least 7 days before your subscription ends. Unfortunately the service is non-refundable if you wish to cancel part way through, but if you move within the district, you can transfer the service to your new property.</p>
                       </md-content>
                     </md-tab>
+                    <md-tab label="04">
+                      <md-content class="md-padding">
+                          <h2 >Upgrade your service</h2>
+                          <div layout="row" layout-margin class="ctr">
+                            <div flex class="current" ng-click="selectedIndex=2">
+                              <h1 class="banner">Your current plan</h1>
+                              <h3 class="banner">Lite - $10</h3>
+                              <p class="about">Your current subscription: <br />For small gardens - 1 sack per collection</p>
+                              <img  src="https://openclipart.org/download/169402/Recycle-bin.svg" width="50%" class="pad1"/>
+                            </div>
+                            <div flex class="standard" ng-click="selectedIndex=5">
+                              <h1 class="banner">Upgrade now!</h1>
+                              <h3 class="banner">Standard - $20</h3>
+                              <p class="about">For medium size gardens - 1 wheeled bin per collection</p>
+                              <img  src="https://openclipart.org/download/169402/Recycle-bin.svg" width="75%" class="pad2"/>
+
+                            </div>
+                            <div flex class="pro" ng-click="selectedIndex=5">
+                              <h1 class="banner">Upgrade now!</h1>
+                              <h3 class="banner">Pro - $30</h3>
+                              <p class="about">For large gardens - 2 wheeled bins per collection</p>
+                              <img  src="https://openclipart.org/download/169402/Recycle-bin.svg" width="100%"/>
+                            </div>
+                          </div>
+                        <p></p>
+                      </md-content>
+                    </md-tab>
+
+                    <md-tab label="05">
+                      <md-content class="md-padding">
+
+
+                          <h2 >Your details</h2>
+                              <h1 class="md-title">About you</h1>
+                              <div layout="row">
+                                <md-input-container>
+                                  <label>First name</label>
+                                  <input type="text"/ value="Test">
+                                </md-input-container>
+                                <md-input-container>
+                                  <label>Last name</label>
+                                  <input type="text"/ value="User">
+                                </md-input-container>
+                                <md-input-container >
+                                  <label>Email</label>
+                                  <input type="email"/ value="test@test.com">
+                                </md-input-container>
+                              </div>
+                              <h1 class="md-title">Enter an address</h1>
+                              <div layout="row">
+                                <md-input-container>
+                                  <label>Street Name</label>
+                                  <input type="text"/>
+                                </md-input-container>
+                                <md-input-container>
+                                  <label>Town</label>
+                                  <input type="text"/>
+                                </md-input-container>
+                                <md-input-container >
+                                  <label class="jump">Subscription    &nbsp;</label>
+                                  <md-select ng-model="userSub">
+                                    <md-option ng-repeat="sub in subs" value="{{sub}}">{{sub}}</md-option>
+                                  </md-select>
+                                </md-input-container>
+
+                              </div>
+                              <div layout="row">
+                                  <md-button class="md-raised md-default" ng-click="selectedIndex=2">Back</md-button>
+                                <md-button class="md-raised md-primary">Save</md-button>
+
+                              </div>
+                      </md-content>
+                    </md-tab>
+
+                    <md-tab label="06">
+                      <md-content class="md-padding">
+                          <h2 >Welcome aboard!</h2>
+
+                        <p>Just a few more details and  you're all set</p>
+                        <md-input-container>
+                          <label>First name</label>
+                          <input type="text"/ value="Test">
+                        </md-input-container>
+                        <md-input-container>
+                          <label>Last name</label>
+                          <input type="text"/ value="User">
+                        </md-input-container>
+                        <md-input-container >
+                          <label>Email</label>
+                          <input type="email"/ value="test@test.com">
+                        </md-input-container>
+
+                            <md-button class="md-raised md-default" ng-click="selectedIndex=1">Cancel</md-button>
+                          <md-button class="md-raised md-primary">Save</md-button>
+
+                      </div>
+
+                      </md-content>
+                    </md-tab>
+
+
+
                   </md-tabs>
                 </md-content>
               </div>
