@@ -41,9 +41,9 @@
                 <div class="pure-g">
                     <div class="pure-u-1 ctr">
 <p>At a glance statistics about the parish of {{d.c}}, from Census 2011 data and Hart District Council</p>
-                        <div class="" ng-show="map"><p ng-click="map='false'">View maps</p></div>
-                  <div ng-show="!map">
-                      <p ng-click="map='true'">hide maps</p>
+                        <div class="" ng-hide="map"><p ng-click="map='true'">View maps</p></div>
+                  <div ng-show="map">
+                      <p ng-click="map='false'">hide maps</p>
                         <small>clicking a map will let you view a larger version, click again to reduce the size</small>
                         
                         <ul tabset justified="true">
