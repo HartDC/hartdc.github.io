@@ -343,9 +343,9 @@
                             Total number of cars or vans in the area
                             <br />
                             <strong>{{d.carT}}</strong>
-                            <br />
+                            <br /></p>
                             <h3 class="mute">Households with:</h3>
-                            No cars or vans
+                          <p>  No cars or vans
                             <strong>{{d.car0}}</strong>
                             <br />1 car/van
                             <strong>{{d.car1}}</strong>
@@ -504,8 +504,8 @@
                         <h2 class="mute">Economically active</h2>
                         <p>All economically active:
                             <strong>{{((d.eaT)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.eaT}})
-                            <br />
-                            <hr />Employee: Part-time:
+                            <br /></p>
+                            <hr /><p>Employee: Part-time:
                             <strong>{{((d.eaTft)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.eaTft}})
                             <br />Employee: Full-time:
                             <strong>{{((d.eaTpt)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.eaTpt}})
@@ -522,8 +522,8 @@
                         <h2 class="mute">Economically inactive</h2>
                         <p>All economically inactive:
                             <strong>{{((d.eiT)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.eiT}})
-                            <br />
-                            <hr />Retired:
+                            <br /></p>
+                            <hr /><p>Retired:
                             <strong>{{((d.eiR)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.eiR}})
                             <br />Student (including full-time students):
                             <strong>{{((d.eiS)/d.ea)*100 | number:0}}%</strong>&nbsp;({{d.eiS}})
@@ -541,8 +541,12 @@
 <div class="content">
                
 <small class="mute">Data sources: <a href="http://www.nomisweb.co.uk/census/2011">census 2011</a> and <a href="http://www.hart.gov.uk">Hart District Council</a> </small>
-            </div>  </div>
+            
+          </div>  
+                </div>
     <script src='js/app.js'></script>
+            </div>
+        </div>
+    </div>
 </body>
-
 </html>
