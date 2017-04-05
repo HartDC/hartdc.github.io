@@ -2,15 +2,15 @@
 <html lang="en" ng-app="App">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta name="robots" content="noindex, nofollow">
 		<title>Timeline</title>
-		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-        	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+        	<link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <!--[if lt IE 9]>
-        <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
-        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome-ie7.min.css" rel="stylesheet">
+        <script src="https://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome-ie7.min.css" rel="stylesheet">
         <![endif]-->
 		<link rel="stylesheet" type="text/css" href="style.min.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
@@ -23,14 +23,14 @@
                     <a href="" ng-click="[ch.t = clear,ch.n = 'All Services']">all</a>
                     <span ng-repeat="t in teams"><a href="" ng-click="[ch.t = t.t,ch.n = t.n]">{{t.t}}</a></span>
 				</nav>
-			</header>	
+			</header>
 			<div class="main">
 <span class="righty"><b>{{ch.n}}</b></span>
 <p>&nbsp;</p>
          <div ng-show="past">
-          <span><a href="" ng-click="past='false'"  class="blu">hide past items</a></span>           
-           
-                     
+          <span><a href="" ng-click="past='false'"  class="blu">hide past items</a></span>
+
+
   				<ul class="timeline">
 					<li ng-repeat="t in times | filter:timesNull | filter:{team:ch.t}  | filter:timesPast | orderBy:'date' | limitTo:lng" >
 						<time class="time" datetime="{{t.date}}"><span>{{t.yr}}</span><span>{{t.day}}</span></time>
@@ -43,7 +43,7 @@
 					</li>
 				</ul>
                  <a href="" class="blu" ng-click="lng = lng + 10">show more</a><br />
-                          <span><a href="" ng-click="past='false'"  class="blu">hide past items</a></span> 
+                          <span><a href="" ng-click="past='false'"  class="blu">hide past items</a></span>
                          <span ng-hide="lng >= (times | filter:timesNull | filter:timesPast | filter:{team:ch.t}).length">showing {{lng}} of {{(times | filter:timesNull | filter:timesPast | filter:{team:ch.t}).length }} </span>
 		    <span ng-show="lng >= (times | filter:timesNull | filter:timesPast | filter:{team:ch.t}).length">showing all {{(times | filter:timesNull | filter:timesPast | filter:{team:ch.t}).length }} previous items</span><br /><br />
                 </div>
@@ -52,10 +52,10 @@
     <span class="ico amb">{{(times | filter:timesNull | filter:timesPast | filter:{team:ch.t}| filter:{s:'amb'}).length }}</span>
     <span class="ico red">{{(times | filter:timesNull | filter:timesPast | filter:{team:ch.t}| filter:{s:'red'}).length }}</span>
 <span><a href="" ng-click="past='true'"  class="blu">show past items</a></span></div>
-              
-                
+
+
 <h1 class="blub" id="center">Today: {{tn *1000 | date : 'dd MMM yyyy'}}</h1>
-                
+
                                 <span ng-hide="lng >= (times | filter:timesNull | filter:timesFuture | filter:{team:ch.t}).length">showing {{lng}} of {{(times | filter:timesNull | filter:timesFuture | filter:{team:ch.t}).length }} </span>
 		    <span ng-show="lng >= (times | filter:timesNull | filter:timesFuture | filter:{team:ch.t}).length">showing all {{(times | filter:timesNull | filter:timesFuture | filter:{team:ch.t}).length }} future items</span>
 				<ul class="timeline">
