@@ -12,7 +12,7 @@ app.controller("appCtrl", [ '$scope', '$timeout', function($scope, $timeout) {
 		layers: { baselayers: {
                     osm: {  
                         name: 'OpenStreetMap',
-                        url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',                
+                        url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',                
                         type: 'xyz'  } } },
 
 		geojson: {  data: land,    style: col      },
